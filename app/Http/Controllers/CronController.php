@@ -17,11 +17,13 @@ class CronController extends Controller
         $hour = $time->format('H');
         $t=date('d-m-Y');
         $day = date("D",strtotime($t));
-        if($setting->link_status == 1 && $day != 'Sun' && $hour >= 10 && $hour < 17)
+//        if($setting->link_status == 1 && $day != 'Sun' && $hour >= 10 && $hour < 16)
+        if(true)
         {
             helpMatchingCycle();
         }
-
+        userPool();
+        userAccountActivation();
     }
 
     public function helpGeneration()
