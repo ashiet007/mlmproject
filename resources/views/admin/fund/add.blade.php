@@ -1,40 +1,46 @@
 @extends('layouts.backend')
 
 @section('content')
-    <section class="py-5 col-md-12">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h2 class="h6 text-uppercase mb-0">Add fund To User</h2>
-                    </div>
-                    <div class="card-body">
-                        <form role="form" action="{{route('fund.addFund')}}" method="post">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <label class="control-label">User</label>
-                                <div class="col-md-8">
-                                    <select class="form-control js-example-basic-single" name="user_id" required>
-                                        <option>--Select User--</option>
-                                        @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->name}}({{$user->user_name}})</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Enter Amount</label>
-                                <div class="col-md-8">
-                                    <input type="number" name="amount" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+@include('partials.header')
+<h2 class="text-center">Add fund To User</h2>
+<div class="card-body">
+    <form role="form" action="{{route('fund.addFund')}}" method="post">
+        {{csrf_field()}}
+        <div class="form-group">
+            <div class="col-md-8">
+                <input type="hidden" id="userId" name="user_id">
+                <input type="text" class="form-control custom-input mb-3" id="search" autocomplete="off" placeholder="Search User...">
             </div>
         </div>
-    </section>
+        <div class="form-group">
+            <div class="col-md-8">
+                <input type="number" name="amount" class="form-control custom-input" placeholder="Enter Amount">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+@include('partials.footer')
+@endsection
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript">
+        var path = "{{ route('epin.userAjax') }}";
+        $('#search').typeahead({
+            minLength: 2,
+            source:  function (query, process) {
+                return $.get(path, { query: query }, function (data) {
+                    return process(data);
+                });
+            },
+            afterSelect: function (data) {
+                //print the id to developer tool's console
+                $('#userId').val(data.id);
+            }
+        });
+    </script>
 @endsection

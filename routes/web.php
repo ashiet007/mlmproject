@@ -15,7 +15,8 @@ Route::get('/','HomeController@index')->name('home.index');
 Route::get('/contact','HomeController@contact')->name('home.contact');
 Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('about','HomeController@about')->name('home.about');
-Route::get('plan','HomeController@plan')->name('home.plan');
+Route::get('plan-english','HomeController@plan')->name('home.plan');
+Route::get('plan-hindi','HomeController@planHindi')->name('home.planHindi');
 Route::post('contact/store','ContactController@store')->name('contact.storeQuery');
 
 /* ********* Auth Routes ********** */
@@ -68,6 +69,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'roles','status','acc
 
     /************ pool Routes *****************/
     Route::get('view/pool','user\PoolController@viewPool')->name('pool.view');
+    Route::get('pool/transfer-fund','user\PoolController@transferForm')->name('pool.transferForm');
+    Route::post('pools/transfer-fund','user\PoolController@fundTransfer')->name('pool.fundTransfer');
+    Route::get('pools','user\PoolController@index')->name('pool.index');
+    Route::post('pools/action','user\PoolController@action')->name('pool.action');
     /************ //pool Routes *****************/
 });
 //******************************************************//
@@ -130,5 +135,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'roles'], 'roles' =>
     Route::post('change-order-give-help','admin\LinkReportController@changeOrderGive')->name('link.changeOrderGive');
     Route::post('put-details-on-hold','admin\ActionController@putDetailOnHold')->name('action.putDetailOnHold');
     Route::post('remove-details-on-hold','admin\ActionController@removeDetailOnHold')->name('action.removeDetailOnHold');
+    /**************Epin******************/
+    Route::get('admin-epin/create','admin\EpinController@create')->name('adminEpin.create');
+    Route::post('admin-epin/create','admin\EpinController@store')->name('adminEpin.store');
+    Route::get('admin-epin/transfer','admin\EpinController@unused')->name('adminEpin.unused');
+    Route::post('admin-epin/transfer','admin\EpinController@transferEpin')->name('adminEpin.transferEpin');
 });
 //******************************************************//

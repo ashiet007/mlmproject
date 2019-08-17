@@ -7,7 +7,7 @@
             </label>
 
             <div class="col-md-12">
-                <input id="name" type="text" class="form-control text-style1" name="name" value="{{ $user->name }}" placeholder="Full Name As Per Bank Details" required autofocus>
+                <input id="name" type="text" class="form-control custom-input text-style1" name="name" value="{{ $user->name }}" placeholder="Full Name As Per Bank Details" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="help-block">
@@ -23,7 +23,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <input id="user_name" type="text" class="form-control text-style2" name="user_name" value="{{ $user->user_name }}" placeholder="Only Characters & Numbers are Allowed" required autofocus readonly="readonly">
+                <input id="user_name" type="text" class="form-control custom-input text-style2" name="user_name" value="{{ $user->user_name }}" placeholder="Only Characters & Numbers are Allowed" required autofocus readonly="readonly">
 
                 @if ($errors->has('user_name'))
                     <span class="help-block">
@@ -41,7 +41,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <select class="form-control" name="state_id" id="state" required="" onchange="getdistricts();">
+                <select class="form-control custom-input" name="state_id" id="state" required="" onchange="getdistricts();">
                     <option value=""><-- Select state --></option>
                     @foreach($states as $state)
                         <option value="{{$state->id}}" {{$state->id == $user->userDetails['state_id'] ? 'selected':''}}>{{$state->name}}</option>
@@ -62,7 +62,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <select class="form-control" name="district_id" id="district" required="">
+                <select class="form-control custom-input" name="district_id" id="district" required="">
                     <option value=""><-- Select district --></option>
                     @foreach($districts as $district)
                         <option value="{{$district->id}}" {{$district->id == $user->userDetails['district_id'] ? 'selected':''}}>{{$district->name}}</option>
@@ -84,7 +84,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <input id="mobile" type="text" class="form-control" name="mob_no" value="{{ $user->userDetails['mob_no'] }}" placeholder="10 Digit Numeric Only" required>
+                <input id="mobile" type="text" class="form-control custom-input" name="mob_no" value="{{ $user->userDetails['mob_no'] }}" placeholder="10 Digit Numeric Only" required>
 
                 @if ($errors->has('mob_no'))
                     <span class="help-block">
@@ -103,7 +103,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <select class="form-control" name="bank_id" required="">
+                <select class="form-control custom-input" name="bank_id" required="">
                     <option value=""><-- Select bank --></option>
                     @foreach($banks as $bank)
                         <option value="{{$bank->id}}" {{$bank->id == $user->userDetails['bank_id'] ? 'selected':''}}>{{$bank->name}}</option>
@@ -123,7 +123,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <input id="account-number" type="text" class="form-control" name="account_no" value="{{ $user->userDetails['account_no'] }}" placeholder="Enter Your Account Number">
+                <input id="account-number" type="text" class="form-control custom-input" name="account_no" value="{{ $user->userDetails['account_no'] }}" placeholder="Enter Your Account Number">
                 @if ($errors->has('account_no'))
                     <span class="help-block">
                         <strong>{{ $errors->first('account_no') }}</strong>
@@ -140,7 +140,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <select class="form-control" name="account_type" required="">
+                <select class="form-control custom-input" name="account_type" required="">
                     <option value=""><-- Select Type --></option>
                         <option value="SAVING" {{'SAVING' == $user->userDetails['account_type'] ? 'selected':''}}>Saving
                         </option>
@@ -161,7 +161,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <input id="ifsc-code" type="text" class="form-control text-style1" name="ifsc_code" value="{{ $user->userDetails['ifsc_code'] }}" placeholder="Bank IFSC Code">
+                <input id="ifsc-code" type="text" class="form-control custom-input text-style1" name="ifsc_code" value="{{ $user->userDetails['ifsc_code'] }}" placeholder="Bank IFSC Code">
                 @if ($errors->has('ifsc_code'))
                     <span class="help-block">
                                     <strong>{{ $errors->first('ifsc_code') }}</strong>
@@ -178,7 +178,7 @@
                 <span class="required">*</span>
             </label>
             <div class="col-md-12">
-                <input id="branch" type="text" class="form-control text-style1" name="branch" value="{{ $user->userDetails['branch'] }}" placeholder="Bank Branch">
+                <input id="branch" type="text" class="form-control custom-input text-style1" name="branch" value="{{ $user->userDetails['branch'] }}" placeholder="Bank Branch">
                 @if ($errors->has('branch'))
                     <span class="help-block">
                                     <strong>{{ $errors->first('branch') }}</strong>
@@ -194,7 +194,7 @@
         <div class="form-group{{ $errors->has('paytm_no') ? ' has-error' : '' }}">
             <label for="paytm" class="col-md-6 control-label">Paytm Number</label>
             <div class="col-md-12">
-                <input id="paytm" type="text" class="form-control" name="paytm_no" value="{{ $user->userDetails['paytm_no'] }}" placeholder="Paytm Number">
+                <input id="paytm" type="text" class="form-control custom-input" name="paytm_no" value="{{ $user->userDetails['paytm_no'] }}" placeholder="Paytm Number">
                 @if ($errors->has('paytm_no'))
                     <span class="help-block">
                                     <strong>{{ $errors->first('paytm_no') }}</strong>
@@ -207,7 +207,7 @@
         <div class="form-group{{ $errors->has('gpay_no') ? ' has-error' : '' }}">
             <label for="gpay" class="col-md-6 control-label">GPay Number</label>
             <div class="col-md-12">
-                <input id="gpay" type="text" class="form-control" name="gpay_no" value="{{ $user->userDetails['gpay_no'] }}" placeholder="GPay Number">
+                <input id="gpay" type="text" class="form-control custom-input" name="gpay_no" value="{{ $user->userDetails['gpay_no'] }}" placeholder="GPay Number">
                 @if ($errors->has('gpay_no'))
                     <span class="help-block">
                                     <strong>{{ $errors->first('gpay_no') }}</strong>
@@ -225,7 +225,7 @@
             </label>
 
             <div class="col-md-12">
-                <input id="password" type="password" class="form-control" name="password"
+                <input id="password" type="password" class="form-control custom-input" name="password"
                        placeholder="PASSWORD">
 
                 @if ($errors->has('password'))
@@ -243,7 +243,7 @@
             </label>
 
             <div class="col-md-12">
-                <input id="password-confirm" type="password" class="form-control"
+                <input id="password-confirm" type="password" class="form-control custom-input"
                        name="password_confirmation" placeholder="CONFIRM PASSWORD">
             </div>
         </div>
@@ -251,7 +251,7 @@
 </div>
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">
-        {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn btn-secondary']) !!}
     </div>
 </div>
 

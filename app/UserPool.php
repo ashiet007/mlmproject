@@ -16,4 +16,11 @@ class UserPool extends Model
     {
         return $this->belongsTo('App\User','user_id');
     }
+
+    public function getUserPool($id)
+    {
+        return $this->where('status','pending')
+            ->where('user_id',$id)
+            ->get();
+    }
 }

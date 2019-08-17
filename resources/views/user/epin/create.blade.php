@@ -6,16 +6,16 @@
             <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
                 <h2 class="text-center heading-color">Generate Epin</h2>
                 <div class="row col-md-8">
-                    <h4>Total Fund = ₹2000</h4>
+                    <h4>Total Fund = ₹{{$totalFund}}</h4>
                 </div>
                 <div class="row col-md-8">
-                    <h4>Available Fund = ₹1000</h4>
+                    <h4>Available Fund = ₹{{$availableEpinWalletFund}}</h4>
                 </div>
                 <div class="card col-md-12 mb-3 custom-card">
                     <div class="card-body">
                         <form action="{{route('epin.store')}}" method="post">
                             @csrf
-                            <input type="hidden" name="available_fund" value="1000">
+                            <input type="hidden" name="available_fund" value="{{$availableEpinWalletFund}}">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Amount</label>
                                 <div class="col-md-8">

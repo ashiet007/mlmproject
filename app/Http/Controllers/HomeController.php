@@ -29,6 +29,11 @@ class HomeController extends Controller
         return view('plan');
     }
 
+    public function planHindi()
+    {
+        return view('planHindi');
+    }
+
     public function block()
     {
         return view('block');

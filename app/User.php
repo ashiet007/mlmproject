@@ -91,6 +91,11 @@ class User extends Authenticatable
         return $this->hasOne('App\UserSetting','user_id');
     }
 
+    public function userPoolFunds()
+    {
+        return $this->hasMany('App\UserPoolFund','user_id');
+    }
+
     /************ Scopes *************/
     public function scopeReal($query)
     {

@@ -8,6 +8,7 @@ use App\UserSetting;
 use App\HelpSetting;
 use App\CompanyPool;
 use App\LevelIncome;
+use App\UserPool;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
@@ -15,14 +16,15 @@ use Carbon\Carbon;
 
 function sendMessage($number, $message)
 {
-//    $client = new GuzzleHttp\Client();
-//    $res = $client->request('GET', 'http://mysmsshop.in/http-api.php?username=radiomaker&password=Helpdd*999&senderid=MAGICB&route=1&number='.$number.'&message='.$message);
-//    $res->getStatusCode();
-//    // "200"
-//
-//    $res->getBody();
-//    // {"type":"User"...'
+    $client = new GuzzleHttp\Client();
+    $res = $client->request('GET', 'http://mysmsshop.in/http-api.php?username=radiomaker&password=Helpdd*999&senderid=MODINM&route=1&number='.$number.'&message='.$message);
+    $res->getStatusCode();
+    // "200"
+
+    $res->getBody();
+    // {"type":"User"...'
 }
+
 
 function helpMatchingCycle()
 {
@@ -82,8 +84,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'OUR MAGIC PARTNER- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CONT- '.$receiverNumber.','.$getHelp->user->name.',WWW.MAGICBANDHAN.COM THANKS.';
-        $receiverMessage = 'OUR MAGIC PARTNER - '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CONT- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MAGICBANDHAN.COM THANKS.';
+        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -103,8 +105,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'OUR MAGIC PARTNER- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CONT- '.$receiverNumber.','.$getHelp->user->name.',WWW.MAGICBANDHAN.COM THANKS.';
-        $receiverMessage = 'OUR MAGIC PARTNER - '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CONT- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MAGICBANDHAN.COM THANKS.';
+        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -124,8 +126,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'OUR MAGIC PARTNER- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CONT- '.$receiverNumber.','.$getHelp->user->name.',WWW.MAGICBANDHAN.COM THANKS.';
-        $receiverMessage = 'OUR MAGIC PARTNER - '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CONT- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MAGICBANDHAN.COM THANKS.';
+        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -375,7 +377,7 @@ function totalIncome($username)
             }
         }
     }
-    $totalIncome['level'] = $totalIncome['working'] = $income/2;
+    $totalIncome['pin'] = $totalIncome['working'] = $income/2;
     $id = Auth::User()->id;
     $addedFund = UserFund::where('user_id',$id)
         ->where('type','credit')
@@ -406,7 +408,10 @@ function availableBalance($username,$id)
     $withdrawalAmount = GetHelp::where('user_id',$id)
         ->where('type','working')
         ->sum('amount');
-    return $availableBalance = $income['working'] - $withdrawalAmount;
+    $debitedFund = UserFund::where('user_id',$id)
+        ->where('type','debit')
+        ->sum('amount');
+    return $availableBalance = $income['working'] - ($withdrawalAmount + $debitedFund);
 }
 
 function getDetails($username)
@@ -464,3 +469,48 @@ function addSingleLineIncome()
         }
     }
 }
+
+function userPool()
+{
+   $users = User::with('userPools','userDetails')->real()->get();
+   foreach ($users as $user)
+   {
+       $totalDirectActiveIds = getTotalDirectActiveTeam($user->user_name);
+       $moduloCount = intval($totalDirectActiveIds/5);
+       $currentPoolCount = $user->userPools->count();
+       if($moduloCount-$currentPoolCount)
+       {
+           $diff = $moduloCount-$currentPoolCount;
+           for($i=1;$i<=$diff;$i++)
+           {
+               $count = $currentPoolCount?$currentPoolCount:0;
+               $nextCount = $count++;
+               UserPool::create([
+                  'user_id' => $user->id,
+                  'pool_no' => $nextCount,
+                   'status' => 'pending'
+               ]);
+               $number = $user->userDetails->mob_no;
+               $message = 'DEAR WWW.MODINAAMA.IN ID- '.$user->user_name.','.$user->name.' YOU ARE ELIGIBLE TO AUTO POOL IF YOU WANT TO ENTER GO IN POOL WALLET FOR PERMISSION THANK YOU.';
+               sendMessage($number, $message);
+           }
+       }
+   }
+}
+
+function userAccountActivation()
+{
+    $users = User::with('userSetting','userDetails')->real()->get();
+    foreach ($users as $user)
+    {
+        $helpingFund = $user->userSetting->helping_fund;
+        if($helpingFund >= 7500)
+        {
+            $user->userSetting->update([
+               'account_status' => 'inactive',
+                'helping_fund' => 0
+            ]);
+        }
+    }
+}
+

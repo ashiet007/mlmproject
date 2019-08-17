@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\User;
 use App\CompanyPool;
+use App\PoolUser;
 use App\User;
 use App\GiveHelp;
 use App\GetHelp;
 use App\Message;
 use App\News;
 use App\UserFund;
+use App\UserPoolFund;
 use App\UserPreStatus;
 use App\Epin;
 use App\UserSetting;
@@ -129,7 +131,7 @@ class UserController extends Controller
             $user_name = Auth()->User()->user_name;
             $sender = User::with('userDetails')->findOrFail($senderId);
             $number = $sender->userDetails->mob_no;
-            $message = 'OUR MAGIC PARTNER- '.$sender->user_name.' ,HAS BEEN REJECTED BY ID- '.$user_name.','.$name.', WWW.MAGICBANDHAN.COM SORRY TO YOU.';
+            $message = 'DEAR MODINAAMA ID- '.$sender->user_name.' ,HAS BEEN REJECTED BY ID- '.$user_name.','.$name.', WWW.MODINAAMA.IN THANK YOU.';
             if($saved)
             {
                 if($getHelp && $giveHelp && $user)
@@ -186,6 +188,8 @@ class UserController extends Controller
                     }
                 ])
                 ->find($id);
+
+            /************* Update Get Help Status **********/
             if($getHelpUpdated->completion_state == 'assigned')
             {
                 if($getHelpUpdated->giveHelps->isEmpty())
@@ -195,6 +199,20 @@ class UserController extends Controller
                     ]);
                 }
             }
+            /************* Update Get Help Status **********/
+            $getHelpUserId = $getHelpUpdated->user_id;
+
+            /*************** Update User Get Help Helping Fund ***********/
+            if($getHelpUpdated->type == 'helping')
+            {
+                $getHelpUserSetting = UserSetting::find($getHelpUserId);
+                $helpingFund = $getHelpUserSetting->helping_fund;
+                $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
+                $getHelpUserSetting->update([
+                    'helping_fund' => $updatedHelpingFund
+                ]);
+            }
+            /*************** Update User Get Help Helping Fund ***********/
 
             $giveHelp = GiveHelp::with(['getHelps' => function($query)
                     {
@@ -207,40 +225,70 @@ class UserController extends Controller
             {
                 if($giveHelp->getHelps->isEmpty())
                 {
+                    /************ Update Give Help Status *************/
                     $giveHelp->update([
                         'status' => 'accepted',
                     ]);
-                    $userId = $giveHelp->user_id;
-                    $user = User::findOrFail($userId);
-                    $currentUserStatus = $user->status;
-                    if($currentUserStatus == 'pending')
-                    {
-                        addSingleLineIncome();
-                    }
+                    /************ Update Give Help Status *************/
 
-                    $userSetting = UserSetting::where('user_id',$userId)->first();
-                    $giveHelpIncome = $userSetting->give_help_income;
-                    $updatedGiveHelpIncome = $giveHelpIncome + $giveHelp->amount;
-                    $userSetting->update([
-                        'give_help_income' => $updatedGiveHelpIncome
-                    ]);
-                    if($user->status != 'blocked' && $user->status != 'rejected')
+                    if($giveHelp->type == 'pool')
                     {
-                        $user->update([
-                            'status' => 'active',
-                        ]);
-                    }
-                    CompanyPool::where('user_id',$user->id)
-                                ->update([
-                                   'status' => 'start'
-                                ]);
-                    if($user && $giveHelp && $getHelpUpdated)
-                    {
-                        $saved = true;
+                        $errorStatus = addUserToPool($giveHelp->user_id);
+                        if($errorStatus)
+                        {
+                            $saved = false;
+                        }
+                        else
+                        {
+                            $saved = true;
+                        }
+
                     }
                     else
                     {
-                        $saved = false;
+                        $userId = $giveHelp->user_id;
+                        $user = User::findOrFail($userId);
+                        $currentUserStatus = $user->status;
+
+                        /************ Add Single Line Income ************/
+                        if($currentUserStatus == 'pending')
+                        {
+                            addSingleLineIncome();
+                        }
+                        /************ Add Single Line Income ************/
+
+                        /************ Update Total Give Help Income ***********/
+                        $userSetting = UserSetting::where('user_id',$userId)->first();
+                        $giveHelpIncome = $userSetting->give_help_income;
+                        $updatedGiveHelpIncome = $giveHelpIncome + $giveHelp->amount;
+                        $userSetting->update([
+                            'give_help_income' => $updatedGiveHelpIncome
+                        ]);
+                        /************ Update Total Give Help Income ***********/
+
+                        /************ Update User Status ****************/
+                        if($user->status != 'blocked' && $user->status != 'rejected')
+                        {
+                            $user->update([
+                                'status' => 'active',
+                            ]);
+                        }
+                        /************ Update User Status ****************/
+
+                        /************ Start User Single Line Income ***********/
+                        CompanyPool::where('user_id',$user->id)
+                            ->update([
+                                'status' => 'start'
+                            ]);
+                        /************ Start User Single Line Income ***********/
+                        if($user && $giveHelp)
+                        {
+                            $saved = true;
+                        }
+                        else
+                        {
+                            $saved = false;
+                        }
                     }
                 }
 
@@ -250,7 +298,7 @@ class UserController extends Controller
             $user_name = Auth()->User()->user_name;
             $sender = User::with('userDetails')->findOrFail($senderId);
             $number = $sender->userDetails->mob_no;
-            $message = 'OUR MAGIC PARTNER- '.$sender->user_name.' ,HAS BEEN ACCEPTED BY ID-'.$user_name.','.$name.', GO AHEAD, WWW.MAGICBANDHAN.COM THANKS.';
+            $message = 'DEAR MODINAAMA ID- '.$sender->user_name.' ,HAS BEEN ACCEPTED BY ID-'.$user_name.','.$name.', HAVE A GOOD DAY, WWW.MODINAAMA.IN THANK YOU.';
             if($saved)
             {
                 if($getHelp && $getHelpUpdated && $giveHelp)
@@ -282,6 +330,65 @@ class UserController extends Controller
             return redirect()->back()->withInput();
         }
 
+    }
+
+    public function addUserToPool($userId)
+    {
+        $pooledUser = PoolUser::get();
+        $count = count($pooledUser);
+        DB::beginTransaction(); // <-- first line
+        $saved = true;
+        try
+        {
+            if($count < 20)
+            {
+                $poolUser = PoolUser::create([
+                    'user_id' => $userId
+                ]);
+                if($poolUser)
+                {
+                    $saved = true;
+                }
+                else
+                {
+                    $saved = false;
+                }
+            }
+            else
+            {
+                $firstPoolUser = PoolUser::first();
+                $userPoolFUnd = UserPoolFund::create([
+                    'user_id' => $firstPoolUser->id,
+                    'amount' => 10000
+                ]);
+                $firstPoolUser->delete();
+                $poolUser = PoolUser::create([
+                    'user_id' => $userId
+                ]);
+                if($poolUser && $userPoolFUnd && $firstPoolUser)
+                {
+                    $saved = true;
+                }
+                else
+                {
+                    $saved = false;
+                }
+            }
+        }
+        catch (\Throwable $e)
+        {
+            return $error = true;
+        }
+        if($saved)
+        {
+            DB::commit(); // YES --> finalize it
+            return $error = false;
+        }
+        else
+        {
+            DB::rollBack(); // NO --> some error has occurred undo the whole thing
+            return $error = true;
+        }
     }
 
     public function message(Request $request)

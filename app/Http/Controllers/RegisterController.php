@@ -130,7 +130,7 @@ class RegisterController extends Controller
     {
         $otp = rand(100000,999999);
         $mobNo = $request->get('number');
-        $message = 'OUR WWW.MAGICBANDHAN.COM  VISITOR YOUR MOBILE VERIFCATION CODE IS- '.$otp.' ,THANKS.';
+        $message = 'DEAR MODINAAMA GUEST YOUR MOBILE VERIFICATION CODE IS- '.$otp.' ,PLEASE ENTER & SUBMIT FOR SIGNUP WWW.MODINAAMA.IN THANK YOU.';
         sendMessage($mobNo, $message);
         session(['otp' => $otp]);
         return response()->json(['success'=>'true','message' => 'An OTP has been sent to your Mobile number','otp' => $otp]);
@@ -204,7 +204,7 @@ class RegisterController extends Controller
                     'account_status' => 'inactive'
             ]);
             $number = $data['mob_no'];
-            $message = 'WELCOME OUR  WWW.MAGICBANDHAN.COM  PARTNER YOUR LOGIN ID- '.$data['user_name'].' AND PASSWORD-'.$data['password'].' ,PLEASE SECURE PASSWORD BE HAPPY.';
+            $message = 'THANKS FOR JOIN WWW.MODINAAMA.IN YOUR LOGIN ID- '.$data['user_name'].' AND PASSWORD-'.$data['password'].' ,PLEASE SECURE YOUR LOGIN PASSWORD FOR SAFETY.';
             sendMessage($number, $message);
             if($user && $userDetails && $userPassword && $userSetting && $companyPool)
                 $saved = true;

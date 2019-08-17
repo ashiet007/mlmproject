@@ -1,18 +1,17 @@
 <?php
 
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\admin;
 
-use App\User;
+
 use App\Epin;
-use App\UserFund;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class EpinController extends Controller
 {
+
     /**
      * The authenticated user ID.
      *
@@ -30,6 +29,40 @@ class EpinController extends Controller
 
             return $next($request);
         });
+    }
+    public function create()
+    {
+        return view('admin.epin.create');
+    }
+
+    public function store(Request $request)
+    {
+        $requestData = $request->all();
+        $requiredFund = $requestData['amount']*$requestData['no_of_epin'];
+
+        for($i=1;$i<=$requestData['no_of_epin'];$i++)
+        {
+            $epin = $this->generateEpin();
+            $userEpinsData[] = [
+                'user_id' => $this->userId,
+                'pin' => $epin,
+                'transaction_type' => 'generate',
+                'amount' => $requestData['amount'],
+                'status' => 'unused'
+            ];
+        }
+        try
+        {
+            $epin = Epin::insert($userEpinsData);
+            alert()->success('Epin created Successfully', 'Success')->persistent("Close");
+            return redirect()->back();
+        }
+        catch (\Throwable $e)
+        {
+            alert()->error($e->getMessage(), 'Error')->persistent("Close");
+            return redirect()->back()->withInput();
+        }
+
     }
 
     public function generateEpin()
@@ -52,65 +85,11 @@ class EpinController extends Controller
         return Epin::where('pin', $epin)->exists();
     }
 
-    public function unusedEpin()
+    public function unused()
     {
         $epin = new Epin;
         $unusedEpins = $epin->getUnusedEpin($this->userId);
-        return view('user.epin.unused',compact('unusedEpins'));
-    }
-
-    public function create()
-    {
-        $username = Auth::User()->user_name;
-        $id = Auth::User()->id;
-
-        $income = totalIncome($username);
-        $pinWallet = $income['pin'];
-        $userFund = new UserFund;
-        $transferredFund = $userFund->getPinWalletTransferredFund($id);
-        $totalFund = $pinWallet + $transferredFund;
-        $epin = new Epin;
-        $usedFund = $epin->getPinWalletUsedFund($this->userId);
-        $availableEpinWalletFund = $totalFund - $usedFund;
-        return view('user.epin.create', compact('totalFund','availableEpinWalletFund'));
-    }
-
-    public function store(Request $request)
-    {
-        $requestData = $request->all();
-        $availableFund = $requestData['available_fund'];
-        $requiredFund = $requestData['amount']*$requestData['no_of_epin'];
-        if($requiredFund <= $availableFund)
-        {
-            for($i=1;$i<=$requestData['no_of_epin'];$i++)
-            {
-                $epin = $this->generateEpin();
-                $userEpinsData[] = [
-                    'user_id' => $this->userId,
-                    'pin' => $epin,
-                    'transaction_type' => 'generate',
-                    'amount' => $requestData['amount'],
-                    'status' => 'unused'
-                ];
-            }
-            try
-            {
-                $epin = Epin::insert($userEpinsData);
-                alert()->success('Epin created Successfully', 'Success')->persistent("Close");
-                return redirect()->back();
-            }
-            catch (\Throwable $e)
-            {
-                alert()->error($e->getMessage(), 'Error')->persistent("Close");
-                return redirect()->back()->withInput();
-            }
-
-        }
-        else
-        {
-            alert()->error('Insufficient Fund', 'Error')->persistent("Close");
-            return redirect()->back()->withInput();
-        }
+        return view('admin.epin.transfer', compact('unusedEpins'));
     }
 
     public function transferEpin(Request $request)
@@ -173,29 +152,5 @@ class EpinController extends Controller
         }
         alert()->error('Select User', 'Error')->persistent("Close");
         return redirect()->back()->withInput();
-    }
-
-    public function getUser(Request $request)
-    {
-        $result = [];
-        $users= User::where('name', 'LIKE', "%{$request->input('query')}%")
-                    ->orWhere('user_name','LIKE',"%{$request->input('query')}%")
-                    ->get();
-        foreach ($users as $user)
-        {
-            $result[] = [
-                'id' => $user->id,
-                'name' => $user->name.' ('.$user->user_name.')'
-            ];
-        }
-        return response()->json($result);
-    }
-
-    public function report()
-    {
-        $epin = new Epin;
-        $report = $epin->getEpinReport($this->userId);
-
-        return view('user.epin.report',compact('report'));
     }
 }

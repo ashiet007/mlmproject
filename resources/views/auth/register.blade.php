@@ -27,7 +27,7 @@
         </div>
     </section>
     <!-- /page title -->
-    <div class="mt-5 mb-5">
+    <div class="mt-5 mb-5 register-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
@@ -121,7 +121,7 @@
                         <h3 class="text-capitalize heading-color">Bank Details</h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
-                                <select class="margin2 form-control custom-input" name="bank_id" required="" autocomplete="off">
+                                <select id="bank_name" class="margin2 form-control custom-input" name="bank_id" required="" autocomplete="off">
                                     <option value="">-- SELECT BANK --</option>
                                     @foreach($banks as $bank)
                                         <option value="{{$bank->id}}" {{$bank->id == old('bank_id') ? 'selected':''}}>{{$bank->name}}</option>
@@ -219,9 +219,154 @@
                             </div>
                         </div>
                         <div class="input-group1 mt-3">
-                            <button type="button" class="btn btn-secondary m-2 submit"><i class="fa fa-spinner fa-spin d-none submit-loader"></i> Register </button>
+                            <button type="button" class="btn btn-secondary m-2 nextBtn"> Next </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5 mb-5 preview-form d-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
+                    <h2 class="text-center heading-color mb-5">Preview</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Sponsor Id:</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewSponsorId"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Sponsaor Name:</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewSponsorName"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Name:</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewName"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Username</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewUserName"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>State</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewState"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>District</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewDistrict"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Email</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewEmail"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Mobile Number</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewMobNumber"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Bank Name</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewBankName"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Account Number</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewAccNumber"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Bank Branch</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewBranch"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>IFSC Code</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewIfscCode"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Account Type</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewAccType"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Paytm Number</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewPaytmNumber"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Gpay/Phonepay Number</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewGpayNumber"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Bitcoin Address</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="previewBitcoin"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group1 mt-3 col-md-2">
+                            <button type="button" class="btn btn-secondary m-2 preBtn"> Previous </button>
+                        </div>
+                        <div class="input-group1 mt-3 col-md-2">
+                            <button type="button" class="btn btn-secondary m-2 submit"><i class="fa fa-spinner fa-spin d-none submit-loader"></i> Submit </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

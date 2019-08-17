@@ -63,8 +63,8 @@ class IncomeController extends Controller
             }
             $time = Carbon::now('Asia/Kolkata');
             $date = $time->format('Y-m-d');
-            $workingAmountSum = GetHelp::where('user_id', $id)
-                ->working()
+            $workingAmountSum = GetHelp::working()
+                ->where('user_id', $id)
                 ->whereDate('created_at', '=', $date)
                 ->sum('amount');
             $requestData = $request->all();
@@ -138,5 +138,41 @@ class IncomeController extends Controller
             ->working()
             ->get();
         return view('user.income.txn',compact('getHelps'));
+    }
+
+    public function fundTransfer(Request $request)
+    {
+        $this->validate($request, [
+            'amount' => 'required|numeric'
+        ]);
+        $requestData = $request->all();
+        $availableFund = $requestData['available_fund'];
+        $amount = $requestData['amount'];
+        if($availableFund >= $amount)
+        {
+            try
+            {
+                 UserFund::create([
+                     'user_id' => $this->userId,
+                     'type' => 'debit',
+                     'amount' => $amount,
+                     'purpose' => 'transfer',
+                     'from_wallet' => 'fund-wallet',
+                     'to_wallet' => 'pin-wallet'
+                ]);
+                alert()->success('Fund Transferred Successfully!!!', 'Success')->persistent("Close");
+                return redirect()->back();
+            }
+            catch(\Throwable $e)
+            {
+                alert()->error($e->getMessage(), 'Error')->persistent("Close");
+                return redirect()->back()->withInput();
+            }
+        }
+        else
+        {
+            alert()->error('You do not have enough balance for this transfer!!!', 'Error')->persistent("Close");
+            return redirect()->back()->withInput();
+        }
     }
 }

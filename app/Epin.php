@@ -40,4 +40,11 @@ class Epin extends Model
             ->where('user_id',$id)
             ->get();
     }
+
+    public function getPinWalletUsedFund($id)
+    {
+        return $this->where('transaction_type','generate')
+            ->where('user_id',$id)
+            ->sum('amount');
+    }
 }

@@ -16,4 +16,12 @@ class UserFund extends Model
     {
         return $this->belongsTo('App\User','user_id');
     }
+
+    public function getPinWalletTransferredFund($id)
+    {
+        return $this->where('to_wallet','pin-wallet')
+            ->where('type','debit')
+            ->where('user_id',$id)
+            ->sum('amount');
+    }
 }

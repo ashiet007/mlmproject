@@ -16,7 +16,7 @@
                 <div class="card col-md-12 mb-3 custom-card">
                     <h3 class="text-center text-white mt-3">Transfer Fund to Epin Wallet</h3>
                     <div class="card-body">
-                        <form action="{{route('epin.store')}}" method="post">
+                        <form action="{{route('income.fundTransfer')}}" method="post">
                             @csrf
                             <input type="hidden" name="available_fund" value="{{ $availableBalance }}">
                             <div class="form-group">

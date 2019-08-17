@@ -1,142 +1,165 @@
 @extends('layouts.app')
 @section('content')
 
-    <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style="background-image: url('images/bg-img/bg-3.jpg');">
-        <div class="bradcumbContent">
-            <h2>About us</h2>
-        </div>
-    </section>
-    <!-- ##### Breadcumb Area End ##### -->
-
-    <!-- ##### Book Now Area Start ##### -->
-    <div class="book-now-area">
-    </div>
-    <!-- ##### Book Now Area End ##### -->
-
-    <!-- ##### About Us Area Start ##### -->
-    <section class="about-us-area">
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="{{asset('images/backgrounds/page-title.jpg')}}">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6">
-                    <div class="about-text mb-100">
-                        <div class="section-heading">
-                            <div class="line-"></div>
-                            <h2>A bandhan to remember</h2>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-                        <a href="#" class="btn palatin-btn mt-50">Read More</a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <div class="about-thumbnail mb-100">
-                        <img src="{{asset('images/bg-img/2.jpg')}}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### About Us Area End ##### -->
-
-    <!-- ##### Milestones Area Start ##### -->
-    <section class="our-milestones section-padding-100-0 bg-img bg-overlay bg-fixed" style="background-image: url('images/bg-img/bg-4.jpg');">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <div class="section-heading text-center white">
-                        <div class="line-"></div>
-                        <h2>Our Milestones</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum.</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="row">
-
-                <!-- Single Cool Facts -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="scf-text">
-                            <i class="icon-cocktail-1"></i>
-                            <h2><span class="counter">231</span></h2>
-                            <p>Cocktails/day</p>
-                        </div>
-                    </div>
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">About Us</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                    </ul>
+                    <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
                 </div>
-
-                <!-- Single Cool Facts -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="scf-text">
-                            <i class="icon-swimming-pool"></i>
-                            <h2><span class="counter">3</span></h2>
-                            <p>Pools</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Cool Facts -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact mb-100 wow fadeInUp" data-wow-delay="700ms">
-                        <div class="scf-text">
-                            <i class="icon-resort"></i>
-                            <h2><span class="counter">79</span></h2>
-                            <p>Rooms</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Cool Facts -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact mb-100 wow fadeInUp" data-wow-delay="900ms">
-                        <div class="scf-text">
-                            <i class="icon-restaurant"></i>
-                            <h2><span class="counter">25</span></h2>
-                            <p>Apartments</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    <!-- ##### Milestones Area End ##### -->
+    <!-- /page title -->
 
-    <!-- ##### Testimonial Area Start ##### -->
-    <section class="testimonial-area section-padding-100 bg-img" style="background-image: url('images/core-img/pattern.png);">
+    <!-- about -->
+    <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="testimonial-content">
-                        <div class="section-heading text-center">
-                            <div class="line-"></div>
-                            <h2>What Clients Say</h2>
+                    <img class="img-fluid w-100 mb-4" src="{{asset('images/about/about-page.jpg')}}" alt="about image">
+                    <h2 class="section-title">ABOUT OUR JOURNY</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe ipsa illo quod veritatis, magni debitis fugiat dolore voluptates! Consequatur, aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat perferendis sint optio similique. Et amet magni facilis vero corporis quos.</p>
+                    <p>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum a, facere fugit error accusamus est officiis vero in, nostrum laboriosam corrupti explicabo, cumque repudiandae deleniti perspiciatis quae consectetur enim. Laboriosam!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /about -->
+
+    <!-- funfacts -->
+    <section class="section-sm bg-primary">
+        <div class="container">
+            <div class="row">
+                <!-- funfacts item -->
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <div class="text-center">
+                        <h2 class="count text-white" data-count="60">0</h2>
+                        <h5 class="text-white">TEACHERS</h5>
+                    </div>
+                </div>
+                <!-- funfacts item -->
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <div class="text-center">
+                        <h2 class="count text-white" data-count="50">0</h2>
+                        <h5 class="text-white">COURSES</h5>
+                    </div>
+                </div>
+                <!-- funfacts item -->
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <div class="text-center">
+                        <h2 class="count text-white" data-count="1000">0</h2>
+                        <h5 class="text-white">STUDENTS</h5>
+                    </div>
+                </div>
+                <!-- funfacts item -->
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <div class="text-center">
+                        <h2 class="count text-white" data-count="3737">0</h2>
+                        <h5 class="text-white">SATISFIED CLIENT</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /funfacts -->
+
+    <!-- success story -->
+    <section class="section bg-cover" data-background="{{asset('images/backgrounds/success-story.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-4 position-relative success-video">
+                    <a class="play-btn venobox" href="https://youtu.be/nA1Aqp0sPQo" data-vbtype="video">
+                        <i class="ti-control-play"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-8">
+                    <div class="bg-white p-5">
+                        <h2 class="section-title">Success Stories</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /success story -->
+
+    <!-- teachers -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="section-title">Our Teachers</h2>
+                </div>
+                <!-- teacher -->
+                <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="card border-0 rounded-0 hover-shadow">
+                        <img class="card-img-top rounded-0" src="{{asset('images/teachers/teacher-1.jpg')}}" alt="teacher">
+                        <div class="card-body">
+                            <a href="#">
+                                <h4 class="card-title">Jacke Masito</h4>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <span>Teacher</span>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
-
-                        <!-- Testimonial Slides -->
-                        <div class="testimonial-slides owl-carousel">
-
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-                                <h6>Michael Smith, <span>Client</span></h6>
-                                <img src="{{asset('images/core-img/trip.png')}}" alt="">
+                    </div>
+                </div>
+                <!-- teacher -->
+                <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="card border-0 rounded-0 hover-shadow">
+                        <img class="card-img-top rounded-0" src="{{asset('images/teachers/teacher-2.jpg')}}" alt="teacher">
+                        <div class="card-body">
+                            <a href="#">
+                                <h4 class="card-title">Clark Malik</h4>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <span>Teacher</span>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
+                                </ul>
                             </div>
-
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-                                <h6>Nazrul Islam, <span>Developer</span></h6>
-                                <img src="{{asset('images/core-img/trip.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- teacher -->
+                <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="card border-0 rounded-0 hover-shadow">
+                        <img class="card-img-top rounded-0" src="{{asset('images/teachers/teacher-3.jpg')}}" alt="teacher">
+                        <div class="card-body">
+                            <a href="#">
+                                <h4 class="card-title">John Doe</h4>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <span>Teacher</span>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
+                                    <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
+                                </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Testimonial Area End ##### -->
+    <!-- /teachers -->
 
 @endsection
