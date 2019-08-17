@@ -12,7 +12,7 @@
                         <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Sign In</a></li>
                         <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
                     </ul>
-                    <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                    <p class="text-lighten">Enter credentials to Sign-in your account </p>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        <img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+                        <img src="{{asset('images/logo2.png')}}" class="brand_logo" alt="Logo">
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">

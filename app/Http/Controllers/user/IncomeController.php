@@ -56,7 +56,7 @@ class IncomeController extends Controller
         $isOnHold = checkUserforOnHold($id);
         if(!$isOnHold)
         {
-            $maxAmount= 5000;
+            $maxAmount= 3000;
             if(Auth::User()->identity == 'fake')
             {
                 $maxAmount = 10000;
@@ -102,7 +102,7 @@ class IncomeController extends Controller
                         }
                         else
                         {
-                            alert()->error('Working income withdrawal maximum limit 5000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
+                            alert()->error('Working income withdrawal maximum limit 3000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
                             return redirect()->route('income.direct');
                         }
                     }

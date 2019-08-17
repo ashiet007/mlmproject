@@ -38,7 +38,7 @@ class RegisterController extends Controller
         'branch' => 'required|string|max:255',
         'password' => 'required|string|min:6|confirmed',
         'paytm_no' => 'numeric|nullable',
-        'bitcoin_add' => 'required|string',
+        'bitcoin_add' => 'string|nullable',
         'gpay' => 'numeric|nullable'
     ];
     protected $customAttributes = [

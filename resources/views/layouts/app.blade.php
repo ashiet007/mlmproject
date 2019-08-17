@@ -32,6 +32,11 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+    <style>
+        .footer {
+            padding-top: 50px;
+        }
+    </style>
 
 </head>
 

@@ -90,7 +90,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">08</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">वर्किंग इनकम का आहरण कम से कम 500 अधिकतम 5000 प्रतिदिन 500 के गुणांक में कर सकते हैं| पहला हेल्पिंग गेट हेल्प 2 घंटे तक और दूसरा 24 घंटे के बाद तथा तीसरा गेट हेल्प हमेशा 36 घंटे के बाद कभी भी दानी के उपलब्धता के ऊपर निर्भर करेगा|</p>
+                                <p class="mb-0">वर्किंग इनकम का आहरण कम से कम 500 अधिकतम 3000 प्रतिदिन 500 के गुणांक में कर सकते हैं| पहला हेल्पिंग गेट हेल्प 2 घंटे तक और दूसरा 24 घंटे के बाद तथा तीसरा गेट हेल्प हमेशा 36 घंटे के बाद कभी भी दानी के उपलब्धता के ऊपर निर्भर करेगा|</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">

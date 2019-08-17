@@ -36,10 +36,9 @@
                     </form>
                 </div>
                 <div class="col-lg-5">
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita</p>
-                    <a href="#" class="text-color h5 d-block">Coming Soon</a>
-                    <a href="mailto:modinaamaindia@gmail.com" class="mb-5 text-color h5 d-block">modinaamaindia@gmail.com</a>
-                    <a href="{{url('/')}}">www.modinaama.in</a>
+                    <a href="#" class="text-color h5 d-block"><h3><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i> Coming Soon</h3></a>
+                    <a href="mailto:modinaamaindia@gmail.com" class="text-color h5 d-block"><h3><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> modinaamaindia@gmail.com</h3></a>
+                    <a href="{{url('/')}}" class="text-color h5 d-block"><h3><i class="fa fa-globe fa-2x" aria-hidden="true"></i> www.modinaama.in</h3></a>
                 </div>
             </div>
         </div>

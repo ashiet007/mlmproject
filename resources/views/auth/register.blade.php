@@ -21,7 +21,7 @@
                         <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Register With Us</a></li>
                         <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
                     </ul>
-                    <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                    <p class="text-lighten">Register with us to open endless opportunity of earning</p>
                 </div>
             </div>
         </div>
@@ -174,10 +174,10 @@
                             </div>
                         </div>
                         <br>
-                        <h3 class="text-capitalize heading-color">Wallet Details</h3>
+                        <h3 class="text-capitalize heading-color">Wallet Details (OPTIONAL)</h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
-                                <input id="paytm" type="number" class="margin2 form-control custom-input" name="paytm_no" value="{{ old('paytm_no') }}" placeholder="PAYTM NUMBER (OPTIONAL)" autocomplete="off">
+                                <input id="paytm" type="number" class="margin2 form-control custom-input" name="paytm_no" value="{{ old('paytm_no') }}" placeholder="PAYTM NUMBER" autocomplete="off">
                                 @if ($errors->has('paytm_no'))
                                     <span class="help-block">
                                     <strong class="text-danger">{{ $errors->first('paytm_no') }}</strong>
@@ -185,7 +185,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="gpay" type="number" class="form-control custom-input" name="gpay_no" value="{{ old('gpay_no') }}" placeholder="GPAY/PHONEPAY NUMBER (OPTIONAL)" autocomplete="off">
+                                <input id="gpay" type="number" class="form-control custom-input" name="gpay_no" value="{{ old('gpay_no') }}" placeholder="GPAY/PHONEPAY NUMBER" autocomplete="off">
                                 @if ($errors->has('gpay_no'))
                                     <span class="help-block">
                                     <strong class="text-danger">{{ $errors->first('gpay_no') }}</strong>
