@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Modinaama</title>
+    <title>Modinaama India</title>
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -250,13 +250,6 @@ class UserController extends Controller
                         $user = User::findOrFail($userId);
                         $currentUserStatus = $user->status;
 
-                        /************ Add Single Line Income ************/
-                        if($currentUserStatus == 'pending')
-                        {
-                            addSingleLineIncome($giveHelp->amount);
-                        }
-                        /************ Add Single Line Income ************/
-
                         /************ Update Total Give Help Income ***********/
                         $userSetting = UserSetting::where('user_id',$userId)->first();
                         $giveHelpIncome = $userSetting->give_help_income;
@@ -265,6 +258,13 @@ class UserController extends Controller
                             'give_help_income' => $updatedGiveHelpIncome
                         ]);
                         /************ Update Total Give Help Income ***********/
+
+                        /************ Add Single Line Income ************/
+                        if($currentUserStatus == 'pending')
+                        {
+                            addSingleLineIncome($userSetting->give_help_amount);
+                        }
+                        /************ Add Single Line Income ************/
 
                         /************ Update User Status ****************/
                         if($user->status != 'blocked' && $user->status != 'rejected')

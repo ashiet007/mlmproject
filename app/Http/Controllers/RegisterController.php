@@ -130,7 +130,7 @@ class RegisterController extends Controller
     {
         $otp = rand(100000,999999);
         $mobNo = $request->get('number');
-        $message = 'DEAR MODINAAMA GUEST YOUR MOBILE VERIFICATION CODE IS- '.$otp.' ,PLEASE ENTER & SUBMIT FOR SIGNUP WWW.MODINAAMA.IN THANK YOU.';
+        $message = 'DEAR MODINAAMA GUEST YOUR MOBILE VERIFICATION CODE IS- '.$otp.' ,PLEASE ENTER AND SUBMIT FOR SIGNUP WWW.MODINAAMA.IN THANK YOU.';
         sendMessage($mobNo, $message);
         session(['otp' => $otp]);
         return response()->json(['success'=>'true','message' => 'An OTP has been sent to your Mobile number','otp' => $otp]);
