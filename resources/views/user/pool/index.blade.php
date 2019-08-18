@@ -20,6 +20,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$data->pool_no}}</td>
                                     <td>
+                                        @if($data->status == 'pending')
                                         <div class="row">
                                             <form action="{{route('pool.action')}}" method="post">
                                                 @csrf
@@ -34,6 +35,13 @@
                                                 <button class="btn btn-secondary p-2 ml-1">Deny</button>
                                             </form>
                                         </div>
+                                        @else
+                                            @if($data->status == 'agree')
+                                            <button class="btn btn-secondary p-2 mr-1">Agreed</button>
+                                            @else
+                                            <button class="btn btn-secondary p-2 mr-1">Denied</button>
+                                            @endif
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

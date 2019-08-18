@@ -19,8 +19,7 @@ class UserPool extends Model
 
     public function getUserPool($id)
     {
-        return $this->where('status','pending')
-            ->where('user_id',$id)
+        return $this->where('user_id',$id)
             ->get();
     }
 }

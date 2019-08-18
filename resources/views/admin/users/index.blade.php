@@ -6,7 +6,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Sr. No.</th><th>Sponsor ID</th><th>Name</th><th>Username</th><th>Password</th><th>Mobile Number</th><th>State</th><th>District</th><th>DOJ</th><th>Identity</th><th>Actions</th>
+                <th>Sr. No.</th><th>Sponsor ID</th><th>Name</th><th>Username</th><th>Password</th><th>Email</th><th>Mobile Number</th><th>State</th><th>District</th><th>DOJ</th><th>Identity</th><th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -20,6 +20,7 @@
                     @else
                         <td></td>
                     @endif
+                    <td>{{$item->email}}</td>
                     <td>{{ $item->userDetails->mob_no }}</td><td>{{ $item->userDetails->userState->name }}</td>
                     <td>{{ $item->userDetails->userDistrict->name }}</td>
                     <td>{{$item->created_at->format('d, M Y h:i:s A')}}</td>
