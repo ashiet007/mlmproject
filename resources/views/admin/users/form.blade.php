@@ -219,6 +219,21 @@
 </div>
 <div class="row">
     <div class="col-md-6">
+        <div class="form-group{{ $errors->has('bitcoin_add') ? ' has-error' : '' }}">
+            <label for="gpay" class="col-md-6 control-label">GPay Number</label>
+            <div class="col-md-12">
+                <input id="bitcoin_add" type="text" class="form-control custom-input" name="bitcoin_add" value="{{ $user->userDetails['bitcoin_add'] }}" placeholder="Bitcoin Address">
+                @if ($errors->has('bitcoin_add'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('bitcoin_add') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password" class="col-md-6 control-label">Password
                 <span class="required">*</span>

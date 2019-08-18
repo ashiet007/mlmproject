@@ -88,8 +88,8 @@
                                 Pool Wallet
                             </a>
                             <div class="dropdown-menu" aria-labelledby="poolWallet">
-                                <a class="dropdown-item" href="{{route('pool.index')}}">Agree/Deny</a>
-                                <a class="dropdown-item" href="{{route('pool.view')}}">View Pool</a>
+                                <a class="dropdown-item" href="{{route('pool.index')}}">My Pools</a>
+                                <a class="dropdown-item" href="{{route('pool.view')}}">View Company Pool</a>
                                 <a class="dropdown-item" href="{{route('pool.transferForm')}}">Transfer to Fund Wallet</a>
                             </div>
                         </li>

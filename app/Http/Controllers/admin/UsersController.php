@@ -99,6 +99,7 @@ class UsersController extends Controller
         $userDetails['branch'] = strtoupper($data['branch']);
         $userDetails['gpay_no'] = $data['gpay_no'];
         $userDetails['paytm_no'] = $data['paytm_no'];
+        $userDetails['bitcoin_add'] = $data['bitcoin_add'];
         $userDetails = UserDetail::create($userDetails);
         $user->userDetails()->save($userDetails);
         UserPassword::create([
@@ -255,6 +256,7 @@ class UsersController extends Controller
             'branch' => strtoupper($request->branch),
             'paytm_no' => $request->paytm_no,
             'gpay_no' => $request->gpay_no,
+            'bitcoin_add' => $request->bitcoin_add,
         ]);
         alert()->success('User updated!', 'Success')->persistent("Close");
         return redirect('admin/users');

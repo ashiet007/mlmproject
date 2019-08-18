@@ -92,6 +92,10 @@
                                         <th> GPay Number </th>
                                         <td > {{ isset($userDetail->userDetails['gpay_no']) ?  $userDetail->userDetails['gpay_no']:'N/A' }} </td>
                                     </tr>
+                                    <tr>
+                                        <th> Bitcoin Address </th>
+                                        <td > {{ isset($userDetail->userDetails['bitcoin_add']) ?  $userDetail->userDetails['bitcoin_add']:'N/A' }} </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
