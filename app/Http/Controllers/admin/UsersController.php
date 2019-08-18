@@ -12,6 +12,7 @@ use App\GetHelp;
 use App\Bank;
 use App\State;
 use App\District;
+use App\UserSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -109,6 +110,10 @@ class UsersController extends Controller
         $companyPool = CompanyPool::create([
                 'user_id' => $user->id
             ]);
+        $userSetting = UserSetting::create([
+            'user_id' => $user->id,
+            'account_status' => 'active'
+        ]);
         alert()->success('User added!!!', 'Success')->persistent("Close");
         return redirect('admin/users');
     } 
