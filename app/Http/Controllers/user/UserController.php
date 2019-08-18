@@ -233,7 +233,7 @@ class UserController extends Controller
 
                     if($giveHelp->type == 'pool')
                     {
-                        $errorStatus = addUserToPool($giveHelp->user_id);
+                        $errorStatus = $this->addUserToPool($giveHelp->user_id);
                         if($errorStatus)
                         {
                             $saved = false;
@@ -253,7 +253,7 @@ class UserController extends Controller
                         /************ Add Single Line Income ************/
                         if($currentUserStatus == 'pending')
                         {
-                            addSingleLineIncome();
+                            addSingleLineIncome($giveHelp->amount);
                         }
                         /************ Add Single Line Income ************/
 

@@ -444,7 +444,7 @@ function checkUserforOnHold($id)
         return false;
 }
 
-function addSingleLineIncome()
+function addSingleLineIncome($amount)
 {
     $companyPool = CompanyPool::with('user')
                                     ->start()
@@ -459,7 +459,7 @@ function addSingleLineIncome()
             {
                 if ($activeIds >= $helpSetting->needed_active_ids )
                 {
-                    $amount =  $data->amount + $helpSetting->income_per_id;
+                    $amount =  $data->amount + ($amount*$helpSetting->income_per_id);
                     $data->update([
                         'amount' => $amount
                     ]);
