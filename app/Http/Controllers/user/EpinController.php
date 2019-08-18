@@ -61,17 +61,8 @@ class EpinController extends Controller
 
     public function create()
     {
-        $username = Auth::User()->user_name;
-        $id = Auth::User()->id;
-
-        $income = totalIncome($username);
-        $pinWallet = $income['pin'];
-        $userFund = new UserFund;
-        $transferredFund = $userFund->getPinWalletTransferredFund($id);
-        $totalFund = $pinWallet + $transferredFund;
-        $epin = new Epin;
-        $usedFund = $epin->getPinWalletUsedFund($this->userId);
-        $availableEpinWalletFund = $totalFund - $usedFund;
+        $totalFund = totalEpinIncome();
+        $availableEpinWalletFund = availableEpinIncome();
         return view('user.epin.create', compact('totalFund','availableEpinWalletFund'));
     }
 

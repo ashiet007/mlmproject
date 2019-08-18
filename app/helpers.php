@@ -1,4 +1,6 @@
 <?php
+
+use App\Epin;
 use App\User;
 use App\UserDetail;
 use App\GiveHelp;
@@ -511,5 +513,28 @@ function userAccountActivation()
             ]);
         }
     }
+}
+
+function totalEpinIncome()
+{
+    $username = Auth::User()->user_name;
+    $id = Auth::User()->id;
+
+    $income = totalIncome($username);
+    $pinWallet = $income['pin'];
+    $userFund = new UserFund;
+    $transferredFund = $userFund->getPinWalletTransferredFund($id);
+    $totalFund = $pinWallet + $transferredFund;
+    return $totalFund;
+}
+
+function availableEpinIncome()
+{
+    $id = Auth::User()->id;
+    $totalFund = totalEpinIncome();
+    $epin = new Epin;
+    $usedFund = $epin->getPinWalletUsedFund($id);
+    $availableEpinWalletFund = $totalFund - $usedFund;
+    return $availableEpinWalletFund;
 }
 

@@ -56,7 +56,8 @@ class UserController extends Controller
 
         $isUnmatchedGetHelpHelping = $getHelp->isUnmatchedGetHelpHelping($id);
         $news = News::horizontal()->first();
-        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping'));
+        $userSetting = UserSetting::where('user_id',$id)->first();
+        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping','userSetting'));
     }
 
     public function rejectHelp(Request $request)
