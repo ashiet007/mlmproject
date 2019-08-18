@@ -458,9 +458,9 @@ function addSingleLineIncome($amount)
             {
                 if ($activeIds >= $helpSetting->needed_active_ids )
                 {
-                    $amount =  $data->amount + ($amount*$helpSetting->income_per_id);
+                    $singleLineIncome =  $data->amount + ($amount*$helpSetting->income_per_id);
                     $data->update([
-                        'amount' => $amount
+                        'amount' => $singleLineIncome
                     ]);
                     break;
                 }

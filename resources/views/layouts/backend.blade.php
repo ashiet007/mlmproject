@@ -38,6 +38,9 @@
         {
             margin: 0 10px;
         }
+        .mt-5.mb-5{
+            min-height: 275px;
+        }
     </style>
 
 </head>

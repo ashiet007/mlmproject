@@ -113,9 +113,22 @@
                                aria-haspopup="true" aria-expanded="false">
                                 Epin Wallet
                             </a>
-                            <div class="dropdown-menu" style="left: -100;" aria-labelledby="epin">
+                            <div class="dropdown-menu" aria-labelledby="epin">
                                 <a class="dropdown-item" href="{{ route('adminEpin.create') }}">Create E-Pin</a>
                                 <a class="dropdown-item" href="{{ route('adminEpin.unused') }}">Transfer Epin</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown view">
+                            <a class="nav-link dropdown-toggle" href="#" id="pool" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Pool Wallet
+                            </a>
+                            <div class="dropdown-menu" style="left: -100;" aria-labelledby="pool">
+                                <a class="dropdown-item" href="{{route('adminPool.view')}}">Current Pool View</a>
+                                <a class="dropdown-item" href="{{route('adminPool.viewList')}}">Current Pool History</a>
+                                <a class="dropdown-item" href="#">Pending Pool History</a>
+                                <a class="dropdown-item" href="#">Pool Action History</a>
+                                <a class="dropdown-item" href="#">Final Pool History</a>
                             </div>
                         </li>
                     </ul>
