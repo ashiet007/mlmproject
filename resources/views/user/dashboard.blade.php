@@ -408,7 +408,7 @@
                             @endforeach
                         @endif
                     @endforeach
-                    @if($j == 1000)
+                    @if($i == 1000)
                     <!--    If No Receiver Available  -->
                         <div class="container user-container text-center font-weight-bold bg-danger" style="padding-top: 50px; padding-bottom: 50px;">
                             <div class="col-12 col-sm-12 col-lg-12">
