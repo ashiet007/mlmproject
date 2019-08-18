@@ -19,6 +19,10 @@
             padding-top: 8px;
             border: 3px solid #182b45!important;
         }
+        .mb-0{
+            color:#182b45;
+            font-weight: 900;
+        }
     </style>
 @endsection
 @section('content')
