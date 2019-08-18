@@ -32,7 +32,6 @@ function helpMatchingCycle()
         ->join('users', 'users.id', '=', 'give_helps.user_id')
         ->where('users.status','!=','blocked')
         ->where('give_helps.status','=','pending')
-        ->where('type', 'helping')
         ->where(function ($query) {
             $query->where('completion_state', 'partially-assigned')
                 ->orWhere('completion_state', 'none');
