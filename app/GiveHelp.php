@@ -65,7 +65,7 @@ class GiveHelp extends Model
             })
             ->pending()
             ->orderBy('id','DESC')
-            ->first();
+            ->get();
     }
 
     public function getAcceptedLinks()

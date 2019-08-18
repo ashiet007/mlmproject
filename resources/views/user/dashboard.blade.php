@@ -120,288 +120,308 @@
                     <h2 class="h6 text-uppercase mb-0 text-white text-center" style="font-size: x-large"><span class="icon-wallet" style="font-size: x-large"></span> Give Help Links</h2>
                 </div>
                 <div class="card-body">
-                @if(!is_null($assignedGiveHelps))
+                @if(count($assignedGiveHelps))
                     @php
-                        $giveHelpId = $assignedGiveHelps->id;
                         $i = 1000;
                     @endphp
-                    @foreach($assignedGiveHelps->getHelps as $getHelp)
-                    @if($getHelp->pivot->status == 'pending')
-                    <div class="col-lg-12 col-sm-12 pl-0 pr-0 mb-3">
-                        <div class="card p-0 rounded-0 hover-shadow bg-danger border-danger">
-                            <div class="card-body p-0">
-                                <div class="table-bg-color font-weight-bold">
-                                    <br>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver ID:
-                                            </div>
-                                            <div class="col-md-6 font-weight-light">
-                                                {{ $getHelp->user->user_name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Name:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Mobile:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ $getHelp->user->userDetails['mob_no'] }}
-                                            </div>
-                                        </div>
-{{--                                        <div class="row">--}}
-{{--                                            <div class="col-md-6 font-weight-bold">--}}
-{{--                                                Sponsor User ID:--}}
-{{--                                            </div>--}}
-{{--                                            <div class=" col-md-6 font-weight-light">--}}
-{{--                                                {{ $getHelp->user->sponsor_id }}--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="row">--}}
-{{--                                            <div class="col-md-6 font-weight-bold">--}}
-{{--                                                Sponsor Number:--}}
-{{--                                            </div>--}}
-{{--                                            <div class=" col-md-6 font-weight-light">--}}
-{{--                                                @php--}}
-{{--                                                    $data = getDetails($getHelp->user->sponsor_id)--}}
-{{--                                                @endphp--}}
-{{--                                                {{ !empty($data)?$data->userDetails->mob_no:'N/A'}}--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver State:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails->userState->name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver District:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails->userDistrict->name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Bank Name:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails->userBank->name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver A/C:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails['account_no'] }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                A/C Type:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails['account_type'] }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Bank IFSC:
-                                            </div>
-                                            <div class=" col-md-6 text-uppercase font-weight-light">
-                                                {{ $getHelp->user->userDetails['ifsc_code'] }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Bank Branch:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ $getHelp->user->userDetails['branch'] }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Paytm Number:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ isset($getHelp->user->userDetails['paytm_no'])? $getHelp->user->userDetails['paytm_no']:'N/A'}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Gpay/Phonepay Number:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ isset($getHelp->user->userDetails['gpay_no'])? $getHelp->user->userDetails['gpay_no']:'N/A'}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Receiver Bitcoin Address:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ isset($getHelp->user->userDetails['bitcoin_add'])? $getHelp->user->userDetails['bitcoin_add']:'N/A'}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Link Amount:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                <i class="fas fa-rupee-sign"></i> {{ $getHelp->pivot->assigned_amount }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Link Created Date:
-                                            </div>
-                                            <div class=" col-md-6 font-weight-light">
-                                                {{ $getHelp->pivot->created_at->format('d, M Y h:i:s A') }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 font-weight-bold">
-                                                Link Status:
-                                            </div>
-                                            <div class=" col-md-6">
-                                                <span class="text-danger text-uppercase font-weight-bold" style="font-size: 20px;"> {{ $getHelp->pivot->status }}</span>
+                    @foreach($assignedGiveHelps as $assignedGiveHelp)
+                        @php
+                            $giveHelpId = $assignedGiveHelp->id;
+                        @endphp
+                        @if(count($assignedGiveHelp->getHelps))
+                            @foreach($assignedGiveHelp->getHelps as $getHelp)
+                                @if($getHelp->pivot->status == 'pending')
+                                    <div class="col-lg-12 col-sm-12 pl-0 pr-0 mb-3">
+                                        <div class="card p-0 rounded-0 hover-shadow bg-danger border-danger">
+                                            <div class="card-body p-0">
+                                                <div class="table-bg-color font-weight-bold">
+                                                    <br>
+                                                    <div class="container text-white">
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver ID:
+                                                            </div>
+                                                            <div class="col-md-6 font-weight-light">
+                                                                {{ $getHelp->user->user_name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Name:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Mobile:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ $getHelp->user->userDetails['mob_no'] }}
+                                                            </div>
+                                                        </div>
+                                                        {{--                                        <div class="row">--}}
+                                                        {{--                                            <div class="col-md-6 font-weight-bold">--}}
+                                                        {{--                                                Sponsor User ID:--}}
+                                                        {{--                                            </div>--}}
+                                                        {{--                                            <div class=" col-md-6 font-weight-light">--}}
+                                                        {{--                                                {{ $getHelp->user->sponsor_id }}--}}
+                                                        {{--                                            </div>--}}
+                                                        {{--                                        </div>--}}
+                                                        {{--                                        <div class="row">--}}
+                                                        {{--                                            <div class="col-md-6 font-weight-bold">--}}
+                                                        {{--                                                Sponsor Number:--}}
+                                                        {{--                                            </div>--}}
+                                                        {{--                                            <div class=" col-md-6 font-weight-light">--}}
+                                                        {{--                                                @php--}}
+                                                        {{--                                                    $data = getDetails($getHelp->user->sponsor_id)--}}
+                                                        {{--                                                @endphp--}}
+                                                        {{--                                                {{ !empty($data)?$data->userDetails->mob_no:'N/A'}}--}}
+                                                        {{--                                            </div>--}}
+                                                        {{--                                        </div>--}}
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver State:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails->userState->name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver District:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails->userDistrict->name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Bank Name:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails->userBank->name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver A/C:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails['account_no'] }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                A/C Type:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails['account_type'] }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Bank IFSC:
+                                                            </div>
+                                                            <div class=" col-md-6 text-uppercase font-weight-light">
+                                                                {{ $getHelp->user->userDetails['ifsc_code'] }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Bank Branch:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ $getHelp->user->userDetails['branch'] }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Paytm Number:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ isset($getHelp->user->userDetails['paytm_no'])? $getHelp->user->userDetails['paytm_no']:'N/A'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Gpay/Phonepay Number:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ isset($getHelp->user->userDetails['gpay_no'])? $getHelp->user->userDetails['gpay_no']:'N/A'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Bitcoin Address:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ isset($getHelp->user->userDetails['bitcoin_add'])? $getHelp->user->userDetails['bitcoin_add']:'N/A'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Link Amount:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                <i class="fas fa-rupee-sign"></i> {{ $getHelp->pivot->assigned_amount }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Link Created Date:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ $getHelp->pivot->created_at->format('d, M Y h:i:s A') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Link Status:
+                                                            </div>
+                                                            <div class=" col-md-6">
+                                                                <span class="text-danger text-uppercase font-weight-bold" style="font-size: 20px;"> {{ $getHelp->pivot->status }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container-fluid container-padding mr-auto">
+                                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#myModal{{$i}}"><i class="fas fa-upload"></i> Upload Slip</button>
+                                                        <!-- The Modal -->
+                                                        <div class="modal" id="myModal{{$i}}">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <!-- Modal Header -->
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Upload Proof Slip</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    </div>
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body">
+                                                                        <form action="{{route('proof.uploadProof')}}" enctype="multipart/form-data" method="post">
+                                                                            {{ csrf_field() }}
+                                                                            <input type="hidden" name="give_help_id" value="{{$giveHelpId}}">
+                                                                            <input type="hidden" name="user_id" value="{{$getHelp->user->id}}">
+                                                                            <input type="hidden" name="get_help_id" value="{{$getHelp->id}}">
+                                                                            <input type="file" name="proof_file_name" class="form-control">
+                                                                            <input class="btn btn-primary" type="submit" value="upload">
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- Modal footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$i}}"></button>
+                                                        <script>
+                                                            // Set the date we're counting down to
+                                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 6 * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
+                                                            // Update the count down every 1 second
+                                                            var x{{$i}} = setInterval(function() {
+                                                                // Get todays date and time
+                                                                var now = new Date().getTime();
+
+                                                                // Find the distance between now and the count down date
+                                                                var distance = countDownDate{{$i}} - now;
+
+                                                                // Time calculations for days, hours, minutes and seconds
+                                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                                                // Output the result in an element with id="demo"
+                                                                document.getElementById("demo{{$i}}").innerHTML = days + "d " + hours + "h "
+                                                                    + minutes + "m " + seconds + "s ";
+
+                                                                // If the count down is over, write some text
+                                                                if (distance < 0) {
+                                                                    clearInterval(x{{$i}});
+                                                                    document.getElementById("demo{{$i}}").innerHTML = "00:00:00";
+                                                                }
+                                                            }, 1000);
+                                                        </script>
+                                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#messageModal{{$i}}"><i class="fas fa-comment-alt"></i> Message</button>
+                                                        <!-- The Modal -->
+                                                        <div class="modal" id="messageModal{{$i}}">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <!-- Modal Header -->
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Send Message to {{ $getHelp->user->name }}</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    </div>
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body">
+                                                                        <form action="{{route('user.message')}}" enctype="multipart/form-data" method="post">
+                                                                            {{ csrf_field() }}
+                                                                            <input type="hidden" name="receiver_id" value="{{$getHelp->user->id}}">
+                                                                            <label id="message" class="text-dark">Message</label>
+                                                                            <textarea id="message" name="message" class="form-control" required></textarea>
+                                                                            <input class="btn btn-primary" type="submit" value="send">
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- Modal footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#viewModal{{$i}}"><i class="fas fa-eye"></i> View Slip</button>
+                                                        <!-- The Modal -->
+                                                        <div class="modal" id="viewModal{{$i}}">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <!-- Modal Header -->
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Proof Slip</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    </div>
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body">
+                                                                        @if($getHelp->pivot->proof_file_name != null)
+                                                                            <img src="{{url('uploads/proof-files/'.$getHelp->pivot->proof_file_name)}}" width="100%">
+                                                                        @else
+                                                                            <img src="{{ asset('images/noimage.png') }}" width="100%">
+                                                                        @endif
+                                                                    </div>
+                                                                    <!-- Modal footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="container-fluid container-padding mr-auto">
-                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#myModal{{$i}}"><i class="fas fa-upload"></i> Upload Slip</button>
-                                        <!-- The Modal -->
-                                        <div class="modal" id="myModal{{$i}}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Upload Proof Slip</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                        <form action="{{route('proof.uploadProof')}}" enctype="multipart/form-data" method="post">
-                                                            {{ csrf_field() }}
-                                                            <input type="hidden" name="give_help_id" value="{{$giveHelpId}}">
-                                                            <input type="hidden" name="user_id" value="{{$getHelp->user->id}}">
-                                                            <input type="hidden" name="get_help_id" value="{{$getHelp->id}}">
-                                                            <input type="file" name="proof_file_name" class="form-control">
-                                                            <input class="btn btn-primary" type="submit" value="upload">
-                                                        </form>
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$i}}"></button>
-                                        <script>
-                                            // Set the date we're counting down to
-                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 6 * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
-                                            // Update the count down every 1 second
-                                            var x{{$i}} = setInterval(function() {
-                                                // Get todays date and time
-                                                var now = new Date().getTime();
-
-                                                // Find the distance between now and the count down date
-                                                var distance = countDownDate{{$i}} - now;
-
-                                                // Time calculations for days, hours, minutes and seconds
-                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                                                // Output the result in an element with id="demo"
-                                                document.getElementById("demo{{$i}}").innerHTML = days + "d " + hours + "h "
-                                                    + minutes + "m " + seconds + "s ";
-
-                                                // If the count down is over, write some text
-                                                if (distance < 0) {
-                                                    clearInterval(x{{$i}});
-                                                    document.getElementById("demo{{$i}}").innerHTML = "00:00:00";
-                                                }
-                                            }, 1000);
-                                        </script>
-                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#messageModal{{$i}}"><i class="fas fa-comment-alt"></i> Message</button>
-                                        <!-- The Modal -->
-                                        <div class="modal" id="messageModal{{$i}}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Send Message to {{ $getHelp->user->name }}</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                        <form action="{{route('user.message')}}" enctype="multipart/form-data" method="post">
-                                                            {{ csrf_field() }}
-                                                            <input type="hidden" name="receiver_id" value="{{$getHelp->user->id}}">
-                                                            <label id="message" class="text-dark">Message</label>
-                                                            <textarea id="message" name="message" class="form-control" required></textarea>
-                                                            <input class="btn btn-primary" type="submit" value="send">
-                                                        </form>
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#viewModal{{$i}}"><i class="fas fa-eye"></i> View Slip</button>
-                                        <!-- The Modal -->
-                                        <div class="modal" id="viewModal{{$i}}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Proof Slip</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                        @if($getHelp->pivot->proof_file_name != null)
-                                                            <img src="{{url('uploads/proof-files/'.$getHelp->pivot->proof_file_name)}}" width="100%">
-                                                        @else
-                                                            <img src="{{ asset('images/noimage.png') }}" width="100%">
-                                                        @endif
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    @php
+                                        $i = $i + 1;
+                                    @endphp
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                    @if($j == 1000)
+                    <!--    If No Receiver Available  -->
+                        <div class="container user-container text-center font-weight-bold bg-danger" style="padding-top: 50px; padding-bottom: 50px;">
+                            <div class="col-12 col-sm-12 col-lg-12">
+                                <div class="single-cool-fact">
+                                    <div class="scf-text">
+                                        <i class="icon-cocktail-1"></i>
+                                        <p class="text-white">No Receivers Available</p>
                                     </div>
-                                    <br>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @php
-                        $i = $i + 1;
-                    @endphp
+                        <!--    //If No Receiver Available  -->
                     @endif
-                    @endforeach
                 @else
                 <!--    If No Receiver Available  -->
                 <div class="container user-container text-center font-weight-bold bg-danger" style="padding-top: 50px; padding-bottom: 50px;">
