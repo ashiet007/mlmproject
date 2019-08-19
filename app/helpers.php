@@ -144,7 +144,7 @@ function getDateTime($dateTime)
 function helpGeneration()
 {
     $users = User::with('userDetails','singleLineIncome','userSetting')->get();
-    $helpSetting = HelpSetting::orderBy('order_no')->first();
+    $helpSetting = HelpSetting::orderBy('order_no','DESC')->get();
     foreach($users as $user)
     {
         if($user->status != 'rejected' && $user->status != 'blocked' && $user->identity != 'fake')
