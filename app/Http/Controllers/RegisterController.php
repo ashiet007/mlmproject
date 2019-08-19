@@ -159,7 +159,7 @@ class RegisterController extends Controller
         $data = $request->all();
         $user = array();
         $userDetails = array();
-        $user['sponsor_id'] = $data['sponsor_id'];
+        $user['sponsor_id'] = strtolower($data['sponsor_id']);
         $user['name'] = strtoupper($data['name']);
         $user['email'] = strtolower($data['email']);
         $user['user_name'] = strtolower($data['user_name']);
