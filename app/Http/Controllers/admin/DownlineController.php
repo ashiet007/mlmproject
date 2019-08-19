@@ -20,6 +20,7 @@ class DownlineController extends Controller
         if(!empty($requestData))
         {
             $teamDetails = getTotalTeam($requestData);
+            $teamDetails = $teamDetails->sortBy('level');
             return view('admin.downline.total',compact('teamDetails','username'));
         }
         else{

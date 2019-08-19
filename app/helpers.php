@@ -272,7 +272,7 @@ function helpGeneration()
 
 function totalTeam($totalTeam,$members, $level)
 {
-    if(!$members->isEmpty())
+    if(count($members))
     {
         foreach ($members as $member)
         {
@@ -301,45 +301,39 @@ function getTotalTeam($username)
         ->orderBy('created_at','DESC')
         ->get();
     $totalTeam = $teamDetails;
-    if(!$teamDetails->isEmpty())
+    if(count($teamDetails))
     {
         $level = 1;
         foreach ($teamDetails as $teamDetail)
         {
             $teamDetail->level = $level ;
         }
-        foreach ($teamDetails as $teamDetail)
-        {
-            $username = $teamDetail->user_name;
-            $members = User::with('userDetails')
-                ->where('sponsor_id', '=', $username)
-                ->orderBy('created_at','DESC')
-                ->get();
-            if(!$members->isEmpty())
-            {
-                $level = $teamDetail->level;
-                $level = $level + 1;
-                foreach ($members as $member)
-                {
-                    $member->level = $level ;
-                }
-                foreach ($members as $member)
-                {
-                    $username = $member->user_name;
-                    $totalTeam->push($member);
-                    $newmembers = User::with('userDetails')
-                        ->where('sponsor_id', '=', $username)
-                        ->orderBy('created_at','DESC')
-                        ->get();
-                    $level = $member->level;
-                    $level = $level + 1;
-                    $totalTeam = totalTeam($totalTeam,$newmembers, $level);
-                }
-            }
+        getTeamRecursive($teamDetails,$totalTeam);
 
-        }
     }
     return $totalTeam;
+}
+
+function getTeamRecursive($teamDetails,$totalTeam)
+{
+    foreach ($teamDetails as $teamDetail)
+    {
+        $username = $teamDetail->user_name;
+        $members = User::with('userDetails')
+            ->where('sponsor_id', '=', $username)
+            ->orderBy('created_at','DESC')
+            ->get();
+        if(count($members))
+        {
+            $level = $teamDetail->level;
+            foreach ($members as $member)
+            {
+                $member->level = $level + 1 ;
+                $totalTeam->push($member);
+            }
+            getTeamRecursive($members,$totalTeam);
+        }
+    }
 }
 
 function getTotalDirectActiveTeam($username)
