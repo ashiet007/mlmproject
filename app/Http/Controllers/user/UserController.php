@@ -206,7 +206,7 @@ class UserController extends Controller
             /*************** Update User Get Help Helping Fund ***********/
             if($getHelpUpdated->type == 'helping')
             {
-                $getHelpUserSetting = UserSetting::find($getHelpUserId);
+                $getHelpUserSetting = UserSetting::where('user_id',$getHelpUserId)->first();
                 $helpingFund = $getHelpUserSetting->helping_fund;
                 $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
                 $getHelpUserSetting->update([
