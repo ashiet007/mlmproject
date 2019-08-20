@@ -475,18 +475,17 @@ function userPool()
    {
        $totalDirectActiveIds = getTotalDirectActiveTeam($user->user_name);
        $moduloCount = intval($totalDirectActiveIds/5);
-       $currentPoolCount = $user->userPools->count();
+       $currentPoolCount = count($user->userPools);
        if($moduloCount-$currentPoolCount)
        {
            $diff = $moduloCount-$currentPoolCount;
            for($i=1;$i<=$diff;$i++)
            {
-               $count = $currentPoolCount?$currentPoolCount:0;
-               $nextCount = $count++;
+               $count = $currentPoolCount + 1;
                UserPool::create([
                   'user_id' => $user->id,
-                  'pool_no' => $nextCount,
-                   'status' => 'pending'
+                  'pool_no' => $count,
+                  'status' => 'pending'
                ]);
                $number = $user->userDetails->mob_no;
                $message = 'DEAR WWW.MODINAAMA.IN ID- '.$user->user_name.','.$user->name.' YOU ARE ELIGIBLE TO AUTO POOL IF YOU WANT TO ENTER GO IN POOL WALLET FOR PERMISSION THANK YOU.';
