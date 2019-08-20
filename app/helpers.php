@@ -147,7 +147,7 @@ function helpGeneration()
     $helpSetting = HelpSetting::orderBy('order_no','DESC')->get();
     foreach($users as $user)
     {
-        if($user->status != 'rejected' && $user->status != 'blocked' && $user->identity != 'fake')
+        if($user->status != 'rejected' && $user->status != 'blocked' && $user->identity != 'fake' && $user->userSetting->account_status == 'active')
         {
             $giveHelp = new GiveHelp;
             $helpCount = $giveHelp->getHelpCount($user->id);
