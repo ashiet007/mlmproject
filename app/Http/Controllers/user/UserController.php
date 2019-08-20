@@ -263,7 +263,7 @@ class UserController extends Controller
                         /************ Update Total Give Help Income ***********/
                         $userSetting = UserSetting::where('user_id',$userId)->first();
                         $giveHelpIncome = $userSetting->give_help_income;
-                        $updatedGiveHelpIncome = $giveHelpIncome + $giveHelp->amount;
+                        $updatedGiveHelpIncome = $giveHelpIncome + $userSetting->give_help_amount;
                         $userSetting->update([
                             'give_help_income' => $updatedGiveHelpIncome
                         ]);
