@@ -65,7 +65,7 @@ class UserController extends Controller
             ->where('user_id',$this->userId)
             ->sum('amount');
         $availablePoolFund = $userPoolFund - $transferFund;
-        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping','userSetting','availablePoolFund'));
+        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping','userSetting','availablePoolFund','userPoolFund'));
     }
 
     public function rejectHelp(Request $request)

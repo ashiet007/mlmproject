@@ -119,7 +119,7 @@
                 <!-- funfacts item -->
                 <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h5 class="count text-white" data-count="{{totalEpinIncome()+$workingIncome}}">0</h5>
+                        <h5 class="count text-white" data-count="{{totalEpinIncome()+$workingIncome + $userPoolFund + helpingIncome()}}">0</h5>
                         <h5 class="text-white">My Total Income</h5>
                     </div>
                 </div>
@@ -343,7 +343,7 @@
                                                         <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$i}}"></button>
                                                         <script>
                                                             // Set the date we're counting down to
-                                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 6 * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
+                                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 8 * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
                                                             // Update the count down every 1 second
                                                             var x{{$i}} = setInterval(function() {
                                                                 // Get todays date and time
@@ -612,7 +612,7 @@
                                                         <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$j}}"></button>
                                                         <script>
                                                             // Set the date we're counting down to
-                                                            var countDownDate{{$j}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $giveHelp->pivot->created_at ) + 6 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600) }}").getTime();
+                                                            var countDownDate{{$j}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600) }}").getTime();
                                                             // Update the count down every 1 second
                                                             var x{{$j}} = setInterval(function() {
                                                                 // Get todays date and time
@@ -638,7 +638,7 @@
                                                                 }
                                                             }, 1000);
                                                         </script>
-                                                        @if($giveHelp->pivot->status == 'pending' && time() >= strtotime( $giveHelp->pivot->created_at ) + 6 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600)
+                                                        @if($giveHelp->pivot->status == 'pending' && time() >= strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600)
                                                             <form method="post" action="{{route('user.rejectHelp')}}" style="display: inline;">
                                                                 {{ csrf_field() }}
                                                                 <input type="hidden" name="get_help_id" value="{{ $getHelpId }}">
