@@ -61,70 +61,77 @@
     </section>
     <!-- facts -->
     <section class="section-sm bg-primary mb-3">
-        <div class="container">
+        <div class="container" style="max-width: 100%">
             <div class="row">
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{count(getTotalTeam($username))}}">0</h2>
+                        <h5 class="count text-white" data-count="{{count(getTotalTeam($username))}}">0</h5>
                         <h5 class="text-white">My Total Team</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{count(getTotalDirectTeam($username))}}">0</h2>
+                        <h5 class="count text-white" data-count="{{count(getTotalDirectTeam($username))}}">0</h5>
                         <h5 class="text-white">My Direct Team</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
                         @php
                         $totalIncome = totalIncome($username);
                         $workingIncome = $totalIncome['working'];
                         @endphp
-                        <h2 class="count text-white" data-count="{{$workingIncome}}">0</h2>
+                        <h5 class="count text-white" data-count="{{$workingIncome}}">0</h5>
                         <h5 class="text-white">My Working Income</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{availableBalance($username,Auth::User()->id)}}">0</h2>
+                        <h5 class="count text-white" data-count="{{availableBalance($username,Auth::User()->id)}}">0</h5>
                         <h5 class="text-white">My Working Fund</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{$userDetail->singleLineIncome->amount}}">0</h2>
+                        <h5 class="count text-white" data-count="{{$userDetail->singleLineIncome->amount}}">0</h5>
                         <h5 class="text-white">My Single Line Income</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{availableEpinIncome()}}">0</h2>
+                        <h5 class="count text-white" data-count="{{availableEpinIncome()}}">0</h5>
                         <h5 class="text-white">My Epin Fund</h5>
                     </div>
                 </div>
                 <!-- funfacts item -->
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{totalEpinIncome()+$workingIncome}}">0</h2>
+                        <h5 class="count text-white" data-count="{{$availablePoolFund}}">0</h5>
+                        <h5 class="text-white">My Pool Fund</h5>
+                    </div>
+                </div>
+                <!-- funfacts item -->
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
+                    <div class="text-center">
+                        <h5 class="count text-white" data-count="{{totalEpinIncome()+$workingIncome}}">0</h5>
                         <h5 class="text-white">My Total Income</h5>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{isset($userSetting->give_help_amount)?$userSetting->give_help_amount:0}}">0</h2>
+                        <h5 class="count text-white" data-count="{{isset($userSetting->give_help_amount)?$userSetting->give_help_amount:0}}">0</h5>
                         <h5 class="text-white">My Give help Package</h5>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;">
+                <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h2 class="count text-white" data-count="{{isset($userSetting->get_help_amount)?$userSetting->get_help_amount:0}}">0</h2>
+                        <h5 class="count text-white" data-count="{{isset($userSetting->get_help_amount)?$userSetting->get_help_amount:0}}">0</h5>
                         <h5 class="text-white">My Get help Package</h5>
                     </div>
                 </div>

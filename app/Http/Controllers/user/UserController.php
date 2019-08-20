@@ -57,7 +57,15 @@ class UserController extends Controller
         $isUnmatchedGetHelpHelping = $getHelp->isUnmatchedGetHelpHelping($id);
         $news = News::horizontal()->first();
         $userSetting = UserSetting::where('user_id',$id)->first();
-        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping','userSetting'));
+
+        /*********** User Pool Fund ************/
+        $userPoolFund = UserPoolFund::where('user_id',$this->userId)
+            ->sum('amount');
+        $transferFund = UserFund::where('from_wallet','pool-wallet')
+            ->where('user_id',$this->userId)
+            ->sum('amount');
+        $availablePoolFund = $userPoolFund - $transferFund;
+        return view('user.dashboard',compact('userDetail','assignedGiveHelps','assignedGetHelps','news','isUnmatchedGetHelpHelping','userSetting','availablePoolFund'));
     }
 
     public function rejectHelp(Request $request)
