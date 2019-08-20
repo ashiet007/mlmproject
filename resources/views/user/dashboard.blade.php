@@ -84,7 +84,7 @@
                         $totalIncome = totalIncome($username);
                         $workingIncome = $totalIncome['working'];
                         @endphp
-                        <h5 class="count text-white" data-count="{{$workingIncome}}">0</h5>
+                        <h5 class="count text-white" data-count="{{totalEpinIncome() + $workingIncome}}">0</h5>
                         <h5 class="text-white">My Working Income</h5>
                     </div>
                 </div>

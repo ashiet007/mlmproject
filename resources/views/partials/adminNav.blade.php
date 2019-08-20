@@ -5,14 +5,14 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 text-center text-lg-left">
-                    <a class="text-color mr-3" href="#"><strong>Name</strong> {{Auth::User()->name}}</a>
+                    <a class="text-color mr-3" href="#"><i class="fas fa-portrait"></i> {{Auth::User()->name}}</a>
                     <ul class="list-inline d-inline">
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="fa fa-user"></i> {{Auth::User()->user_name}}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-8 text-center text-lg-right">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{{url('/logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
+                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-danger" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;color: #fff;" href="{{url('/logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {!! Form::token() !!}
                         </form>

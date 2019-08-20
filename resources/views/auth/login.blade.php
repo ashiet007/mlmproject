@@ -66,9 +66,6 @@
                 </div>
                 <div class="mt-4">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account? <a href="{{route('register')}}" class="ml-2 text-white">Sign Up</a>
-                    </div>
-                    <div class="d-flex justify-content-center links">
                         <a href="{{ route('password.request') }}" class="text-white">Forgot your password?</a>
                     </div>
                 </div>

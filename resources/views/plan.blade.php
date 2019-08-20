@@ -23,6 +23,10 @@
             color:#182b45;
             font-weight: 900;
         }
+        .table td {
+            font-weight: 900;
+            color: #182b45;
+        }
     </style>
 @endsection
 @section('content')
@@ -88,7 +92,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">07</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Working level income is 1st level=20%,2nd level=4%,3rd level=3%,4th level=2% and 5th level=1% on every give help accepted amount by team up to 5th levels and total working income will be divided into two parts 50:50 ratio in E-pin wallet and fund wallet you can also transfer amount into E-pin wallet from fund wallet without any boundation amount to create E-pin.</p>
+                                <p class="mb-0">Working level income is 1st level=10%,2nd level=4%,3rd level=3%,4th level=2% and 5th level=1% on every give help accepted amount by team up to 5th levels and total working income will be divided into two parts 50:50 ratio in E-pin wallet and fund wallet you can also transfer amount into E-pin wallet from fund wallet without any boundation amount to create E-pin.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">

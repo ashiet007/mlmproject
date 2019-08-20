@@ -185,6 +185,22 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <label for="email" class="col-md-6 control-label">Email
+                    <span class="required">*</span>
+                </label>
+                <div class="col-md-12">
+                    <input id="email" type="email" class="form-control custom-input" name="email" value="{{ old('email') }}" placeholder="Email Address" required>
+
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 <h5 class="card-title font-weight-bold text-uppercase">Payment Details</h5>
     <div class="row">

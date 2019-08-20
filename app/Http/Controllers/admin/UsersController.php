@@ -29,6 +29,7 @@ class UsersController extends Controller
         'role' => 'required',
         'identity' => 'required',
         'mob_no' => 'required|numeric|digits:10',
+        'email' => 'required|string|email|max:255',
         'district_id' => 'required',
         'state_id' => 'required',
         'bank_id' => 'required',
@@ -46,6 +47,7 @@ class UsersController extends Controller
         'name' => 'Name',
         'user_name' => 'Username',
         'mob_no' => 'Mobile Number',
+        'email' => 'Email',
         'district_id' => 'District',
         'state_id' => 'State',
         'account_no' => 'Account Number',
@@ -83,6 +85,7 @@ class UsersController extends Controller
         $user = User::create([
             'name' => strtoupper($request->name),
             'user_name' => strtolower($request->user_name),
+            'email' => strtolower($request->email),
             'password' => bcrypt($request->password),
             'identity' => $request->identity,
             'sponsor_id' => $request->sponsor_id,
@@ -218,6 +221,7 @@ class UsersController extends Controller
         $this->validate($request, [
             'name' => ['required','string','max:255','regex:/(^[a-zA-Z\\s]*$)/u'],
             'mob_no' =>['required','numeric'],
+            'email' => ['required','string','email','max:255'],
             'district_id' => 'required',
             'state_id' => 'required',
             'bank_id' => 'required',
@@ -240,6 +244,7 @@ class UsersController extends Controller
             $user->update([
                 'name' => strtoupper($request->name),
                 'user_name' => strtolower($request->user_name),
+                'email' => strtolower($request->email),
                 'password' => $data['password']
             ]);
         }
@@ -247,6 +252,7 @@ class UsersController extends Controller
             $user->update([
                 'name' => strtoupper($request->name),
                 'user_name' => strtolower($request->user_name),
+                'email' => strtolower($request->email),
         ]);
         }
         $userProfile = UserDetail::where('user_id',$id)->firstOrFail();
