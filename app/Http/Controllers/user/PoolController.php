@@ -116,9 +116,10 @@ class PoolController extends Controller
     {
         $userPoolFund = UserPoolFund::where('user_id',$this->userId)
                                     ->sum('amount');
-        $availableFund = UserFund::where('from_wallet','pool-wallet')
+        $transferFund = UserFund::where('from_wallet','pool-wallet')
                                     ->where('user_id',$this->userId)
                                     ->sum('amount');
+        $availableFund = $userPoolFund - $transferFund;
         return view('user.pool.transfer',compact('userPoolFund','availableFund'));
     }
 
