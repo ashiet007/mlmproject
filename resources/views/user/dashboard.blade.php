@@ -187,25 +187,14 @@
                                                                 {{ $getHelp->user->userDetails['mob_no'] }}
                                                             </div>
                                                         </div>
-                                                        {{--                                        <div class="row">--}}
-                                                        {{--                                            <div class="col-md-6 font-weight-bold">--}}
-                                                        {{--                                                Sponsor User ID:--}}
-                                                        {{--                                            </div>--}}
-                                                        {{--                                            <div class=" col-md-6 font-weight-light">--}}
-                                                        {{--                                                {{ $getHelp->user->sponsor_id }}--}}
-                                                        {{--                                            </div>--}}
-                                                        {{--                                        </div>--}}
-                                                        {{--                                        <div class="row">--}}
-                                                        {{--                                            <div class="col-md-6 font-weight-bold">--}}
-                                                        {{--                                                Sponsor Number:--}}
-                                                        {{--                                            </div>--}}
-                                                        {{--                                            <div class=" col-md-6 font-weight-light">--}}
-                                                        {{--                                                @php--}}
-                                                        {{--                                                    $data = getDetails($getHelp->user->sponsor_id)--}}
-                                                        {{--                                                @endphp--}}
-                                                        {{--                                                {{ !empty($data)?$data->userDetails->mob_no:'N/A'}}--}}
-                                                        {{--                                            </div>--}}
-                                                        {{--                                        </div>--}}
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Receiver Email:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ $getHelp->user->email }}
+                                                            </div>
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-6 font-weight-bold">
                                                                 Receiver State:
@@ -512,26 +501,14 @@
                                                                 {{ $giveHelp->user->userDetails['mob_no'] }}
                                                             </div>
                                                         </div>
-{{--                                                        <div class="row">--}}
-{{--                                                            <div class="col-md-6 font-weight-bold">--}}
-{{--                                                                Sponsor User ID:--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class=" col-md-6 font-weight-light">--}}
-{{--                                                                {{ $giveHelp->user->sponsor_id }}--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-
-{{--                                                        <div class="row">--}}
-{{--                                                            <div class="col-md-6 font-weight-bold">--}}
-{{--                                                                Sponsor Mobile:--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class=" col-md-6 font-weight-light">--}}
-{{--                                                                @php--}}
-{{--                                                                    $data = getDetails($giveHelp->user->sponsor_id)--}}
-{{--                                                                @endphp--}}
-{{--                                                                {{!empty($data)?$data->userDetails->mob_no:'N/A' }}--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
+                                                        <div class="row">
+                                                            <div class="col-md-6 font-weight-bold">
+                                                                Sender Email:
+                                                            </div>
+                                                            <div class=" col-md-6 font-weight-light">
+                                                                {{ $giveHelp->user->email }}
+                                                            </div>
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-6 font-weight-bold">
                                                                 Sender State:
