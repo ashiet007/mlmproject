@@ -157,6 +157,21 @@ class RegisterController extends Controller
         }
 
         $data = $request->all();
+        $users = UserDetail::with('user')
+            ->join('users','users.id','=','user_details.user_id')
+            ->select('user_details.*')
+            ->where(function ($query) use ($data) {
+                $query->where('mob_no', '=', $data['mob_no'])
+                    ->orWhere('account_no', '=', $data['account_no']);
+            })
+            ->where('users.status', '=', 'rejected')
+            ->get();
+        $count = count($users);
+        if($count > 0)
+        {
+            alert()->success('This details has been blocked. Please Register with fresh details.', 'Error')->persistent("Close");
+            return redirect()->back()->withInput();
+        }
         $user = array();
         $userDetails = array();
         $user['sponsor_id'] = strtolower($data['sponsor_id']);
