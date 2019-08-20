@@ -198,22 +198,23 @@ class UserController extends Controller
                     $getHelpUpdated->update([
                         'status' => 'accepted',
                     ]);
+
+                    /************* Update Get Help Status **********/
+                    $getHelpUserId = $getHelpUpdated->user_id;
+
+                    /*************** Update User Get Help Helping Fund ***********/
+                    if($getHelpUpdated->type == 'helping')
+                    {
+                        $getHelpUserSetting = UserSetting::where('user_id',$getHelpUserId)->first();
+                        $helpingFund = $getHelpUserSetting->helping_fund;
+                        $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
+                        $getHelpUserSetting->update([
+                            'helping_fund' => $updatedHelpingFund
+                        ]);
+                    }
+                    /*************** Update User Get Help Helping Fund ***********/
                 }
             }
-            /************* Update Get Help Status **********/
-            $getHelpUserId = $getHelpUpdated->user_id;
-
-            /*************** Update User Get Help Helping Fund ***********/
-            if($getHelpUpdated->type == 'helping')
-            {
-                $getHelpUserSetting = UserSetting::where('user_id',$getHelpUserId)->first();
-                $helpingFund = $getHelpUserSetting->helping_fund;
-                $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
-                $getHelpUserSetting->update([
-                    'helping_fund' => $updatedHelpingFund
-                ]);
-            }
-            /*************** Update User Get Help Helping Fund ***********/
 
             $giveHelp = GiveHelp::with(['getHelps' => function($query)
                     {
