@@ -14,6 +14,7 @@
             <th>State</th>
             <th>District</th>
             <th>Status</th>
+            <th>Current Package</th>
             <th>Total Direct Team</th>
             <th>Total Team</th>
         </tr>
@@ -31,6 +32,10 @@
                 <td>{{$member->userDetails->userState->name}}</td>
                 <td>{{$member->userDetails->userDistrict->name}}</td>
                 <td>{{$member->status}}</td>
+                @php
+                    $userSetting = $member->userSetting()->first();
+                @endphp
+                <td>{{$userSetting->give_help_amount.'/'.$userSetting->get_help_amount}}</td>
                 <td>{{count(getTotalDirectTeam($member->user_name))}}</td>
                 <td>{{count(getTotalTeam($member->user_name))}}</td>
             </tr>

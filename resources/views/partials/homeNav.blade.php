@@ -5,18 +5,13 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 text-center text-lg-left">
-                    <a class="text-color mr-3" href="mailto:modinaamaindia@gmail.com"><strong>Mail us</strong> modinaamaindia@gmail.com</a>
-                    <ul class="list-inline d-inline">
-                        <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
-                        <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
-                        <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-linkedin"></i></a></li>
-                    </ul>
+                    <a class="text-color mr-3" href="mailto:modinaamaindia@gmail.com"><strong>Mail us - </strong> modinaamaindia@gmail.com</a>
                 </div>
                 <div class="col-lg-8 text-center text-lg-right">
                     <ul class="list-inline">
                         @guest
-                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-success" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;color: #fff;" href="{{url('/login')}}">login</a></li>
-                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-danger" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;color: #fff;" href="{{route('register')}}">register</a></li>
+                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-success" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;padding-left: 5px !important;padding-right: 5px !important;color: #fff;" href="{{url('/login')}}">login</a></li>
+                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-danger" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;padding-left: 5px !important;padding-right: 5px !important;color: #fff;" href="{{route('register')}}">register</a></li>
                         @else
                         <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">{{Auth::User()->name}}</a></li>
                         <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{{ url('/user/dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>

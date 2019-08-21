@@ -40,7 +40,7 @@
 
         <!-- Notice -->
         <div class="container">
-            <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()"><p class="dashboard-news"><span class="text-danger font-weight-bold">News</span> {{ $news->details }} <span class="font-weight-bold">Posted Date: {{$news->updated_at->format('d, M Y h:i:s A')}}</span></p></marquee>
+            <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()"><p class="dashboard-news"><span class="text-danger font-weight-bold">News</span> <span style="font-weight: 900" class="text-success">{{ $news->details }}</span> <span class="font-weight-bold">Posted Date: {{$news->updated_at->format('d, M Y h:i:s A')}}</span></p></marquee>
         </div>
         @if($user->status == 'pending')
             <div class="container text-center">
@@ -301,6 +301,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="container-fluid container-padding mr-auto">
+                                                        @if($getHelp->pivot->proof_file_name != null)
+                                                            <button class="btn btn-secondary custom-button m-2 disabled"><i class="fas fa-upload"></i> Upload Slip</button>
+                                                        @else
                                                         <button class="btn btn-secondary custom-button m-2" data-toggle="modal" data-target="#myModal{{$i}}"><i class="fas fa-upload"></i> Upload Slip</button>
                                                         <!-- The Modal -->
                                                         <div class="modal" id="myModal{{$i}}">
@@ -329,6 +332,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endif
                                                         <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$i}}"></button>
                                                         <script>
                                                             // Set the date we're counting down to

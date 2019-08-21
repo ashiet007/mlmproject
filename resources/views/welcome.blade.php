@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('styles')
-
+<style>
+    .text-muted{
+        font-weight: 900;
+        color: #ffffff !important;
+        font-size: large;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -12,7 +18,7 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">{{$news->subject}}
+                            <h1 class="text-warning" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">{{$news->subject}}
                             </h1>
                             <small data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-white">{{$news->updated_at->format('d, M Y h:i:s A')}}</small>
                             <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">{{$news->details}}</p>
@@ -24,7 +30,7 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">{{$news->subject}}
+                            <h1 class="text-warning" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">{{$news->subject}}
                             </h1>
                             <small data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-white">{{$news->updated_at->format('d, M Y h:i:s A')}}</small>
                             <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">{{$news->details}}</p>
@@ -36,7 +42,7 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{{$news->subject}}
+                            <h1 class="text-warning" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{{$news->subject}}
                             </h1>
                             <small data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-white">{{$news->updated_at->format('d, M Y h:i:s A')}}</small>
                             <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">{{$news->details}}</p>

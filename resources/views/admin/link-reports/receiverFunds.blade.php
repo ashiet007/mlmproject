@@ -11,6 +11,7 @@
                 <th>Username</th>
                 <th>Name</th>
                 <th>Amount</th>
+                <th>Current Package</th>
             </tr>
             </thead>
             <tbody>
@@ -23,6 +24,10 @@
                     <td>{{$user->user_name}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->singleLineIncome->amount}}</td>
+                    @php
+                        $userSetting = $user->userSetting()->first();
+                    @endphp
+                    <td>{{$userSetting->give_help_amount.'/'.$userSetting->get_help_amount}}</td>
                 </tr>
                 @php
                     $i =$i+1;
