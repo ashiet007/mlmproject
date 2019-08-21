@@ -210,6 +210,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <h3><span class="text-danger">NOTE:-</span>Please read the plan carefully before signup our community thank you.</h3>
+                </div>
             </div>
         </div>
     </section>

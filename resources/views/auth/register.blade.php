@@ -32,6 +32,9 @@
             <div class="row">
                 <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
                     <h2 class="text-center heading-color">Register</h2>
+                    <div class="alert bg-danger">
+                        <h5 class="text-center text-white">Please fill details carefully, after form submit nothing will changed</h5>
+                    </div>
                     <form action="{{route('register.create')}}" method="post" id="registerform">
                         {{csrf_field()}}
                         <h3 class="text-capitalize heading-color">Sponsor Details</h3>

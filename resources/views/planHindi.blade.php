@@ -210,6 +210,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <h3><span class="text-danger">टिप्पणी:- </span>कृपया इस अभियान में शामिल होने से पूर्व सभी तथ्यों को जाँच लें,धन्यवाद|</h3>
+                </div>
             </div>
         </div>
     </section>
