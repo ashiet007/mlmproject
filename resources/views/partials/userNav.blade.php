@@ -57,7 +57,7 @@
                                 <a class="dropdown-item" href="{{route('team.activeList')}}">Direct Active List</a>
                                 <a class="dropdown-item" href="{{route('team.directList')}}">Total Direct List</a>
                                 <a class="dropdown-item" href="{{route('team.rejectedList')}}">Direct Rejected List</a>
-                                <a class="dropdown-item" href="#">Total Team List</a>
+                                <a class="dropdown-item" href="{{route('team.totalTeam')}}">Total Team List</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown view">
@@ -71,17 +71,6 @@
                                 <a class="dropdown-item" href="{{route('report.rejectedHelpReport')}}">Rejected Help Report</a>
                             </div>
                         </li>
-{{--                        <li class="nav-item dropdown view">--}}
-{{--                            <a class="nav-link dropdown-toggle" href="#" id="workingReport" role="button" data-toggle="dropdown"--}}
-{{--                               aria-haspopup="true" aria-expanded="false">--}}
-{{--                                Working Report--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-menu" aria-labelledby="workingReport">--}}
-{{--                                <a class="dropdown-item" href="#">Level Income Report</a>--}}
-{{--                                <a class="dropdown-item" href="#">Pool Income Report</a>--}}
-{{--                                <a class="dropdown-item" href="#">Withdrawal Report</a>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
                         <li class="nav-item dropdown view">
                             <a class="nav-link dropdown-toggle" href="#" id="poolWallet" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">

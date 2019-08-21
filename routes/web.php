@@ -36,45 +36,62 @@ Route::post('verify-form-details','RegisterController@verifyDetails')->name('reg
 //******************* User Routes **********************//
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'roles','status','accountStatus'], 'roles' => 'User'], function () {
     Route::get('dashboard','user\UserController@index')->name('user.index');
+
+    /* ********************* Profile *************** */
     Route::get('view-profile', 'user\ProfileController@viewProfile')->name('profile.viewProfile');
     Route::get('sponsor-info', 'user\ProfileController@viewSponsor')->name('profile.viewSponsor');
     Route::get('user-security', 'user\ProfileController@viewSecurity')->name('profile.viewSecurity');
     Route::post('user-security', 'user\ProfileController@changeSecurity')->name('profile.changeSecurity');
+    /* ********************* Profile *************** */
+
+    /* ***************  Network *********************** */
     Route::get('register-user','user\TeamController@registeredList')->name('team.registeredList');
     Route::get('active-user','user\TeamController@activeList')->name('team.activeList');
     Route::get('direct-list','user\TeamController@directList')->name('team.directList');
     Route::get('rejected-list','user\TeamController@rejectedList')->name('team.rejectedList');
+    Route::get('total-team','user\TeamController@totalTeam')->name('team.totalTeam');
+    /* ***************  Network *********************** */
+
+    /* *************** Helping Reports *****************/
     Route::get('give-help-reports','user\ReportController@provideHelpReport')->name('report.provideHelpReport');
     Route::get('get-help-reports','user\ReportController@receiveHelpReport')->name('report.receiveHelpReport');
     Route::get('rejected-help-reports','user\ReportController@rejectedHelpReport')->name('report.rejectedHelpReport');
+    /* *************** Helping Reports *****************/
+
+    /* *************** Wallet *********************/
     Route::get('income','user\IncomeController@directIncome')->name('income.direct');
     Route::get('income/reports','user\IncomeController@reports')->name('income.reports');
     Route::get('income/daily-growth','user\IncomeController@dailyGrowth')->name('income.dailyGrowth');
     Route::post('income-widhrawal','user\IncomeController@workingWithrawal')->name('income.workingWithrawal');
     Route::post('fund-transfer','user\IncomeController@fundTransfer')->name('income.fundTransfer');
+    /* *************** Wallet *********************/
+
+    /* *************** Dashboard *****************/
     Route::post('upload-proof','user\ProofController@uploadProof')->name('proof.uploadProof');
     Route::post('reject-help','user\UserController@rejectHelp')->name('user.rejectHelp');
     Route::post('accept-help','user\UserController@acceptHelp')->name('user.acceptHelp');
     Route::post('send-message','user\UserController@message')->name('user.message');
     Route::post('extend-timer','user\UserController@extendTimer')->name('user.extendTimer');
+    /* *************** Dashboard *****************/
+
     Route::resource('messages', 'user\\MessageController');
 
-    /************ Epin Routes *****************/
+    /* *********** Epin Routes **************** */
     Route::get('epin/unused','user\EpinController@unusedEpin')->name('epin.unused');
     Route::get('epin/create','user\EpinController@create')->name('epin.create');
     Route::post('epin/create','user\EpinController@store')->name('epin.store');
     Route::post('epin/transfer','user\EpinController@transferEpin')->name('epin.transferEpin');
     Route::get('user_ajax','user\EpinController@getUser')->name('epin.userAjax');
     Route::get('epin/report','user\EpinController@report')->name('epin.report');
-    /************ Epin Routes *****************/
+    /* *********** Epin Routes **************** */
 
-    /************ pool Routes *****************/
+    /* *********** pool Routes **************** */
     Route::get('view/pool','user\PoolController@viewPool')->name('pool.view');
     Route::get('pool/transfer-fund','user\PoolController@transferForm')->name('pool.transferForm');
     Route::post('pools/transfer-fund','user\PoolController@fundTransfer')->name('pool.fundTransfer');
     Route::get('pools','user\PoolController@index')->name('pool.index');
     Route::post('pools/action','user\PoolController@action')->name('pool.action');
-    /************ //pool Routes *****************/
+    /* *********** //pool Routes **************** */
 });
 //******************************************************//
 Route::get('user/activate-account','user\UserController@activateAccount')->name('user.activateAccount');

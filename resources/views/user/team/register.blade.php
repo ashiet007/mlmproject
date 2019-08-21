@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials.header')
-<h2 class="text-center">Inactive List</h2>
+<h2 class="text-center">Direct Register List</h2>
 <div class="table-responsive">
     <table class="table">
         <thead>

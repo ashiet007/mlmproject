@@ -40,4 +40,12 @@ class TeamController extends Controller
             ->rejected()->get();
         return view('user.team.rejected',compact('rejectedList'));
     }
+
+    public function totalTeam()
+    {
+        $username = Auth::User()->user_name;
+        $totalTeam = getTotalTeam($username);
+        $teamDetails = $totalTeam->sortBy('level');
+        return view('user.team.total',compact('teamDetails'));
+    }
 }
