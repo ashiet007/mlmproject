@@ -148,6 +148,41 @@ class RegisterController extends Controller
         }
     }
 
+    public function verifyDetails(Request $request)
+    {
+        $data = $request->all();
+        $users = UserDetail::with('user')
+            ->join('users','users.id','=','user_details.user_id')
+            ->select('user_details.*')
+            ->where(function ($query) use ($data) {
+                $query->where('mob_no', '=', $data['mob_no'])
+                    ->orWhere('account_no', '=', $data['account_no'])
+                    ->orWhere('users.email','=',$data['email']);
+            })
+            ->where('users.status', '=', 'rejected')
+            ->get();
+        $count = count($users);
+        if($count > 0)
+        {
+            return response()->json(['status'=>'error','message' => 'These details have been neglected']);
+        }
+
+        $sameUsers = UserDetail::with('user')
+            ->join('users','users.id','=','user_details.user_id')
+            ->select('user_details.*')
+            ->where('mob_no', '=', $data['mob_no'])
+            ->where('account_no', '=', $data['account_no'])
+            ->where('users.email','=',$data['email'])
+            ->get();
+
+        $userCount = count($sameUsers);
+        if($userCount >= 11)
+        {
+            return response()->json(['status'=>'error','message' => 'You can only register 11 account with same details']);
+        }
+        return response()->json(['status'=>'ok']);
+    }
+
     protected function create(Request $request)
     {
         $validation = Validator::make($request->all(), $this->validationRules,[],$this->customAttributes);
@@ -157,21 +192,6 @@ class RegisterController extends Controller
         }
 
         $data = $request->all();
-        $users = UserDetail::with('user')
-            ->join('users','users.id','=','user_details.user_id')
-            ->select('user_details.*')
-            ->where(function ($query) use ($data) {
-                $query->where('mob_no', '=', $data['mob_no'])
-                    ->orWhere('account_no', '=', $data['account_no']);
-            })
-            ->where('users.status', '=', 'rejected')
-            ->get();
-        $count = count($users);
-        if($count > 0)
-        {
-            alert()->success('This details has been blocked. Please Register with fresh details.', 'Error')->persistent("Close");
-            return redirect()->back()->withInput();
-        }
         $user = array();
         $userDetails = array();
         $user['sponsor_id'] = strtolower($data['sponsor_id']);

@@ -31,6 +31,7 @@ Route::post('getSponsorDetails','RegisterController@getSponsorDetails')->name('r
 Route::post('register', 'RegisterController@create')->name('register.create');
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::post('verify-form-details','RegisterController@verifyDetails')->name('register.verifyDetails');
 
 //******************* User Routes **********************//
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'roles','status','accountStatus'], 'roles' => 'User'], function () {
