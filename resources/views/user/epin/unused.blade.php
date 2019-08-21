@@ -48,12 +48,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-12">
-                        <input type="hidden" id="userId" name="user_id">
-                        <input type="text" class="form-control mb-3" id="search" name="user" autocomplete="off" placeholder="Search User...">
+                    <div class="form-group">
+                        <div class="col-12">
+                            <input type="text" class="form-control custom-input" id="userId" name="user_name" placeholder="Enter Username" required onchange="getUserDetails();">
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Transfer</button>
+                    <div class="form-group">
+                        <div class="col-12">
+                            <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Name" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary d-none" id="transferBtn">Transfer</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,21 +70,37 @@
 </form>
 @endsection
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
-        var path = "{{ route('epin.userAjax') }}";
-        $('#search').typeahead({
-            minLength: 2,
-            source:  function (query, process) {
-                return $.get(path, { query: query }, function (data) {
-                    return process(data);
-                });
-            },
-            afterSelect: function (data) {
-                //print the id to developer tool's console
-                $('#userId').val(data.id);
-            }
-        });
+        function getUserDetails() {
+            var userId = $('#userId').val();
+            $('#name').val('');
+            $('#transferBtn').addClass('d-none');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{ route('register.getSponsorDetails') }}",
+                method: 'post',
+                data: {
+                    sponsorId: userId
+                },
+                success: function (result) {
+                    $('#name').val(result.sponsorName);
+                    $('#transferBtn').removeClass('d-none');
+                },
+                error: function (xhr) {
+                    $('.loader').css('display', 'none');
+                    swal({
+                        title: "Error!",
+                        text: "Invalid User",
+                        icon: "error",
+                    });
+                }
+            });
+
+        }
     </script>
     <script>
         $("#selectAll").click(function(){

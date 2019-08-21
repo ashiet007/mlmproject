@@ -107,57 +107,68 @@ class EpinController extends Controller
     public function transferEpin(Request $request)
     {
         $this->validate($request,[
-            'user_id' => 'required',
-            'pin_id' => 'required'
+            'user_name' => 'required',
+            'name' => 'required',
+            'pin_id' =>'required',
         ],[
-            'pin_id.required' =>'Please Select Epin to transfer',
-            'user_id.required' => 'Invalid User'
+            'user_name.required' =>'Username Field is required',
+            'name.required' => 'Name Field is required',
+            'pin_id.required' => 'Please Select pin to transfer'
         ]);
         $requestData = $request->all();
-        if(isset($requestData['user_id']))
+        $user = User::where('user_name',$requestData['user_name'])->first();
+        if($user)
         {
-            $epins = Epin::whereIn('id',$requestData['pin_id'])->get();
-            // Create Data
-            DB::beginTransaction();
-            $saved = true;
-            try
+            if($user->id != $this->userId)
             {
-                foreach ($epins as $epin)
+                $epins = Epin::whereIn('id',$requestData['pin_id'])->get();
+                // Create Data
+                DB::beginTransaction();
+                $saved = true;
+                try
                 {
-                    $data[] = [
-                        'user_id' => $requestData['user_id'],
-                        'pin' => $epin->pin,
-                        'transaction_type' => 'credit',
-                        'amount' => $epin->amount,
-                        'status' => 'unused'
-                    ];
-                    $epin->update([
-                        'status' => 'used',
-                        'transaction_type' => 'debit',
-                        'transferred_to' => $requestData['user_id']
-                    ]);
+                    foreach ($epins as $epin)
+                    {
+                        $data[] = [
+                            'user_id' => $user->id,
+                            'pin' => $epin->pin,
+                            'transaction_type' => 'credit',
+                            'amount' => $epin->amount,
+                            'status' => 'unused'
+                        ];
+                        $epin->update([
+                            'status' => 'used',
+                            'transaction_type' => 'debit',
+                            'transferred_to' => $user->id
+                        ]);
+                    }
+                    $transferredEpins = Epin::insert($data);
+                    if($epins && $transferredEpins)
+                    {
+                        $saved = true;
+                    }
                 }
-                $transferredEpins = Epin::insert($data);
-                if($epins && $transferredEpins)
+                catch (\Throwable $e)
                 {
-                    $saved = true;
+                    alert()->error($e->getMessage(), 'Error')->persistent("Close");
+                    return redirect()->back()->withInput();
                 }
-            }
-            catch (\Throwable $e)
-            {
-                alert()->error($e->getMessage(), 'Error')->persistent("Close");
-                return redirect()->back()->withInput();
-            }
-            if($saved)
-            {
-                DB::commit(); // YES --> finalize it
-                alert()->success('Epin transferred Successfully', 'Success')->persistent("Close");
-                return redirect()->back();
+                if($saved)
+                {
+                    DB::commit(); // YES --> finalize it
+                    alert()->success('Epin transferred Successfully', 'Success')->persistent("Close");
+                    return redirect()->back();
+                }
+                else
+                {
+                    DB::rollBack(); // NO --> some error has occurred undo the whole thing
+                    alert()->error('Something went wrong', 'Error')->persistent("Close");
+                    return redirect()->back()->withInput();
+                }
             }
             else
             {
-                DB::rollBack(); // NO --> some error has occurred undo the whole thing
-                alert()->error('Something went wrong', 'Error')->persistent("Close");
+                alert()->error('Please Select another user', 'Error')->persistent("Close");
                 return redirect()->back()->withInput();
             }
 
