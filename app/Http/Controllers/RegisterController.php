@@ -170,9 +170,11 @@ class RegisterController extends Controller
         $sameUsers = UserDetail::with('user')
             ->join('users','users.id','=','user_details.user_id')
             ->select('user_details.*')
-            ->where('mob_no', '=', $data['mob_no'])
-            ->where('account_no', '=', $data['account_no'])
-            ->where('users.email','=',$data['email'])
+            ->where(function ($query) use ($data) {
+                $query->where('mob_no', '=', $data['mob_no'])
+                    ->orWhere('account_no', '=', $data['account_no'])
+                    ->orWhere('users.email','=',$data['email']);
+            })
             ->get();
 
         $userCount = count($sameUsers);

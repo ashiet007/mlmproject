@@ -1,4 +1,14 @@
 @extends('layouts.backend')
+@section('styles')
+    <style>
+        .color-red{
+            color: red;
+        }
+        .color-yellow{
+            color: yellow;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="mt-5 mb-5">
         <div class="container">
@@ -14,7 +24,7 @@
                                         <select class="form-control custom-input" id="pinId" name="epin_id" required>
                                             <option value="">--Select Epin--</option>
                                             @foreach($unusedEpins as $epin)
-                                            <option data-pin-amount="{{$epin->amount}}" value="{{$epin->id}}">{{$epin->pin}}</option>
+                                            <option data-pin-amount="{{$epin->amount}}" value="{{$epin->id}}" class="{{$epin->amount == '500'?'color-red':'color-yellow'}}">{{$epin->pin}}</option>
                                             @endforeach
                                         </select>
                                     </div>

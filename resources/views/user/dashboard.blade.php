@@ -261,7 +261,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6 font-weight-bold">
-                                                                Receiver Gpay/Phonepay Number:
+                                                                Receiver Gpay/Phonepe Number:
                                                             </div>
                                                             <div class=" col-md-6 font-weight-light">
                                                                 {{ isset($getHelp->user->userDetails['gpay_no'])? $getHelp->user->userDetails['gpay_no']:'N/A'}}
@@ -296,7 +296,7 @@
                                                                 Link Status:
                                                             </div>
                                                             <div class=" col-md-6">
-                                                                <span class="text-danger text-uppercase font-weight-bold" style="font-size: 20px;"> {{ $getHelp->pivot->status }}</span>
+                                                                <span class="text-white text-uppercase font-weight-bold" style="font-size: 20px;"> {{ $getHelp->pivot->status }}</span>
                                                             </div>
                                                         </div>
                                                     </div>

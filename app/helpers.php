@@ -534,3 +534,22 @@ function availableEpinIncome()
     return $availableEpinWalletFund;
 }
 
+function getEpinReportComment($data)
+{
+
+    if($data->transaction_type == 'generate')
+    {
+        $comment = 'Pin used for Self Activation.';
+    }
+    if($data->transaction_type == 'credit')
+    {
+        $comment = 'Pin used for Self Activation';
+    }
+    if($data->transaction_type == 'debit')
+    {
+        $user= User::where('id',$data->transferred_to)->first();
+        $comment = "<p class='comment-para'>Transferred To :-</p><p class='comment-para'>Username: ".$user->user_name."</p><p class='comment-para'>Name: ".$user->name."</p>";
+    }
+    return $comment;
+}
+

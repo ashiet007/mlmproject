@@ -4,8 +4,10 @@
 namespace App\Http\Controllers\admin;
 
 
+use App\GiveHelp;
 use App\Http\Controllers\Controller;
 use App\PoolUser;
+use App\UserPool;
 use Illuminate\Http\Request;
 
 class PoolController extends Controller
@@ -38,5 +40,21 @@ class PoolController extends Controller
     {
         $pooledUsers = PoolUser::with('user.userDetails')->get();
         return view('admin.pool.list',compact('pooledUsers'));
+    }
+
+    public function pendingPoolReport()
+    {
+        $userData = GiveHelp::with('user.userDetails')
+                            ->where('type','pool')
+                            ->where('status','pending')
+                            ->get();
+        return view('admin.pool.pending',compact('userData'));
+    }
+
+    public function poolActionReport()
+    {
+        $data = UserPool::with('user.userDetails')
+                        ->get();
+        return view('admin.pool.action',compact('data'));
     }
 }

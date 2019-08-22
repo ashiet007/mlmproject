@@ -7,14 +7,21 @@
     <table class="table table-border">
         <thead>
         <tr>
-            <th>#</th><th>Amount</th><th>Status</th><th>Requested Date</th><th></th>
+            <th>#</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Requested Date</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach($giveHelps as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->amount }}</td><td class="text-capitalize">{{ $item->status }}</td>
+                <td>{{ $item->amount }}</td>
+                <td>{{ ucwords($item->type) }}</td>
+                <td class="text-capitalize">{{ $item->status }}</td>
                 <td>{{ $item->created_at->format('d, M Y h:i:s A') }}</td>
                 @if(count($item->getHelps) >= 1 )
                     <td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal{{$item->id}}">Show Sub-Transactions</button>

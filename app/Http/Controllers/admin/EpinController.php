@@ -153,4 +153,12 @@ class EpinController extends Controller
         alert()->error('Select User', 'Error')->persistent("Close");
         return redirect()->back()->withInput();
     }
+
+    public function report()
+    {
+        $epin = new Epin;
+        $report = $epin->getEpinReport($this->userId);
+
+        return view('admin.epin.report',compact('report'));
+    }
 }

@@ -116,6 +116,7 @@
                             <div class="dropdown-menu" aria-labelledby="epin">
                                 <a class="dropdown-item" href="{{ route('adminEpin.create') }}">Create E-Pin</a>
                                 <a class="dropdown-item" href="{{ route('adminEpin.unused') }}">Transfer Epin</a>
+                                <a class="dropdown-item" href="{{ route('adminEpin.report') }}">Epin Reports</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown view">
@@ -126,9 +127,8 @@
                             <div class="dropdown-menu" style="left: -100;" aria-labelledby="pool">
                                 <a class="dropdown-item" href="{{route('adminPool.view')}}">Current Pool View</a>
                                 <a class="dropdown-item" href="{{route('adminPool.viewList')}}">Current Pool History</a>
-                                <a class="dropdown-item" href="#">Pending Pool History</a>
-                                <a class="dropdown-item" href="#">Pool Action History</a>
-                                <a class="dropdown-item" href="#">Final Pool History</a>
+                                <a class="dropdown-item" href="{{route('adminPool.pendingPoolReport')}}">Pending Pool History</a>
+                                <a class="dropdown-item" href="{{route('adminPool.poolActionReport')}}">Pool Action History</a>
                             </div>
                         </li>
                     </ul>

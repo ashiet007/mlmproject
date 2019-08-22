@@ -158,9 +158,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'roles'], 'roles' =>
     Route::post('admin-epin/create','admin\EpinController@store')->name('adminEpin.store');
     Route::get('admin-epin/transfer','admin\EpinController@unused')->name('adminEpin.unused');
     Route::post('admin-epin/transfer','admin\EpinController@transferEpin')->name('adminEpin.transferEpin');
-
+    Route::get('admin-epin/reports','admin\EpinController@report')->name('adminEpin.report');
     /*************** Pool ********************************/
     Route::get('pool/view','admin\PoolController@viewPool')->name('adminPool.view');
     Route::get('pool/view/list','admin\PoolController@viewList')->name('adminPool.viewList');
+    Route::get('pool/view/pending','admin\PoolController@pendingPoolReport')->name('adminPool.pendingPoolReport');
+    Route::get('pool/view/action-report','admin\PoolController@poolActionReport')->name('adminPool.poolActionReport');
 });
 //******************************************************//

@@ -1,4 +1,13 @@
 @extends('layouts.backend')
+@section('styles')
+    <style>
+        .comment-para{
+            margin-bottom: 0px;
+            font-weight: 900;
+            color: #182b45;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="mt-5 mb-5">
     <div class="container">
@@ -12,7 +21,8 @@
                             <th>Sr No.</th>
                             <th>Epin</th>
                             <th>Amount</th>
-                            <th>Used/Transferred Date</th>
+                            <th>Comment</th>
+                            <th>Used Date</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -21,6 +31,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$data->pin}}</td>
                                 <td>{{$data->amount}}</td>
+                                <td>@php echo getEpinReportComment($data)@endphp</td>
                                 <td>{{$data->updated_at->format('d, M Y h:i:s A')}}</td>
                             </tr>
                         @endforeach

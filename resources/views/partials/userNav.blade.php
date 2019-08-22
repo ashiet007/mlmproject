@@ -5,9 +5,9 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 text-center text-lg-left">
-                    <a class="text-color mr-3" href="#"><i class="fas fa-portrait"></i> {{Auth::User()->name}}</a>
+                    <a class="text-color mr-3 font-weight-bold text-success" href="#"><i class="fas fa-portrait"></i> {{Auth::User()->name}}</a>
                     <ul class="list-inline d-inline">
-                        <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="fa fa-user"></i> {{Auth::User()->user_name}}</a></li>
+                        <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-success font-weight-bold" href="#"><i class="fa fa-user"></i> {{Auth::User()->user_name}}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-8 text-center text-lg-right">

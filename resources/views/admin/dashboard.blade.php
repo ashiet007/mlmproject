@@ -14,30 +14,6 @@
     $j = 100;
     $timestamp = date("Y-m-d H:i:s");
 @endphp
-<section class="py-5">
-    <div class="container-fluid px-xl-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <ul class="list-unstyled">
-                        <!-- notice item -->
-                        <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
-                            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"> Referral Link</div>
-                            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <a href="#" class="h4 mb-3 d-block" id="foo">{{ route('register') }}?sponsor-id={{ $username }}</a>
-                            </div>
-                            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href="#" class="btn btn-primary"><i class="btn-clip" data-clipboard-action="copy" data-clipboard-target="#foo"> Copy</i></a></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()"><p><span class="text-danger font-weight-bold">News</span> {{ $news->details }} <span class="font-weight-bold">Posted Date: {{$news->updated_at->format('d, M Y h:i:s')}}</span></p></marquee>
-            </div>
-        </div>
-    </div>
     @include('partials.header')
     <h3 class="text-center mb-5">Company Reporting Panel</h3>
     <div class="row">

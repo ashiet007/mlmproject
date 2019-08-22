@@ -18,6 +18,10 @@
             <th> Mobile Number </th>
             <td>{{ $sponsorDetails->userDetails['mob_no'] }}</td>
         </tr>
+        <tr>
+            <th> Email </th>
+            <td>{{ $sponsorDetails->email }}</td>
+        </tr>
         </tbody>
     </table>
 </div>

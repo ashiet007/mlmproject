@@ -31,14 +31,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
-                    <h2 class="text-center heading-color">Register</h2>
+                    <h2 class="text-center heading-color">Registration Form</h2>
                     <div class="alert bg-danger">
                         <h5 class="text-center text-white">Please fill details carefully, after form submit nothing will changed.</h5>
                         <h5 class="text-center text-white">* Sections all fields are requied.</h5>
                     </div>
                     <form action="{{route('register.create')}}" method="post" id="registerform">
                         {{csrf_field()}}
-                        <h3 class="text-capitalize heading-color">Sponsor Details <span>*</span></h3>
+                        <h3 class="text-capitalize heading-color">Sponsor Details <span class="text-danger">*</span></h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
                                 <input id="sponsorId" type="text" class="margin2 form-control custom-input" name="sponsor_id" value="{{!empty($sponsorDetails) ? $sponsorDetails['user_name']:old('sponsor_id')}}" placeholder="SPONSOR ID" required="" onchange="getSponsorDetails();" autocomplete="off">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <br>
-                        <h3 class="text-capitalize heading-color">Personal Details <span>*</span></h3>
+                        <h3 class="text-capitalize heading-color">Personal Details <span class="text-danger">*</span></h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
                                 <input id="name" type="text" class="margin2 custom-input form-control text-style1" name="name" value="{{ old('name') }}" placeholder="FULL NAME AS PER BANK DETAILS" required="" autocomplete="off">
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <br>
-                        <h3 class="text-capitalize heading-color">Bank Details <span>*</span></h3>
+                        <h3 class="text-capitalize heading-color">Bank Details <span class="text-danger">*</span></h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
                                 <select id="bank_name" class="margin2 form-control custom-input" name="bank_id" required="" autocomplete="off">
@@ -189,7 +189,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="gpay" type="number" class="form-control custom-input" name="gpay_no" value="{{ old('gpay_no') }}" placeholder="GPAY/PHONEPAY NUMBER" autocomplete="off">
+                                <input id="gpay" type="number" class="form-control custom-input" name="gpay_no" value="{{ old('gpay_no') }}" placeholder="GPAY/PHONEPE NUMBER" autocomplete="off">
                                 @if ($errors->has('gpay_no'))
                                     <span class="help-block">
                                     <strong class="text-danger">{{ $errors->first('gpay_no') }}</strong>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                         <br>
-                        <h3 class="text-capitalize heading-color">Password Details <span>*</span></h3>
+                        <h3 class="text-capitalize heading-color">Password Details <span class="text-danger">*</span></h3>
                         <div class="row mt-3">
                             <div class="form-group col-md-6">
                                 <input id="password" type="password" class="margin2 form-control custom-input" name="password" placeholder="PASSWORD" required="" autocomplete="off">
@@ -349,7 +349,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <h5>Gpay/Phonepay Number</h5>
+                            <h5>Gpay/Phonepe Number</h5>
                         </div>
                         <div class="col-md-6">
                             <h5 class="previewGpayNumber"></h5>
