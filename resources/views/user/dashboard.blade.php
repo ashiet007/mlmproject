@@ -321,6 +321,7 @@
                                                                             <input type="hidden" name="give_help_id" value="{{$giveHelpId}}">
                                                                             <input type="hidden" name="user_id" value="{{$getHelp->user->id}}">
                                                                             <input type="hidden" name="get_help_id" value="{{$getHelp->id}}">
+                                                                            <input type="hidden" name="help_amount" value="{{$getHelp->pivot->assigned_amount }}">
                                                                             <input type="file" name="proof_file_name" class="form-control">
                                                                             <input class="btn btn-primary" type="submit" value="upload">
                                                                         </form>
