@@ -189,7 +189,7 @@ function helpGeneration()
                                 $isOnHold = checkUserforOnHold($user->id);
                                 if(!$isOnHold)
                                 {
-                                    if($user->singleLineIncome->amount >= 1000)
+                                    if($user->singleLineIncome->amount >= $user->userSetting->get_help_amount)
                                     {
                                         if($helpCount == 1)
                                             $hour = 2;
@@ -230,7 +230,7 @@ function helpGeneration()
                         $isOnHold = checkUserforOnHold($user->id);
                         if(!$isOnHold)
                         {
-                            if($user->singleLineIncome->amount >= 1000)
+                            if($user->singleLineIncome->amount >= $user->userSetting->get_help_amount)
                             {
                                 if($helpCount == 1)
                                     $hour = 2;
@@ -441,7 +441,7 @@ function checkUserforOnHold($id)
 
 function addSingleLineIncome($amount)
 {
-    $companyPool = CompanyPool::with('user')
+    $companyPool = CompanyPool::with('user.userSetting')
                                     ->start()
                                     ->get();
     foreach ($companyPool as $data)
@@ -454,12 +454,14 @@ function addSingleLineIncome($amount)
             {
                 if ($activeIds >= $helpSetting->needed_active_ids )
                 {
-                    if($data->amount < 1000)
+                    if($data->amount < $data->user->userSetting->get_help_amount)
                     {
                         $singleLineIncome =  $data->amount + ($amount*$helpSetting->income_per_id);
                         $data->update([
                             'amount' => $singleLineIncome
                         ]);
+
+
                     }
                     break;
                 }

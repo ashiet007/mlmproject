@@ -47,7 +47,7 @@
                 <p class="imp-note"><span class="text-danger font-weight-bold">Please aware:- </span><span>Every single line counting will calculate after Id activated.</span></p>
             </div>
         @endif
-        @if($isUnmatchedGetHelpHelping)
+        @if($isUnmatchedGetHelpHelping || ($userDetail->singleLineIncome->amount >= $userSetting->get_help_amount && $userSetting->get_help_amount != 0))
             <div class="container text-center">
                 <p class="imp-note"><span class="text-danger font-weight-bold">Note:- </span><span>Please wait, You are in the Get Help queue. Link may be match any time on sender availability thanks.</span></p>
             </div>
@@ -98,7 +98,7 @@
                 <!-- funfacts item -->
                 <div class="col-md-2 col-sm-6 mb-4 mb-md-0" style="width: 50%;padding-left:0px;padding-right:0px">
                     <div class="text-center">
-                        <h5 class="count text-white" data-count="{{$userDetail->singleLineIncome->amount}}">0</h5>
+                        <h5 class="count text-white" data-count="{{$userDetail->singleLineIncome->amount >= $userSetting->get_help_amount ? 0:$userDetail->singleLineIncome->amount}}">0</h5>
                         <h5 class="text-white">My Single Line Income</h5>
                     </div>
                 </div>
