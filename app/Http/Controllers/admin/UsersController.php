@@ -13,10 +13,12 @@ use App\Bank;
 use App\State;
 use App\District;
 use App\UserSetting;
+use App\ExportData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Excel;
 use JsValidator;
 use Validator;
 
@@ -326,5 +328,10 @@ class UsersController extends Controller
             return redirect()->back()->withInput();
         }
 
+    }
+
+    public function exportUserData()
+    {
+        return Excel::download(new ExportData, 'Modinaama-users-data.xlsx');
     }
 }
