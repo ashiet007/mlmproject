@@ -5,7 +5,7 @@
             color: red;
         }
         .color-yellow{
-            color: yellow;
+            color: #007bff;
         }
     </style>
 @endsection

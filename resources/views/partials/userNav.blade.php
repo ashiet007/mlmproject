@@ -98,7 +98,7 @@
                                 E-Pin Wallet
                             </a>
                             <div class="dropdown-menu" aria-labelledby="epinWallet">
-                                <a class="dropdown-item" href="{{route('epin.unused')}}">Unused Epin</a>
+                                <a class="dropdown-item" href="{{route('epin.unused')}}">Transfer Epin</a>
                                 <a class="dropdown-item" href="{{route('epin.create')}}">Create Epin</a>
                                 <a class="dropdown-item" href="{{route('epin.report')}}">Epin Reports</a>
                             </div>

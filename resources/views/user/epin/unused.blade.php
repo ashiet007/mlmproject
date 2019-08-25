@@ -1,4 +1,14 @@
 @extends('layouts.backend')
+@section('styles')
+    <style>
+        .color-red{
+            color: red;
+        }
+        .color-yellow{
+            color: #007bff;
+        }
+    </style>
+@endsection
 @section('content')
 <form action="{{route('epin.transferEpin')}}" method="post">
     @csrf
@@ -6,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
-                    <h2 class="text-center heading-color">Unused Epin</h2>
+                    <h2 class="text-center heading-color">Transfer Epin</h2>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -23,7 +33,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="pin_id[]" value="{{$data->id}}"></td>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$data->pin}}</td>
+                                    <td class="{{$data->amount == '500'?'color-red':'color-yellow'}}">{{$data->pin}}</td>
                                     <td>{{$data->amount}}</td>
                                     <td>{{$data->created_at->format('d, M Y h:i:s A')}}</td>
                                 </tr>
