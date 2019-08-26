@@ -466,14 +466,25 @@ class UserController extends Controller
                         'give_help_amount' => $requestData['amount']*2,
                         'get_help_amount' => $requestData['amount']*3
                     ]);
-                $giveHelp = GiveHelp::create([
-                    'user_id' => $this->userId,
-                    'amount' => $requestData['amount'],
-                    'status' => 'pending',
-                    'balance' => $requestData['amount'],
-                    'type' => 'helping',
-                    'completion_state' => 'none',
-                ]);
+                $pendingHelp = GiveHelp::where('status','pending')
+                                ->where('type','helping')
+                                ->where('user_id',$this->userId)
+                                ->first();
+                if($pendingHelp)
+                {
+                    $giveHelp = $pendingHelp;
+                }
+                else
+                {
+                    $giveHelp = GiveHelp::create([
+                        'user_id' => $this->userId,
+                        'amount' => $requestData['amount'],
+                        'status' => 'pending',
+                        'balance' => $requestData['amount'],
+                        'type' => 'helping',
+                        'completion_state' => 'none',
+                    ]);
+                }
                 if($giveHelp && $userSetting && $epin)
                 {
                     $saved =true;
