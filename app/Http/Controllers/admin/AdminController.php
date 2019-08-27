@@ -20,8 +20,18 @@ class AdminController extends Controller
     {
         $totalSystemId = User::count();
 
-        $newUsers = User::real()->pending()->get();
-        $totalNewId = count($newUsers);
+        $totalNewId = 0;
+        $newUsers = User::with('userSetting','giveHelps')->real()->get();
+        foreach($newUsers as $item)
+        {
+            if(count($item->giveHelps) == 0)
+            {
+                if($item->userSetting->account_status == 'inactive')
+                {
+                    $totalNewId = $totalNewId +1;
+                }
+            }
+        }
 
         $totalInActiveId = 0;
         $users = User::real()->get();
