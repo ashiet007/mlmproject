@@ -203,24 +203,27 @@ class UserController extends Controller
             {
                 if($getHelpUpdated->giveHelps->isEmpty())
                 {
-                    $getHelpUpdated->update([
-                        'status' => 'accepted',
-                    ]);
-
-                    /************* Update Get Help Status **********/
-                    $getHelpUserId = $getHelpUpdated->user_id;
-
-                    /*************** Update User Get Help Helping Fund ***********/
-                    if($getHelpUpdated->type == 'helping')
+                    if($getHelpUpdated->status != 'accepted')
                     {
-                        $getHelpUserSetting = UserSetting::where('user_id',$getHelpUserId)->first();
-                        $helpingFund = $getHelpUserSetting->helping_fund;
-                        $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
-                        $getHelpUserSetting->update([
-                            'helping_fund' => $updatedHelpingFund
+                        $getHelpUpdated->update([
+                            'status' => 'accepted',
                         ]);
+
+                        /************* Update Get Help Status **********/
+                        $getHelpUserId = $getHelpUpdated->user_id;
+
+                        /*************** Update User Get Help Helping Fund ***********/
+                        if($getHelpUpdated->type == 'helping')
+                        {
+                            $getHelpUserSetting = UserSetting::where('user_id',$getHelpUserId)->first();
+                            $helpingFund = $getHelpUserSetting->helping_fund;
+                            $updatedHelpingFund = $helpingFund + $getHelpUpdated->amount;
+                            $getHelpUserSetting->update([
+                                'helping_fund' => $updatedHelpingFund
+                            ]);
+                        }
+                        /*************** Update User Get Help Helping Fund ***********/
                     }
-                    /*************** Update User Get Help Helping Fund ***********/
                 }
             }
 
@@ -235,73 +238,75 @@ class UserController extends Controller
             {
                 if($giveHelp->getHelps->isEmpty())
                 {
-                    /************ Update Give Help Status *************/
-                    $giveHelp->update([
-                        'status' => 'accepted',
-                    ]);
-                    /************ Update Give Help Status *************/
-
-                    if($giveHelp->type == 'pool')
+                    if($giveHelp->status != 'accepted')
                     {
-                        $errorStatus = $this->addUserToPool($giveHelp->user_id);
-                        if($errorStatus)
-                        {
-                            $saved = false;
-                        }
-                        else
-                        {
-                            $saved = true;
-                        }
-
-                    }
-                    else
-                    {
-                        $userId = $giveHelp->user_id;
-                        $user = User::findOrFail($userId);
-                        $currentUserStatus = $user->status;
-
-                        /************ Update Total Give Help Income ***********/
-                        $userSetting = UserSetting::where('user_id',$userId)->first();
-                        $giveHelpIncome = $userSetting->give_help_income;
-                        $updatedGiveHelpIncome = $giveHelpIncome + $userSetting->give_help_amount;
-                        $userSetting->update([
-                            'give_help_income' => $updatedGiveHelpIncome
+                        /************ Update Give Help Status *************/
+                        $giveHelp->update([
+                            'status' => 'accepted',
                         ]);
-                        /************ Update Total Give Help Income ***********/
+                        /************ Update Give Help Status *************/
 
-                        /************ Add Single Line Income ************/
-                        if($currentUserStatus == 'pending')
+                        if($giveHelp->type == 'pool')
                         {
-                            addSingleLineIncome($userSetting->give_help_amount);
-                        }
-                        /************ Add Single Line Income ************/
+                            $errorStatus = $this->addUserToPool($giveHelp->user_id);
+                            if($errorStatus)
+                            {
+                                $saved = false;
+                            }
+                            else
+                            {
+                                $saved = true;
+                            }
 
-                        /************ Update User Status ****************/
-                        if($user->status != 'blocked' && $user->status != 'rejected')
-                        {
-                            $user->update([
-                                'status' => 'active',
-                            ]);
-                        }
-                        /************ Update User Status ****************/
-
-                        /************ Start User Single Line Income ***********/
-                        CompanyPool::where('user_id',$user->id)
-                            ->update([
-                                'status' => 'start'
-                            ]);
-                        /************ Start User Single Line Income ***********/
-                        if($user && $giveHelp)
-                        {
-                            $saved = true;
                         }
                         else
                         {
-                            $saved = false;
+                            $userId = $giveHelp->user_id;
+                            $user = User::findOrFail($userId);
+                            $currentUserStatus = $user->status;
+
+                            /************ Update Total Give Help Income ***********/
+                            $userSetting = UserSetting::where('user_id',$userId)->first();
+                            $giveHelpIncome = $userSetting->give_help_income;
+                            $updatedGiveHelpIncome = $giveHelpIncome + $userSetting->give_help_amount;
+                            $userSetting->update([
+                                'give_help_income' => $updatedGiveHelpIncome
+                            ]);
+                            /************ Update Total Give Help Income ***********/
+
+                            /************ Add Single Line Income ************/
+                            if($currentUserStatus == 'pending')
+                            {
+                                addSingleLineIncome($userSetting->give_help_amount);
+                            }
+                            /************ Add Single Line Income ************/
+
+                            /************ Update User Status ****************/
+                            if($user->status != 'blocked' && $user->status != 'rejected')
+                            {
+                                $user->update([
+                                    'status' => 'active',
+                                ]);
+                            }
+                            /************ Update User Status ****************/
+
+                            /************ Start User Single Line Income ***********/
+                            CompanyPool::where('user_id',$user->id)
+                                ->update([
+                                    'status' => 'start'
+                                ]);
+                            /************ Start User Single Line Income ***********/
+                            if($user && $giveHelp)
+                            {
+                                $saved = true;
+                            }
+                            else
+                            {
+                                $saved = false;
+                            }
                         }
                     }
                 }
-
             }
 
             $name = Auth()->User()->name;
