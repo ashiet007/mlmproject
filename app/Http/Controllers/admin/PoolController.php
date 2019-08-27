@@ -8,6 +8,7 @@ use App\GiveHelp;
 use App\Http\Controllers\Controller;
 use App\PoolUser;
 use App\UserPool;
+use App\UserPoolFund;
 use Illuminate\Http\Request;
 
 class PoolController extends Controller
@@ -56,5 +57,11 @@ class PoolController extends Controller
         $data = UserPool::with('user.userDetails')
                         ->get();
         return view('admin.pool.action',compact('data'));
+    }
+
+    public function pooledOutUsers()
+    {
+        $pooledOutUsers = UserPoolFund::with('user.userDetails')->get();
+        return view('admin.pool.pooledout',compact('pooledOutUsers'));
     }
 }

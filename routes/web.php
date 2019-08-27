@@ -162,6 +162,7 @@ Route::get('access-denied','HomeController@block');
     /* ************** Pool ******************************* */
     Route::get('pool/view','admin\PoolController@viewPool')->name('adminPool.view');
     Route::get('pool/view/list','admin\PoolController@viewList')->name('adminPool.viewList');
+    Route::get('pool/pooled-out/list','admin\PoolController@pooledOutUsers')->name('adminPool.pooledOutUsers');
     Route::get('pool/view/pending','admin\PoolController@pendingPoolReport')->name('adminPool.pendingPoolReport');
     Route::get('pool/view/action-report','admin\PoolController@poolActionReport')->name('adminPool.poolActionReport');
     /* ******************** Export Data ******************* */

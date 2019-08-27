@@ -128,7 +128,8 @@
                                 <a class="dropdown-item" href="{{route('adminPool.view')}}">Current Pool View</a>
                                 <a class="dropdown-item" href="{{route('adminPool.viewList')}}">Current Pool History</a>
                                 <a class="dropdown-item" href="{{route('adminPool.pendingPoolReport')}}">Pending Pool History</a>
-                                <a class="dropdown-item" href="{{route('adminPool.poolActionReport')}}">Pool Action History</a>
+                                <a class="dropdown-item" href="{{route('adminPool.poolActionReport')}}">Pool Action History</a>adminPool.pooledOutUsers
+                                <a class="dropdown-item" href="{{route('adminPool.pooledOutUsers')}}">Pooled Out History</a>
                             </div>
                         </li>
                     </ul>
