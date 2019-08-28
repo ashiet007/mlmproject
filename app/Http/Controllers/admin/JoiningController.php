@@ -42,4 +42,21 @@ class JoiningController extends Controller
                         ->get();
         return view('admin.joining.newJoining',compact('users'));
     }
+
+    public function registeredList()
+    {
+        $newUsers = User::with('userDetails','userSetting','giveHelps')->real()->get();
+        $users = [];
+        foreach($newUsers as $item)
+        {
+            if(count($item->giveHelps) == 0)
+            {
+                if($item->userSetting->account_status == 'inactive')
+                {
+                    $users[] = $item->toArray();
+                }
+            }
+        }
+        return view('admin.joining.registered',compact('users'));
+    }
 }

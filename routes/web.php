@@ -127,6 +127,7 @@ Route::get('access-denied','HomeController@block');
     Route::get('create-user','admin\UsersController@createUserForm')->name('user.createUserForm');
     Route::get('joining-report','admin\JoiningController@index')->name('joining.index');
     Route::get('total-new-joining','admin\JoiningController@newJoining')->name('joining.newJoining');
+    Route::get('total-registered-list','admin\JoiningController@registeredList')->name('joining.registeredList');
     Route::post('create-user','admin\UsersController@createUser')->name('user.createUser');
     Route::get('downline/total-downline','admin\DownlineController@totalDownline' )->name('downline.totalDownline');
     Route::get('downline/total-direct-team','admin\DownlineController@directTeam' )->name('downline.directTeam');

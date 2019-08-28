@@ -71,6 +71,7 @@
                             <div class="dropdown-menu" aria-labelledby="joiningReport">
                                 <a class="dropdown-item" href="{{ route('joining.index')}}">Date-wise joining</a>
                                 <a class="dropdown-item" href="{{ route('joining.newJoining') }}">Total New Joining</a>
+                                <a class="dropdown-item" href="{{ route('joining.registeredList') }}">Total Registered List</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown view">
