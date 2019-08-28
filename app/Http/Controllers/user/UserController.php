@@ -460,58 +460,76 @@ class UserController extends Controller
         $epin = Epin::find($requestData['epin_id']);
         if($epin)
         {
-            try
+            if(isset($requestData['amount']) && $requestData['amount'] != null && $requestData['amount'] != '')
             {
-                $epin->update([
-                    'status' => 'used'
-                ]);
-                $userSetting = UserSetting::where('user_id',$this->userId)
-                    ->update([
-                        'account_status' => 'active',
-                        'give_help_amount' => $requestData['amount']*2,
-                        'get_help_amount' => $requestData['amount']*3
-                    ]);
-                $pendingHelp = GiveHelp::where('status','pending')
-                                ->where('type','helping')
-                                ->where('user_id',$this->userId)
-                                ->first();
-                if($pendingHelp)
+                try
                 {
-                    $giveHelp = $pendingHelp;
+                    $epin->update([
+                        'status' => 'used'
+                    ]);
+                    $userSetting = UserSetting::where('user_id',$this->userId)
+                        ->update([
+                            'account_status' => 'active',
+                            'give_help_amount' => $requestData['amount']*2,
+                            'get_help_amount' => $requestData['amount']*3
+                        ]);
+                    $pendingHelp = GiveHelp::where('status','pending')
+                                    ->where('type','helping')
+                                    ->where('user_id',$this->userId)
+                                    ->first();
+                    if($pendingHelp)
+                    {
+                        $giveHelp = $pendingHelp;
+                    }
+                    else
+                    {
+                        $giveHelp = GiveHelp::create([
+                            'user_id' => $this->userId,
+                            'amount' => $requestData['amount'],
+                            'status' => 'pending',
+                            'balance' => $requestData['amount'],
+                            'type' => 'helping',
+                            'completion_state' => 'none',
+                        ]);
+                    }
+                    if($giveHelp && $userSetting && $epin)
+                    {
+                        $userSetting = UserSetting::where('user_id',$this->userId)->first();
+                        if($userSetting->give_help_amount != 0 && $userSetting->get_help_amount != 0)
+                        {
+                           $saved =true; 
+                        }
+                        else
+                        {
+                            $saved =false;
+                        }
+                        
+                    }
+                }
+                catch(\Throwable $e)
+                {
+                    alert()->error($e->getMessage(), 'Error')->persistent("Close");
+                    return redirect()->back()->withInput();
+                }
+                if($saved)
+                {
+                    DB::commit(); // YES --> finalize it
+                    alert()->success('Account has ben activated successfully', 'Success')->persistent("Close");
+                    return redirect()->route('user.index');
                 }
                 else
                 {
-                    $giveHelp = GiveHelp::create([
-                        'user_id' => $this->userId,
-                        'amount' => $requestData['amount'],
-                        'status' => 'pending',
-                        'balance' => $requestData['amount'],
-                        'type' => 'helping',
-                        'completion_state' => 'none',
-                    ]);
+                    DB::rollBack(); // NO --> some error has occurred undo the whole thing
+                    alert()->error('Something went wrong', 'Error')->persistent("Close");
+                    return redirect()->back()->withInput();
                 }
-                if($giveHelp && $userSetting && $epin)
-                {
-                    $saved =true;
-                }
-            }
-            catch(\Throwable $e)
-            {
-                alert()->error($e->getMessage(), 'Error')->persistent("Close");
-                return redirect()->back()->withInput();
-            }
-            if($saved)
-            {
-                DB::commit(); // YES --> finalize it
-                alert()->success('Account has ben activated successfully', 'Success')->persistent("Close");
-                return redirect()->route('user.index');
             }
             else
             {
-                DB::rollBack(); // NO --> some error has occurred undo the whole thing
                 alert()->error('Something went wrong', 'Error')->persistent("Close");
                 return redirect()->back()->withInput();
             }
+            
         }
         else
         {
