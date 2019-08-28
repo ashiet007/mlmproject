@@ -192,11 +192,11 @@ function helpGeneration()
                                     if($user->singleLineIncome->amount >= $user->userSetting->get_help_amount)
                                     {
                                         if($helpCount == 1)
-                                            $hour = 2;
+                                            $hour = 3;
                                         elseif ($helpCount == 2)
-                                            $hour = 24;
+                                            $hour = 30;
                                         else
-                                            $hour = 36;
+                                            $hour = 40;
 
                                         $currentHour = getDateTime($user->singleLineIncome->updated_at);
                                         if($currentHour >= $hour)
@@ -233,11 +233,11 @@ function helpGeneration()
                             if($user->singleLineIncome->amount >= $user->userSetting->get_help_amount)
                             {
                                 if($helpCount == 1)
-                                    $hour = 2;
+                                    $hour = 3;
                                 elseif ($helpCount == 2)
-                                    $hour = 24;
+                                    $hour = 30;
                                 else
-                                    $hour = 36;
+                                    $hour = 40;
 
                                 $currentHour = getDateTime($user->singleLineIncome->updated_at);
                                 if($currentHour >= $hour)
