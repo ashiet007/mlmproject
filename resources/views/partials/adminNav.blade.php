@@ -47,6 +47,7 @@
                                 <a class="dropdown-item" href="{{ route('action.index') }}">Block/Unblock User</a>
                                 <a class="dropdown-item" href="{{ route('action.linkAction') }}">Total Link ON/OFF</a>
                                 <a class="dropdown-item" href="{{ route('user.viewSecurity') }}">Change Password</a>
+                                <a class="dropdown-item" href="{{ route('action.showSendSmsForm') }}">Send SMS</a>
                                 <a class="dropdown-item" href="{{ url('admin/contact') }}">Contact</a>
                             </div>
                         </li>

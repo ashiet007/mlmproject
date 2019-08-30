@@ -124,4 +124,37 @@ class ActionController extends Controller
         return redirect()->back();
 
     }
+
+    public function showSendSmsForm()
+    {
+        $users = User::with('userDetails')->real()->get();
+        return view('admin.actions.sendSms',compact('users'));
+    }
+
+    public function sendSms(Request $request)
+    {
+        $requestData = $request->all();
+        $allNumbers = '';
+        $count = count($requestData['mob_no']);
+        $i = 1;
+        foreach($requestData['mob_no'] as $number)
+        {
+            if($i == 1)
+            {
+                $allNumbers = $number.',';
+            }
+            elseif($i == $count)
+            {
+                $allNumbers = $allNumbers.$number;
+            }
+            else
+            {
+                $allNumbers = $allNumbers.$number.',';
+            }
+            $i = $i+1;
+        }
+        sendMessage($allNumbers,$requestData['message']);
+        alert()->success('Message Sent successfully', 'Success')->persistent("Close");
+        return redirect()->back();
+    }
 }

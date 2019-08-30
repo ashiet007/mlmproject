@@ -147,6 +147,8 @@ Route::get('access-denied','HomeController@block');
     Route::get('actions/status-change','admin\ActionController@adminAction')->name('action.adminAction');
     Route::get('actions/total-link-on-off','admin\ActionController@linkAction')->name('action.linkAction');
     Route::post('actions/total-link-on-off','admin\ActionController@linkOnOff')->name('action.linkOnOff');
+    Route::get('actions/send-sms','admin\ActionController@showSendSmsForm')->name('action.showSendSmsForm');
+    Route::post('actions/send-sms','admin\ActionController@sendSms')->name('action.sendSms');
     Route::get('add-fund','admin\FundController@addFundForm')->name('fund.addFundForm');
     Route::post('add-fund','admin\FundController@addFund')->name('fund.addFund');
     Route::get('added-user-fund','admin\FundController@fundList')->name('fund.fundList');
