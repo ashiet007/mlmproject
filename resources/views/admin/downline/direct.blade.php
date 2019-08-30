@@ -26,26 +26,35 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Sr. No.</th>
-                    <th>Name</th>
+                    <th>Sr No.</th>
                     <th>Username</th>
-                    <th>Mobile Number</th>
-                    <th>Date of Joining</th>
+                    <th>Name</th>
+                    <th>Mobile No.</th>
+                    <th>State</th>
+                    <th>District</th>
+                    <th>Status</th>
+                    <th>Current Package</th>
+                    <th>Total Direct Team</th>
                     <th>Total Team</th>
-                    <th>Sponsor ID</th>
                 </tr>
                 </thead>
                 <tbody>
                 @if(!is_null($teamDetails))
-                    @foreach($teamDetails as $teamDetail)
+                    @foreach($teamDetails as $member)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $teamDetail->name }}</td>
-                            <td>{{ $teamDetail->user_name }}</td>
-                            <td>{{ $teamDetail->userDetails->mob_no }}</td>
-                            <td>{{ $teamDetail->created_at->format('d, M Y h:i:s A') }}</td>
-                            <td>{{count(getTotalTeam($teamDetail->user_name))}}</td>
-                            <td>{{ $teamDetail->sponsor_id }}</td>
+                            <td>{{$member->user_name}}</td>
+                            <td>{{$member->name}}</td>
+                            <td>{{$member->userDetails->mob_no}}</td>
+                            <td>{{$member->userDetails->userState->name}}</td>
+                            <td>{{$member->userDetails->userDistrict->name}}</td>
+                            <td>{{$member->status}}</td>
+                            @php
+                                $userSetting = $member->userSetting()->first();
+                            @endphp
+                            <td>{{$userSetting->give_help_amount.'/'.$userSetting->get_help_amount}}</td>
+                            <td>{{count(getTotalDirectTeam($member->user_name))}}</td>
+                            <td>{{count(getTotalTeam($member->user_name))}}</td>
                         </tr>
                     @endforeach
                 @endif

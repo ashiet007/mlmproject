@@ -103,7 +103,7 @@
                         <li class="nav-item dropdown view">
                             <a class="nav-link dropdown-toggle" href="#" id="fundManagement" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                Fund Management
+                                Fund Manager
                             </a>
                             <div class="dropdown-menu" aria-labelledby="fundManagement">
                                 <a class="dropdown-item" href="{{ route('fund.addFundForm') }}">Add Fund</a>

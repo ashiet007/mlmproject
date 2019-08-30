@@ -14,7 +14,7 @@
             <form action="{{route('action.sendSms')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label class="control-label col-md-4">Amount</label>
+                    <label class="control-label col-md-4">Select Users</label>
                     <div class="col-md-8">
                         <select class="form-control" name="mob_no[]" required multiple id="user">
                             @foreach($users as $user)

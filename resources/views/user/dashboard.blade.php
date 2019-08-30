@@ -157,6 +157,9 @@
                         @if(count($assignedGiveHelp->getHelps))
                             @foreach($assignedGiveHelp->getHelps as $getHelp)
                                 @if($getHelp->pivot->status == 'pending')
+                                    @php
+                                    $m = $getHelp->pivot->proof_file_name != null?'2':0;
+                                    @endphp
                                     <div class="col-lg-12 col-sm-12 pl-0 pr-0 mb-3">
                                         <div class="card p-0 rounded-0 hover-shadow bg-danger border-danger">
                                             <div class="card-body p-0">
@@ -337,7 +340,7 @@
                                                         <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$i}}"></button>
                                                         <script>
                                                             // Set the date we're counting down to
-                                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 8 * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
+                                                            var countDownDate{{$i}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $getHelp->pivot->created_at ) + 8 * 3600 + $m * 3600 + 12 * $getHelp->pivot->extend_timer_count * 3600) }}").getTime();
                                                             // Update the count down every 1 second
                                                             var x{{$i}} = setInterval(function() {
                                                                 // Get todays date and time
@@ -476,6 +479,9 @@
                             @if(!$assignedGetHelp->giveHelps->isEmpty())
                                 @foreach($assignedGetHelp->giveHelps as $giveHelp)
                                     @if($giveHelp->pivot->status == 'pending')
+                                        @php
+                                            $n = $giveHelp->pivot->proof_file_name != null?'2':0;
+                                        @endphp
                                     <div class="col-lg-12 col-sm-12 pl-0 pr-0 mb-3">
                                         <div class="card p-0 border-primary rounded-0 hover-shadow bg-success text-white">
                                             <div class="card-body p-0">
@@ -594,7 +600,7 @@
                                                         <button type="button" class="btn btn-secondary custom-button m-2 btn-timer" id="demo{{$j}}"></button>
                                                         <script>
                                                             // Set the date we're counting down to
-                                                            var countDownDate{{$j}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600) }}").getTime();
+                                                            var countDownDate{{$j}} = new Date("{{ date('Y-m-d H:i:s', strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + $n * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600) }}").getTime();
                                                             // Update the count down every 1 second
                                                             var x{{$j}} = setInterval(function() {
                                                                 // Get todays date and time
@@ -620,7 +626,7 @@
                                                                 }
                                                             }, 1000);
                                                         </script>
-                                                        @if($giveHelp->pivot->status == 'pending' && time() >= strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600)
+                                                        @if($giveHelp->pivot->status == 'pending' && time() >= strtotime( $giveHelp->pivot->created_at ) + 8 * 3600 + $n * 3600 + 12 * $giveHelp->pivot->extend_timer_count * 3600)
                                                             <form method="post" action="{{route('user.rejectHelp')}}" style="display: inline;">
                                                                 {{ csrf_field() }}
                                                                 <input type="hidden" name="get_help_id" value="{{ $getHelpId }}">

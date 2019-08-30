@@ -56,7 +56,8 @@ class LinkReportController extends Controller
         {
             $rejectedLinks = $giveHelp->getRejectedLinks();
         }
-        $rejectedData = array();
+        $preRejectedData = [];
+        $postRejectedData = [];
         foreach($rejectedLinks as $rejectedLink)
         {
             if(!$rejectedLink->getHelps->isEmpty())
@@ -71,11 +72,22 @@ class LinkReportController extends Controller
                     $data['rc_user_name'] = $getHelp->user->user_name;
                     $data['rc_name'] = $getHelp->user->name;
                     $data['created_date'] = $getHelp->pivot->updated_at->format('d, M Y h:i:s A');
-                    $rejectedData[] = $data;
+                    $isUserInCompanyPool = GiveHelp::where('user_id',$rejectedLink->user->id)
+                                                    ->where('type','helping')
+                                                    ->where('status','accepted')
+                                                    ->exists();
+                    if($isUserInCompanyPool)
+                    {
+                        $postRejectedData[] = $data;
+                    }
+                    else
+                    {
+                        $preRejectedData[] = $data;
+                    }
                 }
             }
         }
-        return view('admin.link-reports.rejected',compact('rejectedData','username'));
+        return view('admin.link-reports.rejected',compact('postRejectedData','preRejectedData','username'));
         
     }
     public function pendingLink()

@@ -137,7 +137,8 @@ class ActionController extends Controller
         $allNumbers = '';
         $count = count($requestData['mob_no']);
         $i = 1;
-        foreach($requestData['mob_no'] as $number)
+        $filteredNumbers = array_unique($requestData['mob_no']);
+        foreach($filteredNumbers as $number)
         {
             if($i == 1)
             {
