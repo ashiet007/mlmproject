@@ -219,22 +219,54 @@ class LinkReportController extends Controller
 
     public function sendersList()
     {
-        $users = GiveHelp::with('user')
+        $giveHelps = GiveHelp::with('user')
             ->notAssigned()
             ->pending()
             ->orderBy('match_order_date','DESC')
             ->get();
-        return view('admin.link-reports.senders',compact('users'));
+        foreach ($giveHelps as $help)
+        {
+            if($help->type == 'helping')
+            {
+                $helpNo = GiveHelp::where('type','helping')
+                    ->where('user_id',$help->user->id)
+                    ->count();
+            }
+            else
+            {
+                $helpNo = GiveHelp::where('type','pool')
+                    ->where('user_id',$help->user->id)
+                    ->count();
+            }
+            $help->help_no = $helpNo;
+        }
+        return view('admin.link-reports.senders',compact('giveHelps'));
     }
 
     public function receiverList()
     {
-        $users = GetHelp::with('user')
+        $getHelps = GetHelp::with('user')
             ->notAssigned()
             ->pending()
             ->orderBy('match_order_date','DESC')
             ->get();
-        return view('admin.link-reports.receiver',compact('users'));
+        foreach ($getHelps as $help)
+        {
+            if($help->type == 'helping')
+            {
+                $helpNo = GetHelp::where('type','helping')
+                    ->where('user_id',$help->user->id)
+                    ->count();
+            }
+            else
+            {
+                $helpNo = GiveHelp::where('type','working')
+                    ->where('user_id',$help->user->id)
+                    ->count();
+            }
+            $help->help_no = $helpNo;
+        }
+        return view('admin.link-reports.receiver',compact('getHelps'));
     }
 
     public function changeOrder(Request $request)

@@ -2,7 +2,7 @@
 @section('content')
 @include('partials.header')
     <h2 class="text-center">Users</h2>
-    <a href="{{ route('exportUserData') }}"><button class="btn btn-secondary float-right mb-3">Download Excel xls</button></a>
+    <a href="{{ route('exportUserData') }}"><button class="btn btn-secondary float-left mb-3">Download Excel xls</button></a>
     <div class="table-responsive">
         <table class="table">
             <thead>
