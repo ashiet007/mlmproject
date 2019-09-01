@@ -267,4 +267,27 @@
         </div>
     </section>
     <!-- /blog -->
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content rounded-0 border-0 p-4">
+                <div class="modal-header border-0">
+                    <h3>Happy Ganesh Chaturthi</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{asset('images/ganesh.jpg')}}" class="img-fluid" height="50%" width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('scripts')
+    <script>
+        $('document').ready(function () {
+            $('#loginModal').modal('show');
+        })
+    </script>
 @endsection
