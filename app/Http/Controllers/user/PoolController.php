@@ -131,67 +131,80 @@ class PoolController extends Controller
         $isOnHold = checkUserforOnHold($this->userId);
         if(!$isOnHold)
         {
-            $maxAmount= 2000;
-            $time = Carbon::now('Asia/Kolkata');
-            $date = $time->format('Y-m-d');
-            $transferredAmountOnDay = UserFund::where('user_id', $this->userId)
-                ->where('from_wallet','pool-wallet')
-                ->whereDate('created_at', '=', $date)
-                ->sum('amount');
-            $requestData = $request->all();
-            if(!empty($requestData))
+            $lastTransferredAmountTime = UserFund::where('user_id', $this->userId)
+                                                ->where('from_wallet','pool-wallet')
+                                                ->orderBy('id','DESC')
+                                                ->first();
+            $hours = getDateTime($lastTransferredAmountTime->created_at);
+            if($hours >= 48)
             {
-                $balance = $requestData['available_fund'];
-                $amount = $requestData['amount'];
-                if($balance >= $amount)
+                $maxAmount= 2000;
+                $time = Carbon::now('Asia/Kolkata');
+                $date = $time->format('Y-m-d');
+                $transferredAmountOnDay = UserFund::where('user_id', $this->userId)
+                    ->where('from_wallet','pool-wallet')
+                    ->whereDate('created_at', '=', $date)
+                    ->sum('amount');
+                $requestData = $request->all();
+                if(!empty($requestData))
                 {
-                    if($transferredAmountOnDay < $maxAmount)
+                    $balance = $requestData['available_fund'];
+                    $amount = $requestData['amount'];
+                    if($balance >= $amount)
                     {
-                        $transferredAmountOnDay = $transferredAmountOnDay + $amount;
-                        if($transferredAmountOnDay <= $maxAmount)
+                        if($transferredAmountOnDay < $maxAmount)
                         {
-                            $modulo = $amount % 500;
-                            if($modulo == 0)
+                            $transferredAmountOnDay = $transferredAmountOnDay + $amount;
+                            if($transferredAmountOnDay <= $maxAmount)
                             {
-                                UserFund::create([
-                                    'user_id' => $this->userId,
-                                    'amount' => $amount,
-                                    'type' => 'credit',
-                                    'purpose' => 'transfer',
-                                    'from_wallet' => 'pool-wallet',
-                                    'to_wallet' => 'fund-wallet',
-                                ]);
-                                alert()->success('Fund Transferred Successfully!!!', 'Success')->persistent("Close");
-                                return redirect()->back();
+                                $modulo = $amount % 500;
+                                if($modulo == 0)
+                                {
+                                    UserFund::create([
+                                        'user_id' => $this->userId,
+                                        'amount' => $amount,
+                                        'type' => 'credit',
+                                        'purpose' => 'transfer',
+                                        'from_wallet' => 'pool-wallet',
+                                        'to_wallet' => 'fund-wallet',
+                                    ]);
+                                    alert()->success('Fund Transferred Successfully!!!', 'Success')->persistent("Close");
+                                    return redirect()->back();
+                                }
+                                else
+                                {
+                                    alert()->error('transfer amount must be multiple of 500!!!', 'Error')->persistent("Close");
+                                    return redirect()->back();
+                                }
                             }
                             else
                             {
-                                alert()->error('transfer amount must be multiple of 500!!!', 'Error')->persistent("Close");
+                                alert()->error('Transfer amount maximum limit 2000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
                                 return redirect()->back();
                             }
                         }
                         else
                         {
-                            alert()->error('Transfer amount maximum limit 2000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
+                            alert()->error('Maximum Limit Of transfer has been Reached!!!', 'Error')->persistent("Close");
                             return redirect()->back();
                         }
                     }
                     else
                     {
-                        alert()->error('Maximum Limit Of transfer has been Reached!!!', 'Error')->persistent("Close");
+                        alert()->error('You do not have enough balance for this transfer!!!', 'Error')->persistent("Close");
                         return redirect()->back();
                     }
+
                 }
                 else
                 {
-                    alert()->error('You do not have enough balance for this transfer!!!', 'Error')->persistent("Close");
+                    alert()->error('Please Enter Valid Amount!!!', 'Error')->persistent("Close");
                     return redirect()->back();
                 }
-
             }
             else
             {
-                alert()->error('Please Enter Valid Amount!!!', 'Error')->persistent("Close");
+                alert()->error('You can not withdraw money at this time!!!', 'Error')->persistent("Close");
                 return redirect()->back();
             }
         }
