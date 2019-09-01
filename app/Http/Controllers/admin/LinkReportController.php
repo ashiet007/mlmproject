@@ -260,7 +260,7 @@ class LinkReportController extends Controller
             }
             else
             {
-                $helpNo = GiveHelp::where('type','working')
+                $helpNo = GetHelp::where('type','working')
                     ->where('user_id',$help->user->id)
                     ->count();
             }
