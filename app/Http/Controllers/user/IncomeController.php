@@ -56,7 +56,7 @@ class IncomeController extends Controller
         $isOnHold = checkUserforOnHold($id);
         if(!$isOnHold)
         {
-            $maxAmount= 3000;
+            $maxAmount= 1000;
             if(Auth::User()->identity == 'fake')
             {
                 $maxAmount = 10000;

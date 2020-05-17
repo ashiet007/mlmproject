@@ -17,7 +17,7 @@ class CronController extends Controller
         $hour = $time->format('H');
         $t=date('d-m-Y');
         $day = date("D",strtotime($t));
-        if($setting->link_status == 1 && $day != 'Sun' && time() >= strtotime('10:30:00') && $hour < 16)
+        if($setting->link_status == 1 && $day != 'Sun' && time() >= strtotime('08:00:00') && $hour < 10)
         {
             helpMatchingCycle();
         }

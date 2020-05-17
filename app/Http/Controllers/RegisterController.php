@@ -180,9 +180,9 @@ class RegisterController extends Controller
             ->get();
 
         $userCount = count($sameUsers);
-        if($userCount >= 11)
+        if($userCount >= 3)
         {
-            return response()->json(['status'=>'error','message' => 'You can only register 11 account with same details']);
+            return response()->json(['status'=>'error','message' => 'You can only register 3 account with same details']);
         }
         return response()->json(['status'=>'ok']);
     }
