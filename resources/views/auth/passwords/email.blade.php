@@ -36,7 +36,7 @@
                         <div class="form-group{{ $errors->has('user_name') ? ' has-error' : '' }}">
                             <div class="col-md-12">
                                 <div class="alert alert-warning">
-                                    Enter Your Username to get password on your registered mobile number.
+                                    Enter Your Username to get password on your registered Email.
                                 </div>
                                 <input id="user_name" type="text" class="form-control custom-input" name="user_name" value="{{ old('user_name') }}" placeholder="Enter your username" required>
                                 @if ($errors->has('user_name'))

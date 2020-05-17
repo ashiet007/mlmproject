@@ -14,6 +14,8 @@ use App\User;
 use App\UserPassword;
 use App\UserDetail;
 use App\UserSetting;
+use App\Mail\RegistrationMail;
+use Illuminate\Support\Facades\Mail;
 use DB;
 
 class RegisterController extends Controller
@@ -240,9 +242,10 @@ class RegisterController extends Controller
                     'user_id' => $user->id,
                     'account_status' => 'inactive'
             ]);
-            $number = $data['mob_no'];
-            $message = 'THANKS FOR JOIN WWW.MUDRASHAKTI.COM YOUR LOGIN ID- '.$data['user_name'].' AND PASSWORD-'.$data['password'].' ,PLEASE SECURE YOUR LOGIN PASSWORD FOR SAFETY.';
-            sendMessage($number, $message);
+            // $number = $data['mob_no'];
+            // $message = 'THANKS FOR JOIN WWW.MUDRASHAKTI.COM YOUR LOGIN ID- '.$data['user_name'].' AND PASSWORD-'.$data['password'].' ,PLEASE SECURE YOUR LOGIN PASSWORD FOR SAFETY.';
+            // sendMessage($number, $message);
+            Mail::to($data['email'])->send(new RegistrationMail($user));
             if($user && $userDetails && $userPassword && $userSetting && $companyPool)
                 $saved = true;
             else
@@ -257,7 +260,7 @@ class RegisterController extends Controller
         if($saved)
         {
             DB::commit(); // YES --> finalize it
-            alert()->success('Thanks for Registration! Your Username and Password has been sent to your Mobile Number', 'Success')->persistent("Close");
+            alert()->success('Thanks for Registration! Your Username and Password has been sent to your Email', 'Success')->persistent("Close");
             return redirect()->route('login');
         }
         else

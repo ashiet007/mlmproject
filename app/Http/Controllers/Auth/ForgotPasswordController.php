@@ -7,6 +7,8 @@ use App\UserDetail;
 use App\UserPassword;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Mail\ForgetPasswordMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -40,12 +42,12 @@ class ForgotPasswordController extends Controller
                 $userDetails = UserDetail::where('user_id',$id)->first();
                 if($userDetails && $user)
                 {
-                    $password = $userPassword->password;
-                    $number = $userDetails->mob_no;
-                    $message = 'MOST WELCOME AGAIN HERE YOUR LOGIN  ID- '.$username.' AND PASSWORD IS-'.$password.' , WWW.MUDRASHAKTI.COM  THANK YOU.';
-                    sendMessage($number,$message);
-
-                    return redirect()->back()->with('status','DEAR MUDRASHAKTI PARTNER YOUR LOGIN ID AND PASSWORD HAS BEEN SENT ON YOUR REGISTERED MOBILE NUMBER,PLEASE CHECK SMS FOR LOGIN THANK YOU.');
+                    // $password = $userPassword->password;
+                    // $number = $userDetails->mob_no;
+                    // $message = 'MOST WELCOME AGAIN HERE YOUR LOGIN  ID- '.$username.' AND PASSWORD IS-'.$password.' , WWW.MUDRASHAKTI.COM  THANK YOU.';
+                    // sendMessage($number,$message);
+                    Mail::to($user->email)->send(new ForgetPasswordMail($user));
+                    return redirect()->back()->with('status','DEAR MUDRASHAKTI PARTNER YOUR LOGIN ID AND PASSWORD HAS BEEN SENT ON YOUR REGISTERED EMAIL,PLEASE CHECK YOUR EMAIL FOR LOGIN THANK YOU.');
                 }
                 else
                 {
