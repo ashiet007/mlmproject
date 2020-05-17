@@ -42,10 +42,10 @@ class ForgotPasswordController extends Controller
                 {
                     $password = $userPassword->password;
                     $number = $userDetails->mob_no;
-                    $message = 'MOST WELCOME AGAIN HERE YOUR LOGIN  ID- '.$username.' AND PASSWORD IS-'.$password.' , WWW.MODINAAMA.IN  THANK YOU.';
+                    $message = 'MOST WELCOME AGAIN HERE YOUR LOGIN  ID- '.$username.' AND PASSWORD IS-'.$password.' , WWW.MUDRASHAKTI.COM  THANK YOU.';
                     sendMessage($number,$message);
 
-                    return redirect()->back()->with('status','DEAR MODINAAMA PARTNER YOUR LOGIN ID AND PASSWORD HAS BEEN SENT ON YOUR REGISTERED MOBILE NUMBER,PLEASE CHECK SMS FOR LOGIN THANK YOU.');
+                    return redirect()->back()->with('status','DEAR MUDRASHAKTI PARTNER YOUR LOGIN ID AND PASSWORD HAS BEEN SENT ON YOUR REGISTERED MOBILE NUMBER,PLEASE CHECK SMS FOR LOGIN THANK YOU.');
                 }
                 else
                 {

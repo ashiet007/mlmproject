@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Modinaama India</title>
+    <title>Mudrashakti India</title>
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,7 +90,7 @@
                             var CurrentYear = new Date().getFullYear()
                             document.write(CurrentYear)
                         </script>
-                        © <a href="{{url('/')}}">Modinaama</a></p> . All Rights Reserved.
+                        © <a href="{{url('/')}}">Mudrashakti</a></p> . All Rights Reserved.
                 </div>
                 <div class="col-sm-5 text-sm-right text-center">
                     <ul class="list-inline">

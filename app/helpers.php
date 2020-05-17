@@ -19,7 +19,7 @@ use Carbon\Carbon;
 function sendMessage($number, $message)
 {
     $client = new GuzzleHttp\Client();
-    $res = $client->request('GET', 'http://mysmsshop.in/http-api.php?username=radiomaker&password=Helpdd*999&senderid=MODINM&route=1&number='.$number.'&message='.$message);
+    $res = $client->request('GET', 'http://mysmsshop.in/http-api.php?username=radiomaker&password=Helpdd*999&senderid=MUDRAS&route=1&number='.$number.'&message='.$message);
     $res->getStatusCode();
     // "200"
 
@@ -85,8 +85,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
-        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $senderMessage = 'DEAR MUDRASHAKTI ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
+        $receiverMessage = 'DEAR MUDRASHAKTI ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -106,8 +106,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
-        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $senderMessage = 'DEAR MUDRASHAKTI ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
+        $receiverMessage = 'DEAR MUDRASHAKTI ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -127,8 +127,8 @@ function helpAssign($giveHelp, $getHelp)
         ]);
         $senderNumber = $giveHelp->user->userDetails->mob_no;
         $receiverNumber = $getHelp->user->userDetails->mob_no;
-        $senderMessage = 'DEAR MODINAAMA ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
-        $receiverMessage = 'DEAR MODINAAMA ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MODINAAMA.IN THANK YOU.';
+        $senderMessage = 'DEAR MUDRASHAKTI ID- '.$giveHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR PROVIDE HELP AMT- '.$amount.' ,PLEASE CALL- '.$receiverNumber.','.$getHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
+        $receiverMessage = 'DEAR MUDRASHAKTI ID- '.$getHelp->user->user_name.' ,YOU HAVE GOT A LINK FOR RECEIVE HELP AMT-'.$amount.' ,PLEASE CALL- '.$senderNumber.','.$giveHelp->user->name.' ,WWW.MUDRASHAKTI.COM THANK YOU.';
         sendMessage($senderNumber, $senderMessage);
         sendMessage($receiverNumber, $receiverMessage);
     }
@@ -490,7 +490,7 @@ function userPool()
                   'status' => 'pending'
                ]);
                $number = $user->userDetails->mob_no;
-               $message = 'DEAR WWW.MODINAAMA.IN ID- '.$user->user_name.','.$user->name.' YOU ARE ELIGIBLE TO AUTO POOL IF YOU WANT TO ENTER GO IN POOL WALLET FOR PERMISSION THANK YOU.';
+               $message = 'DEAR WWW.MUDRASHAKTI.COM ID- '.$user->user_name.','.$user->name.' YOU ARE ELIGIBLE TO AUTO POOL IF YOU WANT TO ENTER GO IN POOL WALLET FOR PERMISSION THANK YOU.';
                sendMessage($number, $message);
            }
        }

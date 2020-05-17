@@ -128,7 +128,7 @@
                     </ul>
                 </div>
                 <div class="col-md-12">
-                    <h3 class="text-center">MODINAAMA SINGLE LINE CHART VIEW</h3>
+                    <h3 class="text-center">MUDRASHAKTI SINGLE LINE CHART VIEW</h3>
                 </div>
                 <div class="table-responsive">
                     <div class="col-md-12">
@@ -184,7 +184,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
-                                <h2 class="text-center heading-color">MODINAAMA MAGICAL AUTO POOL BOARD</h2>
+                                <h2 class="text-center heading-color">MUDRASHAKTI MAGICAL AUTO POOL BOARD</h2>
                                 <section class="section">
                                     <div class="container">
                                         <div class="row">

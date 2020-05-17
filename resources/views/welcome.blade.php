@@ -287,7 +287,7 @@
 @section('scripts')
     <script>
         $('document').ready(function () {
-            $('#loginModal').modal('show');
+            // $('#loginModal').modal('show');
         })
     </script>
 @endsection

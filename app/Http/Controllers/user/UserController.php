@@ -140,7 +140,7 @@ class UserController extends Controller
             $user_name = Auth()->User()->user_name;
             $sender = User::with('userDetails')->findOrFail($senderId);
             $number = $sender->userDetails->mob_no;
-            $message = 'DEAR MODINAAMA ID- '.$sender->user_name.' ,HAS BEEN REJECTED BY ID- '.$user_name.','.$name.', WWW.MODINAAMA.IN THANK YOU.';
+            $message = 'DEAR MUDRASHAKTI ID- '.$sender->user_name.' ,HAS BEEN REJECTED BY ID- '.$user_name.','.$name.', WWW.MUDRASHAKTI.COM THANK YOU.';
             if($saved)
             {
                 if($getHelp && $giveHelp && $user)
@@ -313,7 +313,7 @@ class UserController extends Controller
             $user_name = Auth()->User()->user_name;
             $sender = User::with('userDetails')->findOrFail($senderId);
             $number = $sender->userDetails->mob_no;
-            $message = 'DEAR MODINAAMA ID- '.$sender->user_name.' ,HAS BEEN ACCEPTED BY ID-'.$user_name.','.$name.', HAVE A GOOD DAY, WWW.MODINAAMA.IN THANK YOU.';
+            $message = 'DEAR MUDRASHAKTI ID- '.$sender->user_name.' ,HAS BEEN ACCEPTED BY ID-'.$user_name.','.$name.', HAVE A GOOD DAY, WWW.MUDRASHAKTI.COM THANK YOU.';
             if($saved)
             {
                 if($getHelp && $getHelpUpdated && $giveHelp)
@@ -497,13 +497,13 @@ class UserController extends Controller
                         $userSetting = UserSetting::where('user_id',$this->userId)->first();
                         if($userSetting->give_help_amount != 0 && $userSetting->get_help_amount != 0)
                         {
-                           $saved =true; 
+                           $saved =true;
                         }
                         else
                         {
                             $saved =false;
                         }
-                        
+
                     }
                 }
                 catch(\Throwable $e)
@@ -529,7 +529,7 @@ class UserController extends Controller
                 alert()->error('Something went wrong', 'Error')->persistent("Close");
                 return redirect()->back()->withInput();
             }
-            
+
         }
         else
         {

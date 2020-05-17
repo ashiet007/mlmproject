@@ -44,13 +44,13 @@ class ProofController extends Controller
             $receiverId = $user_id;
             $senderDetail = User::where('id',$senderId)->first();
             $receiverDetails = User::with('userDetails')->where('id',$receiverId)->first();
-            $message = 'DEAR MODINAAMA ID- '.$receiverDetails->user_name.' YOUR HELP AMT- '.$requestData['help_amount'].' HAS BEEN DONE BY USER ID- '.$senderDetail->user_name.' PLEASE CHECK YOUR ACCOUNT AND CONFIRM HELP WWW.MODINAAMA.IN THANK YOU.';
+            $message = 'DEAR MUDRASHAKTI ID- '.$receiverDetails->user_name.' YOUR HELP AMT- '.$requestData['help_amount'].' HAS BEEN DONE BY USER ID- '.$senderDetail->user_name.' PLEASE CHECK YOUR ACCOUNT AND CONFIRM HELP WWW.MUDRASHAKTI.COM THANK YOU.';
             $number = $receiverDetails->userDetails->mob_no;
             sendMessage($number,$message);
           }
          alert()->success('Proof Uploaded', 'Success')->persistent("Close");
          return redirect()->back();
-        
+
     }
 
 }

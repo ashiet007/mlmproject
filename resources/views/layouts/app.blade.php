@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Modinaama India</title>
+    <title>Mudrashakti India</title>
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
                         <li class="mb-2">23621 15 Mile Rd #C104, Clinton MI, 48035, New York, USA</li>
                         <li class="mb-2">+1 (2) 345 6789</li>
                         <li class="mb-2">+1 (2) 345 6789</li>
-                        <li class="mb-2">contact@yourdomain.com</li>
+                        <li class="mb-2">mudrashaktiindia@gmail.com</li>
                     </ul>
                 </div>
                 <!-- company -->
@@ -113,7 +113,7 @@
                             var CurrentYear = new Date().getFullYear()
                             document.write(CurrentYear)
                         </script>
-                        © Theme By <a href="https://modinaama.in">Modinaama</a></p> . All Rights Reserved.
+                        © Theme By <a href="https://mudrashakti.com">Mudrashakti India</a></p> . All Rights Reserved.
                 </div>
                 <div class="col-sm-5 text-sm-right text-center">
                     <ul class="list-inline">

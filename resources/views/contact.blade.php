@@ -37,8 +37,8 @@
                 </div>
                 <div class="col-lg-5">
                     <a href="#" class="text-color h5 d-block"><h3><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i> Coming Soon</h3></a>
-                    <a href="mailto:modinaamaindia@gmail.com" class="text-color h5 d-block"><h3><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> modinaamaindia@gmail.com</h3></a>
-                    <a href="{{url('/')}}" class="text-color h5 d-block"><h3><i class="fa fa-globe fa-2x" aria-hidden="true"></i> www.modinaama.in</h3></a>
+                    <a href="mailto:mudrashaktiindia@gmail.com" class="text-color h5 d-block"><h3><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> mudrashaktiindia@gmail.com</h3></a>
+                    <a href="{{url('/')}}" class="text-color h5 d-block"><h3><i class="fa fa-globe fa-2x" aria-hidden="true"></i> www.mudrashakti.com</h3></a>
                 </div>
             </div>
         </div>

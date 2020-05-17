@@ -75,7 +75,7 @@ class UsersController extends Controller
         $roles = $roles->pluck('label', 'name');
         return view('admin.users.fakeuser', compact('roles','sponsorId','banks','states','validator'));
     }
-    
+
     public function createUser(Request $request)
     {
         $validation = Validator::make($request->all(), $this->validationRules,[],$this->customAttributes);
@@ -121,7 +121,7 @@ class UsersController extends Controller
         ]);
         alert()->success('User added!!!', 'Success')->persistent("Close");
         return redirect('admin/users');
-    } 
+    }
 
     public function index(Request $request)
     {
@@ -332,6 +332,6 @@ class UsersController extends Controller
 
     public function exportUserData()
     {
-        return Excel::download(new ExportData, 'Modinaama-users-data.xlsx');
+        return Excel::download(new ExportData, 'Mudrashakti-users-data.xlsx');
     }
 }
