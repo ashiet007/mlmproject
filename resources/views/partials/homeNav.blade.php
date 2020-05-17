@@ -10,8 +10,8 @@
                 <div class="col-lg-8 text-center text-lg-right">
                     <ul class="list-inline">
                         @guest
-                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-success" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;padding-left: 5px !important;padding-right: 5px !important;color: #fff;" href="{{url('/login')}}">login</a></li>
-                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-danger" style="border-radius: 6px; padding-top: 2px !important; padding-bottom: 2px !important;padding-left: 5px !important;padding-right: 5px !important;color: #fff;" href="{{route('register')}}">register</a></li>
+                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-success" style="border-radius: 6px; padding-top: 5px !important; padding-bottom: 5px !important;padding-left: 20px !important;padding-right: 20px !important;color: #fff;" href="{{url('/login')}}">login</a></li>
+                        <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block btn btn-danger" style="border-radius: 6px; padding-top: 5px !important; padding-bottom: 5px !important;padding-left: 20px !important;padding-right: 20px !important;color: #fff;" href="{{route('register')}}">register</a></li>
                         @else
                         <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">{{Auth::User()->name}}</a></li>
                         <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{{ url('/user/dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
