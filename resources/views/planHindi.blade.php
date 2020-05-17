@@ -56,7 +56,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">01</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">हमारे इस मोदीनामा कार्यक्रम में आप एक विवरण से केवल 11 पंजीकरण मुफ़्त  कर सकते हैं ये ध्यान रहे कि उनमें से कोई आई डी अस्वीकृत होती है तो समान विवरण वाली सभी आई डी नेग्लेक्ट हो जाएँगी मतलब उन पर कोई गेट हेल्प नहीं आएगी केवल लॉगिन हो सकती हैं और रिजेक्टेड वाली बिल्कुल ब्लॉक्ड हो जाएगी पुनः कभी नहीं सक्रिय हो सकेगी और दोबारा नया पंजीकरण भी नहीं होगा|</p>
+                                <p class="mb-0">हमारे इस मुद्राशक्ति कार्यक्रम में आप एक विवरण से केवल 11 पंजीकरण मुफ़्त  कर सकते हैं ये ध्यान रहे कि उनमें से कोई आई डी अस्वीकृत होती है तो समान विवरण वाली सभी आई डी नेग्लेक्ट हो जाएँगी मतलब उन पर कोई गेट हेल्प नहीं आएगी केवल लॉगिन हो सकती हैं और रिजेक्टेड वाली बिल्कुल ब्लॉक्ड हो जाएगी पुनः कभी नहीं सक्रिय हो सकेगी और दोबारा नया पंजीकरण भी नहीं होगा|</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -128,7 +128,7 @@
                     </ul>
                 </div>
                 <div class="col-md-12">
-                    <h3 class="text-center">मोदीनामा सिंगल लाइन लेखाचित्र स्वरूप</h3>
+                    <h3 class="text-center">मुद्राशक्ति सिंगल लाइन लेखाचित्र स्वरूप</h3>
                 </div>
                 <div class="table-responsive">
                     <div class="col-md-12">
@@ -184,7 +184,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
-                                <h2 class="text-center heading-color">मोदीनामा स्वचालित जादुई कुंड स्वरूप</h2>
+                                <h2 class="text-center heading-color">मुद्राशक्ति स्वचालित जादुई कुंड स्वरूप</h2>
                                 <section class="section">
                                     <div class="container">
                                         <div class="row">
