@@ -138,7 +138,7 @@ class PoolController extends Controller
             $hours = getDateTime($lastTransferredAmountTime->created_at);
             if($hours >= 48)
             {
-                $maxAmount= 2000;
+                $maxAmount= 1000;
                 $time = Carbon::now('Asia/Kolkata');
                 $date = $time->format('Y-m-d');
                 $transferredAmountOnDay = UserFund::where('user_id', $this->userId)
@@ -179,7 +179,7 @@ class PoolController extends Controller
                             }
                             else
                             {
-                                alert()->error('Transfer amount maximum limit 2000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
+                                alert()->error('Transfer amount maximum limit 1000 per day. Please enter right amount!!!', 'Error')->persistent("Close");
                                 return redirect()->back();
                             }
                         }

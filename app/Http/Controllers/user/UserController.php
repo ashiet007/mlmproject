@@ -374,7 +374,7 @@ class UserController extends Controller
                 $firstPoolUser = PoolUser::orderBy('id','ASC')->first();
                 $userPoolFUnd = UserPoolFund::create([
                     'user_id' => $firstPoolUser->user_id,
-                    'amount' => 10000
+                    'amount' => 5000
                 ]);
                 $firstPoolUser->delete();
                 $poolUser = PoolUser::create([

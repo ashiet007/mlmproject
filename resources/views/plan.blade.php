@@ -56,7 +56,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">01</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Only 11 ids are allowed by same details in this system if any id rejects then every id will be Neglected by same details,Neglected id means only login no get help or withdrawal and rejected id fully blocked no login.</p>
+                                <p class="mb-0">Only 3 ids are allowed by same details in this system if any id rejects then every id will be Neglected by same details,Neglected id means only login no get help or withdrawal and rejected id fully blocked no login.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -92,7 +92,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">07</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Working level income is 1st level=10%,2nd level=4%,3rd level=3%,4th level=2% and 5th level=1% on every give help accepted amount by team up to 5th levels and total working income will be divided into two parts 50:50 ratio in E-pin wallet and fund wallet you can also transfer amount into E-pin wallet from fund wallet without any boundation amount to create E-pin.</p>
+                                <p class="mb-0">Working level income is 1st level=5%,2nd level=3%,3rd level=2%,4th level=1% and 5th level=1% on every give help accepted amount by team up to 5th levels and total working income will be divided into two parts 50:50 ratio in E-pin wallet and fund wallet you can also transfer amount into E-pin wallet from fund wallet without any boundation amount to create E-pin.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -104,7 +104,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">09</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Link time Monday to Saturday 10 AM TO 4 PM Sunday fully closed link rejection time 8 hours and 12 hours extension one time if any Holiday for link close then will before broadcast on the news portal any rejected/blocked id will not be opened any conditions.</p>
+                                <p class="mb-0">Link time Monday to Saturday 08 AM TO 10 AM. Sunday fully closed link rejection time 8 hours and 12 hours extension one time if any Holiday for link close then will before broadcast on the news portal any rejected/blocked id will not be opened any conditions.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -122,7 +122,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">12</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">There is a Magical Auto Pool Income also in this system after every 5 direct active id any amount you will eligible for (Auto Magic Pool Board) income with sms alert and enable agree button in the pool wallet for give help 2000 in pool entry and get amount 10000 in fund wallet only 20 id in board pool.</p>
+                                <p class="mb-0">There is a Magical Auto Pool Income also in this system after every 5 direct active id any amount you will eligible for (Auto Magic Pool Board) income with sms alert and enable agree button in the pool wallet for give help 2000 in pool entry and get amount 5000 in fund wallet only 20 id in board pool.</p>
                             </div>
                         </li>
                     </ul>
@@ -197,7 +197,7 @@
                                                             <p><h5 class="card-title border border-success rounded-circle">{{$i}}</h5></p>
                                                             <p class="card-text">Username: <h5 class="card-title">User {{$i}}</h5></p>
                                                             <p class="card-text">Name: <h5 class="card-title">User {{$i}}</h5></p>
-                                                            <a href="#" class="btn btn-primary btn-sm">Pool Amount: 10000</a>
+                                                            <a href="#" class="btn btn-primary btn-sm">Pool Amount: 5000</a>
                                                         </div>
                                                     </div>
                                                 </article>
