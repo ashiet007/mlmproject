@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
                     <!-- logo -->
-                    <a class="logo-footer" href="{{url('/')}}"><img class="img-fluid mb-4" src="{{asset('images/logo3.png')}}" alt="logo"></a>
+                    <a class="logo-footer" href="{{url('/')}}"><img class="img-fluid mb-4" src="{{asset('images/logoMudra3.png')}}" alt="logo"></a>
                     <ul class="list-unstyled">
                         <li class="mb-2">23621 15 Mile Rd #C104, Clinton MI, 48035, New York, USA</li>
                         <li class="mb-2">+1 (2) 345 6789</li>
