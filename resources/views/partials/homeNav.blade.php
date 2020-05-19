@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 text-center text-lg-left">
-                    <a class="text-color mr-3" href="mailto:mudrashaktiindia@gmail.com"><strong>Mail us - </strong> mudrashaktiindia@gmail.com</a>
+                    <a class="text-color mr-3" href="mailto:mudrashaktiindia@gmail.com"><strong class="text-danger">Mail us - </strong> <span class="text-success font-weight-bold">mudrashaktiindia@gmail.com</span></a>
                 </div>
                 <div class="col-lg-8 text-center text-lg-right">
                     <ul class="list-inline">

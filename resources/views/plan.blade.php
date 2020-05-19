@@ -68,7 +68,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">03</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Your first give help confirmed as active id will go in company single line pool and will get 2% by every new accepted id up to 750/1500 and when will amount zero then you will go in receiver queue and will receive get help link on next sender availability in the system.</p>
+                                <p class="mb-0">Your first give help confirmed as active id will go in company single line pool and will get 1% by every new accepted id up to 750/1500 and when will amount zero then you will go in receiver queue and will receive get help link on next sender availability in the system.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -98,7 +98,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">08</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Minimum working withdrawal is 500 and maximum 3000 multiple of 500 every day.First helping get help within 2 hours,second get help after 24 hours and third get help after 36 hours will continue depend on sender availability.</p>
+                                <p class="mb-0">Minimum working withdrawal is 500 and maximum 1000 multiple of 500 every day.First helping get help within 8 hours,second get help after 24 hours and third get help after 36 hours will continue depend on sender availability.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -116,7 +116,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">11</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">Single line income will calculate 2% no direct required if you have 2 direct active id then 3% if you have 5 direct active id then 4% and if you have 10 or more direct active id then 5% will calculate single line income on every new give help acceptance.</p>
+                                <p class="mb-0">Single line income will calculate 1% no direct required if you have 2 direct active id then 2% if you have 5 direct active id then 3% and if you have 10 or more direct active id then 4% will calculate single line income on every new give help acceptance.</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -149,7 +149,7 @@
                                     <td class="text-center">No ID Required</td>
                                     <td class="text-center">500/1000</td>
                                     <td class="text-center">750/1500</td>
-                                    <td class="text-center">2%</td>
+                                    <td class="text-center">1%</td>
                                     <td class="text-center">5 Times</td>
                                 </tr>
                                 <tr>
@@ -157,7 +157,7 @@
                                     <td class="text-center">2 ID</td>
                                     <td class="text-center">500/1000</td>
                                     <td class="text-center">750/1500</td>
-                                    <td class="text-center">3%</td>
+                                    <td class="text-center">2%</td>
                                     <td class="text-center">10 Times</td>
                                 </tr>
                                 <tr>
@@ -165,7 +165,7 @@
                                     <td class="text-center">5 ID</td>
                                     <td class="text-center">500/1000</td>
                                     <td class="text-center">750/1500</td>
-                                    <td class="text-center">4%</td>
+                                    <td class="text-center">3%</td>
                                     <td class="text-center">20 Times</td>
                                 </tr>
                                 <tr>
@@ -173,7 +173,7 @@
                                     <td class="text-center">10 ID Or More</td>
                                     <td class="text-center">500/1000</td>
                                     <td class="text-center">750/1500</td>
-                                    <td class="text-center">5%</td>
+                                    <td class="text-center">4%</td>
                                     <td class="text-center">Unlimited Times</td>
                                 </tr>
                             </tbody>

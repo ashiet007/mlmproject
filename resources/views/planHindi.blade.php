@@ -68,7 +68,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">03</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">आपकी आई डी सक्रिय होने के बाद कंपनी सिंगल लाइन में चली जाती है और आपके बाद आने वाली सभी नई आई डी से 2% इनकम मिलने लगती है 750/1500 होने के कुछ समय बाद शून्य हो जाएगी उसके बाद आपको कोई दानी होने पर दान की प्राप्ति हो जाएगी पुनः आपको 500 या 1000 का दान करना होगा|</p>
+                                <p class="mb-0">आपकी आई डी सक्रिय होने के बाद कंपनी सिंगल लाइन में चली जाती है और आपके बाद आने वाली सभी नई आई डी से 1% इनकम मिलने लगती है 750/1500 होने के कुछ समय बाद शून्य हो जाएगी उसके बाद आपको कोई दानी होने पर दान की प्राप्ति हो जाएगी पुनः आपको 500 या 1000 का दान करना होगा|</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -98,7 +98,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">08</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">वर्किंग इनकम का आहरण कम से कम 500 अधिकतम 3000 प्रतिदिन 500 के गुणांक में कर सकते हैं| पहला हेल्पिंग गेट हेल्प 2 घंटे तक और दूसरा 24 घंटे के बाद तथा तीसरा गेट हेल्प हमेशा 36 घंटे के बाद कभी भी दानी के उपलब्धता के ऊपर निर्भर करेगा|</p>
+                                <p class="mb-0">वर्किंग इनकम का आहरण कम से कम 500 अधिकतम 1000 प्रतिदिन 500 के गुणांक में कर सकते हैं| पहला हेल्पिंग गेट हेल्प 8 घंटे तक और दूसरा 24 घंटे के बाद तथा तीसरा गेट हेल्प हमेशा 36 घंटे के बाद कभी भी दानी के उपलब्धता के ऊपर निर्भर करेगा|</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -116,7 +116,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">11</span></div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <p class="mb-0">सिंगल लाइन इनकम की गणना कोई डाइरेक्ट न होने पर 2% होगी,यदि 2 डाइरेक्ट है तब 3% यदि 5 डाइरेक्ट है तो 4% और यदि 10 या अधिक डाइरेक्ट सक्रिय लोग हैं तो 5% की गणना प्रत्येक नई आई डी से होगी|</p>
+                                <p class="mb-0">सिंगल लाइन इनकम की गणना कोई डाइरेक्ट न होने पर 1% होगी,यदि 2 डाइरेक्ट है तब 2% यदि 5 डाइरेक्ट है तो 3% और यदि 10 या अधिक डाइरेक्ट सक्रिय लोग हैं तो 4% की गणना प्रत्येक नई आई डी से होगी|</p>
                             </div>
                         </li>
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
@@ -149,7 +149,7 @@
                                 <td class="text-center">No ID Required</td>
                                 <td class="text-center">500/1000</td>
                                 <td class="text-center">750/1500</td>
-                                <td class="text-center">2%</td>
+                                <td class="text-center">1%</td>
                                 <td class="text-center">5 Times</td>
                             </tr>
                             <tr>
@@ -157,7 +157,7 @@
                                 <td class="text-center">2 ID</td>
                                 <td class="text-center">500/1000</td>
                                 <td class="text-center">750/1500</td>
-                                <td class="text-center">3%</td>
+                                <td class="text-center">2%</td>
                                 <td class="text-center">10 Times</td>
                             </tr>
                             <tr>
@@ -165,7 +165,7 @@
                                 <td class="text-center">5 ID</td>
                                 <td class="text-center">500/1000</td>
                                 <td class="text-center">750/1500</td>
-                                <td class="text-center">4%</td>
+                                <td class="text-center">3%</td>
                                 <td class="text-center">20 Times</td>
                             </tr>
                             <tr>
@@ -173,7 +173,7 @@
                                 <td class="text-center">10 ID Or More</td>
                                 <td class="text-center">500/1000</td>
                                 <td class="text-center">750/1500</td>
-                                <td class="text-center">5%</td>
+                                <td class="text-center">4%</td>
                                 <td class="text-center">Unlimited Times</td>
                             </tr>
                             </tbody>

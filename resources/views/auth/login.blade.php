@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('styles')
-
+<style>
+    .form_container{
+        margin-top: 0px !important;
+    }
+</style>
 @endsection
 @section('content')
     <!-- page title -->
@@ -22,11 +26,11 @@
     <div class="container h-100 login-margin">
         <div class="d-flex justify-content-center h-100">
             <div class="user_card">
-                <div class="d-flex justify-content-center">
+                {{-- <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
                         <img src="{{asset('images/logo2.png')}}" class="brand_logo" alt="Logo">
                     </div>
-                </div>
+                </div> --}}
                 <div class="d-flex justify-content-center form_container">
                     <form action="{{route('login.authenticate')}}" method="post" id="loginform" style="width: 90%;">
                         {{csrf_field()}}
@@ -72,7 +76,7 @@
             </div>
         </div>
     </div>
-            
+
 @endsection
 @section('scripts')
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
