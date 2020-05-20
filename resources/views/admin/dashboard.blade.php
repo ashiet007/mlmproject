@@ -17,133 +17,109 @@
     @include('partials.header')
     <h3 class="text-center mb-5">Company Reporting Panel</h3>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL SYSTEM ID:</label>
-                </div>
-                <div class="col-md-4">
-                    {{ $totalSystemId }}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL SYSTEM ID:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{ $totalSystemId }}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL SYSTEM FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{$totalSystemFund}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL SYSTEM FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalSystemFund}}</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL NEW ID:</label>
-                </div>
-                <div class="col-md-4">
-                    {{$totalNewId}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL NEW ID:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalNewId}}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL ACCEPTED FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{$totalAcceptedFund}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL ACCEPTED FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalAcceptedFund}}</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL ACTIVE ID:</label>
-                </div>
-                <div class="col-md-4">
-                    {{$totalActiveId}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL ACTIVE ID:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalActiveId}}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL REJECTED FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{$totalRejectedFund}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL REJECTED FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalRejectedFund}}</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL INACTIVE ID:</label>
-                </div>
-                <div class="col-md-4">
-                    {{$totalInActiveId}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL INACTIVE ID:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalInActiveId}}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL BALANCE FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{$totalBalanceFund}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL BALANCE FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalBalanceFund}}</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL BLOCKED ID:</label>
-                </div>
-                <div class="col-md-4">
-                    {{$totalBlockedId}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL BLOCKED ID:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$totalBlockedId}}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL ADDED FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{ $totalAddedFund }}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL ADDED FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{ $totalAddedFund }}</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL POST REJECTED FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{$postRejectedFund}}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL POST REJECTED FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{$postRejectedFund}}</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <label class="font-weight-bold">TOTAL RECEIVERS FUND:</label>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-rupee-sign"></i> {{ $totalReceiverFund }}
+        <div class="col-lg-6 col-sm-6 mb-5">
+            <div class="card p-0 border-primary rounded-0 hover-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">TOTAL RECEIVERS FUND:</h4>
+                    <button type="button" class="btn btn-primary btn-lg">{{ $totalReceiverFund }}</button>
                 </div>
             </div>
         </div>
