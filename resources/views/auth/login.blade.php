@@ -4,6 +4,13 @@
     .form_container{
         margin-top: 0px !important;
     }
+    .login-margin {
+        margin-top: 20px !important;
+        margin-bottom: 20px;
+    }
+    .user_card {
+        height: 400px !important;
+    }
 </style>
 @endsection
 @section('content')

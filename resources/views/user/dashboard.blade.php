@@ -34,7 +34,7 @@
                         <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
                             <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"> Referral Link</div>
                             <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
-                                <a href="#" class="h4 mb-3 d-block" id="foo">{{ route('register') }}?sponsor-id={{ $username }}</a>
+                                <a href="#" class="h4 mb-3 d-block" id="foo">{{ route('register') }}?sponsor-id={{ str_rot13($username) }}</a>
                             </div>
                             <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href="#" class="btn btn-primary"><i class="btn-clip" data-clipboard-action="copy" data-clipboard-target="#foo"> Copy</i></a></div>
                         </li>
@@ -49,7 +49,7 @@
         </div>
         @if($user->status == 'pending')
             <div class="container text-center">
-                <p class="imp-note"><span class="text-danger font-weight-bold">Please aware:- </span><span>Every single line counting will calculate after Id activated.</span></p>
+                <p class="imp-note"><span class="text-danger font-weight-bold">Please aware:- </span><span class="font-weight-bold text-success">Every single line counting will calculate after Id activated.</span></p>
             </div>
         @endif
         @if($isUnmatchedGetHelpHelping || ($userDetail->singleLineIncome->amount >= $userSetting->get_help_amount && $userSetting->get_help_amount != 0))

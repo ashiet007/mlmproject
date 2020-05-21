@@ -33,7 +33,7 @@
                                         <p><h5 class="card-title border border-success rounded-circle">{{$loop->iteration}}</h5></p>
                                         <p class="card-text">Username: <h5 class="card-title">{{$item->user->user_name}}</h5></p>
                                         <p class="card-text">Name: <h5 class="card-title">{{$item->user->name}}</h5></p>
-                                        <a href="#" class="btn btn-primary btn-sm">Pool Amount: 10000</a>
+                                        <a href="#" class="btn btn-primary btn-sm">Pool Amount: 5000</a>
                                     </div>
                                 </div>
                             </article>

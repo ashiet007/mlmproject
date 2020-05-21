@@ -27,7 +27,7 @@
                     <td>{{$item->user->name}}</td>
                     <td>{{$item->user->userdetails->mob_no}}</td>
                     <td>{{$item->user->email}}</td>
-                    <td>10000</td>
+                    <td>5000</td>
                     <td>{{$item->created_at->format('d, M Y h:i:s A')}}</td>
                 </tr>
                 @php

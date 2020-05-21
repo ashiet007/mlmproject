@@ -7,6 +7,9 @@
                 <div class="row">
                     <div class="col-md-12 ml-auto bg-primary newsletter-block form-border">
                         <h2 class="text-center heading-color">Unused Epin</h2>
+                        <div class="row col-md-12">
+                            <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#epinModal"> Transfer Epin </button>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
