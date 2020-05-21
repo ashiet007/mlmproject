@@ -66,7 +66,7 @@ class RegisterController extends Controller
     public function showRegistrationForm(Request $request)
     {
         if($request->has('sponsor-id')) {
-            $sponsorId = str_rot13(str_rot13($request['sponsor-id']));
+            $sponsorId = str_rot13($request['sponsor-id']);
             $sponsorDetails = User::where('user_name',$sponsorId)->first();
             $validator = JsValidator::make($this->validationRules, [], $this->customAttributes);
             $states = State::orderBy('name','ASC')->get();
